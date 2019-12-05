@@ -248,7 +248,7 @@ export default {
             const net = localStorage.getItem('net');
             let url = '';
             if(this.status === '3') {
-                let url = `https://explorer.ont.io/transaction/${record.Senthash}`
+                let url = `http://121.41.30.85:3000transaction/${record.Senthash}`
                 const net = localStorage.getItem('net')
                 if(net === 'TEST_NET') {
                     url = url+ '/testnet'

@@ -4,7 +4,7 @@ export const GAS_LIMIT = '20000';
 
 export const ONT_CONTRACT = '0000000000000000000000000000000000000001';
 export const TEST_NET = 'http://polaris1.ont.io';
-export const MAIN_NET = 'http://dappnode1.ont.io';
+export const MAIN_NET = 'http://121.41.30.85:3000';
 
 export const TEST_NET_LIST = [
     'http://polaris1.ont.io',
@@ -15,10 +15,10 @@ export const TEST_NET_LIST = [
 ]
 
 export const MAIN_NET_LIST = [
-    'http://dappnode1.ont.io',
-    'http://dappnode2.ont.io',
-    'http://dappnode3.ont.io',
-    'http://dappnode4.ont.io',
+    'http://121.41.30.85:3000',
+    'http://121.41.30.85:3000',
+    'http://121.41.30.85:3000',
+    'http://121.41.30.85:3000',
 ]
 //test environment
 export const ONT_PASS_NODE = 'https://service-test.onto.app'
@@ -62,11 +62,11 @@ export const DEFAULT_SCRYPT = {
 
 export const SWAP_ADDRESS = 'AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM'
 
-export const NODE_DETAIL = 'https://explorer.ont.io/nodes/detail/'
+export const NODE_DETAIL = 'http://121.41.30.85:3000/nodes/detail/'
 export const NODE_NAME_LIST = 'https://ont.io/api/v1/candidate/info/All'
 export const OFF_CHAIN_NODES = {
     TEST_NET: 'https://polarisexplorer.ont.io/v2/nodes/off-chain-infos',
-    MAIN_NET: 'https://explorer.ont.io/v2/nodes/off-chain-infos'
+    MAIN_NET: 'http://121.41.30.85:3000/v2/nodes/off-chain-infos'
 }
 
 export const PAX_API = {

@@ -406,7 +406,7 @@ const actions = {
             return dispatch('fetchNodeList', {pageSize, pageNum})
         } else {
             try {
-                const url = 'https://explorer.ont.io/v2/nodes/current-stakes'
+                const url = 'http://121.41.30.85:3000/v2/nodes/current-stakes'
                 const res = await axios.get(url)
                 console.log(res)
                 if(res.data.code === 0 && res.data.result) {

@@ -36,7 +36,7 @@ export default {
     deleteWallet: '删除钱包',
     more: '更多',
     neoCompatible: '兼容NEO地址',
-    versionUpdate: '您可以升级OWallet。',
+    versionUpdate: '您可以升级TesraWallet。',
     getLatestVersion: '下载最新版本。',
     changePassSuccess: '修改密码成功',
     changePassSuccessTip: '您已经修改了钱包密码。我们建议您下载并备份钱包的.dat文件。(旧的.dat文件可以被替换或者删除)',
@@ -72,7 +72,7 @@ export default {
 
   SetPaths: {
     name: '钱包文件存储路径',
-    tips: '* 钱包文件keystore.db保存着您的加密私钥，请确保您的PC安全和做好keystore.db文件的备份。您需要设置keystore文件的保存路径。请不要设置到OWallet的安装位置以免更新时被覆盖。',
+    tips: '* 钱包文件keystore.db保存着您的加密私钥，请确保您的PC安全和做好keystore.db文件的备份。您需要设置keystore文件的保存路径。请不要设置到TesraWallet的安装位置以免更新时被覆盖。',
     close: '关闭',
     enter: '去设置'
   },
@@ -431,7 +431,7 @@ export default {
     en: 'English',
     zh: '中文',
     pathTit: '当前路径： ',
-    path: '钱包保存路径(请不要设到OWallet的安装位置！)',
+    path: '钱包保存路径(请不要设到TesraWallet的安装位置！)',
     change: '修改',
     setNetworkSuccess: '网络成功设置为：',
     wallets: '钱包',
@@ -441,7 +441,7 @@ export default {
     settings: '设置',
     nodeAddress: '节点',
     setNodeSuccess: '节点成功设置为：',
-    notInstallationPath: '请不要设置到Owallet的安装位置。',
+    notInstallationPath: '请不要设置到TesraWallet的安装位置。',
     notSetPath: '未设置keystore保存路径。'
   },
   ledgerWallet: {
@@ -594,11 +594,11 @@ export default {
     totalStakeAmount: '授权质押总额',
     blocks: '区块',
     proportionNextRound: '节点质押收益分配比例',
-    proportionNextRoundTip: '这是节点选择的在下一轮共识中，分享给授权质押用户，其所得交易手续费的比例。请注意，并非所有节点都与授权质押用户分享本体基金会的奖励。点击下面的链接查看更多相关信息。',
+    proportionNextRoundTip: '这是节点选择的在下一轮共识中，分享给授权质押用户，其所得交易手续费的比例。请注意，并非所有节点都与授权质押用户分享Tesra超算网络基金会的奖励。点击下面的链接查看更多相关信息。',
     authorizationFAQ: '节点授权质押常见问题解答',
     nodeAndUser: '节点 / 用户',
     authorizeTip: '用户对该节点的授权抵押金额，包括本轮新授权的ONT和已生效的授权ONT，取消授权会优先取消本轮新授权的ONT，取消后进入用户的可提取ONT中。本轮新授权的ONT不足则会取消已生效的授权ONT，按照节点是候选/共识状态分别锁定1轮或2轮，之后进入用户的可提取ONT中。',
-    rewardTip: '本体网络收到的所有手续费按照50%/50%的比例分给所有候选节点和共识节点，其中候选节点部分按照节点总抵押大小线性分配到每个候选节点，每个候选节点先拿走自己的部分（百分比），剩下的按照每个地址授权ONT的多少线性分配到每个地址。其中共识节点部分按照分润曲线分配到每个共识节点，每个共识节点先拿走自己的部分（百分比），剩下的按照每个地址授权ONT的多少线性分配到每个地址。',
+    rewardTip: 'Tesra超算网络网络收到的所有手续费按照50%/50%的比例分给所有候选节点和共识节点，其中候选节点部分按照节点总抵押大小线性分配到每个候选节点，每个候选节点先拿走自己的部分（百分比），剩下的按照每个地址授权ONT的多少线性分配到每个地址。其中共识节点部分按照分润曲线分配到每个共识节点，每个共识节点先拿走自己的部分（百分比），剩下的按照每个地址授权ONT的多少线性分配到每个地址。',
     unboundOng: '解绑的 ONG',
     activeT: '本轮生效',
     activeT1: '下一轮生效',
@@ -643,7 +643,7 @@ export default {
   sesameseed: {
     stakeAmountTip: 'Stake amount for Sesameseed is 1 unit equals 1 ONT',
     authorizeTip: 'If a new stake is canceled, it will add to the “canceled” ONT and be directly deposited in the users account within 24 hours. If authorized ONT from a previous consensus round is canceled it will be added to the “canceled” ONT and be directly deposited in the originating users account within 24 hours of the beginning of the next consensus round if Sesameseed is a candidate node (or one round later if Sesameseed is a consensus node). If a user has both authorized ONT from this consensus round and a previous round and cancels an ONT amount exceeding the amount from this round, they will receive authorized ONT from this consensus round first and the remaining authorized ONT in the next round.',
-    rewardTip: 'Sesameseed rewards Ontology Stake Authorizations in SEED for both foundation rewards created as a candidate or consensus node as an OEP-4 token “SEED”. This token is rewarded directly to Staking participants. In addition to node rewards, 100% of ONG unbound while staking is pooled by all stake authorizations and added to the total “Node Reward”, as a result this node reward is also provided in the form of “SEED” Token. Rewards are distributed daily without the need to redeem. Find out more at https://sesameseed.org.',
+    rewardTip: 'Sesameseed rewards Tesra SuperNet Stake Authorizations in SEED for both foundation rewards created as a candidate or consensus node as an OEP-4 token “SEED”. This token is rewarded directly to Staking participants. In addition to node rewards, 100% of ONG unbound while staking is pooled by all stake authorizations and added to the total “Node Reward”, as a result this node reward is also provided in the form of “SEED” Token. Rewards are distributed daily without the need to redeem. Find out more at https://sesameseed.org.',
     pendingWithdrawals: 'Pending canceled stake authorization'
   }
 }

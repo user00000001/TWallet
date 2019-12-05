@@ -157,7 +157,7 @@ export default service;
 
 export function getExplorerUrl() {
   const net = localStorage.getItem('net');
-  const url = net === 'TEST_NET' ? 'https://polarisexplorer.ont.io' : 'https://explorer.ont.io';
+  const url = net === 'TEST_NET' ? 'https://polarisexplorer.ont.io' : 'http://121.41.30.85:3000';
   return url;
 }
 
@@ -189,7 +189,7 @@ export function validateKeystorePath(path) {
   const system = os.platform();
   if(system.indexOf('win') > -1 && system !== 'darwin') {
     const files = fs.readdirSync(path)
-    if(files && files.indexOf('resources') > -1 && files.indexOf('OWallet.exe') > -1) {
+    if(files && files.indexOf('resources') > -1 && files.indexOf('TesraWallet.exe') > -1) {
       return false;
     }
     const cwd = process.cwd();

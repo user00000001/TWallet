@@ -36,7 +36,7 @@ export default {
     deleteWallet: 'Delete Wallet',
     more: 'More',
     neoCompatible: 'NEO Address Compatible',
-    versionUpdate: 'You can upgrade your OWallet.',
+    versionUpdate: 'You can upgrade your TesraWallet.',
     getLatestVersion: 'Get the latest version here.',
     changePassSuccess: 'Change password successfully',
     changePassSuccessTip: 'You have already changed the password of the wallet. We recommand you to download and backup the .dat file.(Please replace or delete the old .dat file of this wallet.)',
@@ -72,7 +72,7 @@ export default {
 
   SetPaths: {
     name: 'Keystore File Path',
-    tips: '*The keystore.db file stores your encrypted private keys. Please make sure your computer is safe and make a backup of your keystore.db file. You need to set a file path for your keystore. Please do not set to the installation location of OWallet.',
+    tips: '*The keystore.db file stores your encrypted private keys. Please make sure your computer is safe and make a backup of your keystore.db file. You need to set a file path for your keystore. Please do not set to the installation location of TesraWallet.',
     close: 'Close',
     enter: 'Set file path'
   },
@@ -392,7 +392,7 @@ export default {
     emptyPass: 'Password can not be empty',
     cancel: 'Cancel',
     submit: 'Submit',
-    swapText: 'Here you can perform the MainNet ONT token swap.Users can exchange Nep-5 ONT for ONT for ONT on the Ontology MainNet.Swap takes up to 1 month, you can check the status on https://swap.ont.io',
+    swapText: 'Here you can perform the MainNet ONT token swap.Users can exchange Nep-5 ONT for ONT for ONT on the Tesra SuperNet MainNet.Swap takes up to 1 month, you can check the status on https://swap.ont.io',
     stepFollow: 'Just do as follows:',
     step1: '1. Import your private key(from your NEO wallet) to create a wallet',
     step2: '2. Press [Swap] button to start the swap',
@@ -432,7 +432,7 @@ export default {
     en: 'English',
     zh: '中文',
     pathTit: 'Path: ',
-    path: 'Save keystore file path（Please do not set to the installation location of OWallet!）',
+    path: 'Save keystore file path（Please do not set to the installation location of TesraWallet!）',
     change: 'Change',
     setNetworkSuccess: 'The network has been set to: ',
     wallets: 'Wallets',
@@ -442,7 +442,7 @@ export default {
     settings: 'Settings',
     nodeAddress: 'Node address',
     setNodeSuccess: 'The node address has been set t: ',
-    notInstallationPath: 'Please do not set to the installation location of OWallet.',
+    notInstallationPath: 'Please do not set to the installation location of TesraWallet.',
     notSetPath: 'You did not set the keystore path.'
   },
 
@@ -596,11 +596,11 @@ export default {
     totalStakeAmount: 'Total Authorization Amount',
     blocks: 'Blocks',
     proportionNextRound: "Reward proportion for others",
-    proportionNextRoundTip: 'This is the portion of transaction fees received the node has chosen to share with users who have authorized stakes with them in the next consensus round. Note not all nodes share the Ontology Foundation bonus with users who have authorized stakes with them. Please check the link below for more.',
-    authorizationFAQ: 'OWallet Stake Authorization FAQ',
+    proportionNextRoundTip: 'This is the portion of transaction fees received the node has chosen to share with users who have authorized stakes with them in the next consensus round. Note not all nodes share the Tesra SuperNet Foundation bonus with users who have authorized stakes with them. Please check the link below for more.',
+    authorizationFAQ: 'TesraWallet Stake Authorization FAQ',
     nodeAndUser: 'Node / User',
     authorizeTip: `If new stake is cancelled it will be cancelled immediately and be shown as redeemable ONT. If authorized ONT from previous consensus rounds is cancelled it will be redeemable only at the beginning of the next consensus round for candidate nodes (or one round later for consensus nodes). If a user has both authorized ONT from this consensus round and a previous consensus round and cancels an ONT amount exceeding the amount from this consensus round, they will receive authorized ONT from this consensus round first and the remaining authorized ONT in the next consensus round.`,
-    rewardTip: `All transactions fees received by Ontology are distributed to all candidate nodes and consensus nodes - 50% to each group.
+    rewardTip: `All transactions fees received by Tesra SuperNet are distributed to all candidate nodes and consensus nodes - 50% to each group.
 Within their 50% share each candidate node will receive their share linearly according to their stake amount.
 Within their 50% share each consensus node will receive their share according to their stake amount, which is subject to the incentive curve that discourages too high stakes.
 `,
@@ -648,7 +648,7 @@ Within their 50% share each consensus node will receive their share according to
   sesameseed: {
     stakeAmountTip: 'Stake amount for Sesameseed is 1 unit equals 1 ONT',
     authorizeTip: 'If a new stake is canceled, it will add to the “canceled” ONT and be directly deposited in the users account within 24 hours. If authorized ONT from a previous consensus round is canceled it will be added to the “canceled” ONT and be directly deposited in the originating users account within 24 hours of the beginning of the next consensus round if Sesameseed is a candidate node (or one round later if Sesameseed is a consensus node). If a user has both authorized ONT from this consensus round and a previous round and cancels an ONT amount exceeding the amount from this round, they will receive authorized ONT from this consensus round first and the remaining authorized ONT in the next round.',
-    rewardTip: 'Sesameseed rewards Ontology Stake Authorizations in SEED for both foundation rewards created as a candidate or consensus node as an OEP-4 token “SEED”. This token is rewarded directly to Staking participants. In addition to node rewards, 100% of ONG unbound while staking is pooled by all stake authorizations and added to the total “Node Reward”, as a result this node reward is also provided in the form of “SEED” Token. Rewards are distributed daily without the need to redeem. Find out more at https://sesameseed.org.',
+    rewardTip: 'Sesameseed rewards Tesra SuperNet Stake Authorizations in SEED for both foundation rewards created as a candidate or consensus node as an OEP-4 token “SEED”. This token is rewarded directly to Staking participants. In addition to node rewards, 100% of ONG unbound while staking is pooled by all stake authorizations and added to the total “Node Reward”, as a result this node reward is also provided in the form of “SEED” Token. Rewards are distributed daily without the need to redeem. Find out more at https://sesameseed.org.',
     pendingWithdrawals: 'Pending canceled stake authorization'
   }
 }

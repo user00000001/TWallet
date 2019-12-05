@@ -101,8 +101,8 @@
     </div>
     <div class="col-2 text-center">
       <div class="div-slogan home-slogan">
-          <p>OWallet</p>
-          <p>A comprehensive Ontology desktop wallet.</p>
+          <p>TesraWallet</p>
+          <p>A comprehensive Tesra SuperNet desktop wallet.</p>
       </div>
       <div>
         <router-link class="btn btn-default go-to-wallets text-center" to="Wallets">
@@ -112,7 +112,7 @@
 
       <div class="div-footer-version">
         <p>Version: {{version}}</p>
-        <p>Powered by Ontology</p>
+        <p>Powered by Tesra SuperNet</p>
       </div>
     </div>
 

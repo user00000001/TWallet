@@ -297,14 +297,14 @@ export default {
             this.$router.push({path: '/commonWalletReceive/commonWallet'})
         },
         showTxDetail(txHash) {
-            let url = `https://explorer.ont.io/transaction/${txHash}`
+            let url = `http://121.41.30.85:3000/transaction/${txHash}`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }
             openUrl(url)
         },
         checkMoreTx() {
-        let url = `https://explorer.ont.io/address/${this.address}/10/1`
+        let url = `http://121.41.30.85:3000/address/${this.address}/10/1`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }

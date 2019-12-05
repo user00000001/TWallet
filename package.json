@@ -1,10 +1,10 @@
 {
-  "name": "owallet",
-  "productName": "OWallet",
-  "homepage": "http://ont.io",
-  "version": "v0.9.19",
-  "author": "Ontology Foundation Ltd. <devops@ont.io>",
-  "description": "OWallet is a comprehensive Ontology desktop wallet",
+  "name": "TesraWallet",
+  "productName": "TesraWallet",
+  "homepage": "http://121.41.30.85",
+  "version": "v2019.12.5",
+  "author": "Tesra SuperNet Foundation Ltd. <devops@ont.io>",
+  "description": "TesraWallet is a comprehensive Tesra SuperNet desktop wallet",
   "license": "Apache-2.0",
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -29,8 +29,8 @@
     "electron-rebuild": "electron-rebuild --force --module_dir . -w node-hid"
   },
   "build": {
-    "productName": "OWallet",
-    "appId": "org.ont.wallet",
+    "productName": "TesraWallet",
+    "appId": "org.tersa.wallet",
     "files": [
       "dist/",
       "node_modules/",

@@ -2,16 +2,16 @@
 
 
 
-<h1 align="center">OWallet - 本体综合性桌面版钱包 </h1>
+<h1 align="center">TesraWallet - Tesra超算网络综合性桌面版钱包 </h1>
 <h4 align="center">Version 0.9.18</h4>
 
 ## 总体介绍
 
-OWallet是本体综合性桌面版钱包，支持标准的钱包管理、基于多重签名技术的共享钱包管理，同时将连接Ledger、Trezor多种硬件钱包。未来，OWallet将持续集成更加丰富的应用功能，为开发者提供智能合约编译、运行等综合性服务。
+TesraWallet是Tesra超算网络综合性桌面版钱包，支持标准的钱包管理、基于多重签名技术的共享钱包管理，同时将连接Ledger、Trezor多种硬件钱包。未来，TesraWallet将持续集成更加丰富的应用功能，为开发者提供智能合约编译、运行等综合性服务。
 
 支持Windows/MacOS/Linux,下载请到[这里](https://github.com/ontio/OWallet/releases)，也欢迎加入我们的[技术讨论社区](https://discord.gg/4TQujHj)!
 
-OWallet核心功能如下:
+TesraWallet核心功能如下:
 
 * 创建钱包/导入钱包（支持使用Keystore，助记词，WIF私钥，明文私钥） 
 * 支持共享钱包（基于多重签名技术）

@@ -15,7 +15,7 @@ if(!node) {
     localStorage.setItem('node', node)
 }
 
-const WS_PORT = '20335'
+const WS_PORT = '25771'
 
 export function initNetwork() {
     reconnect()
