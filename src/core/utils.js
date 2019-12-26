@@ -64,7 +64,12 @@ export function getNodeUrl() {
       node = net === 'TEST_NET' ? TEST_NET_LIST[0] : MAIN_NET_LIST[0]
     }
     // const node = localStorage.getItem('nodeAddress') || MAIN_NET_LIST[0]
-    return node + ':20334';
+    // return node + ':20334';
+    String.prototype.rsplit = function(sep, maxsplit) {
+      var split = this.split(sep);
+      return maxsplit ? [ split.slice(0, -maxsplit).join(sep) ].concat(split.slice(-maxsplit)) : split;
+    }    
+    return node.rsplit(":", 1)[0] + ':25770';
 }
 
 export function getRestClient() {
@@ -157,7 +162,7 @@ export default service;
 
 export function getExplorerUrl() {
   const net = localStorage.getItem('net');
-  const url = net === 'TEST_NET' ? 'https://polarisexplorer.ont.io' : 'http://121.41.30.85:3000';
+  const url = net === 'TEST_NET' ? 'http://121.41.30.85:3000' : 'http://121.41.30.85:3000';
   return url;
 }
 

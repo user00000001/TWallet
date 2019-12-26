@@ -104,7 +104,7 @@
         >{{$t('nodeMgmt.newStakeAuthorization')}}</a-button>
         <div class="in-authorization">
           <span class="label font-medium-black">{{$t('nodeMgmt.inAuthorization')}}:</span>
-          <span class="font-medium">{{ssInfo.votes}} ONT</span>
+          <span class="font-medium">{{ssInfo.votes}} TST</span>
         </div>
         <div class="authorize-tip">
           <a-icon type="info-circle" />
@@ -123,7 +123,7 @@
               </a-tooltip>
               {{$t('sesameseed.pendingWithdrawals')}}:
             </span>
-            <span class="font-medium">{{ssInfo.pendingWithdrawals}} ONT</span>
+            <span class="font-medium">{{ssInfo.pendingWithdrawals}} TST</span>
           </p>
         </div>
       </div>
@@ -144,7 +144,7 @@
         </div>
         <div class="in-authorization">
           <span class="label font-medium-black">{{$t('nodeMgmt.inAuthorization')}}:</span>
-          <span class="font-medium">{{ssInfo.votes}} ONT</span>
+          <span class="font-medium">{{ssInfo.votes}} TST</span>
         </div>
         <div>
           <span class="label font-medium-black">{{$t('nodeMgmt.unitToCancel')}}:</span>
@@ -158,7 +158,7 @@
         </div>
         <div>
           <span class="label font-medium-black">{{$t('nodeMgmt.amountToCancel')}}:</span>
-          <span class="font-medium">{{cancelAmount}} ONT</span>
+          <span class="font-medium">{{cancelAmount}} TST</span>
         </div>
       </div>
     </a-modal>

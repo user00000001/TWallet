@@ -42,8 +42,8 @@
     <div class=" clearfix">
         <p class="label">{{$t('sharedWalletHome.send')}}</p>
         <a-select v-model="scriptHash" @change="changeAsset" class="select-asset">
-                <a-select-option value="ONT">ONT</a-select-option>
-                <a-select-option value="ONG">ONG</a-select-option>
+                <a-select-option value="ONT">TST</a-select-option>
+                <a-select-option value="ONG">TSG</a-select-option>
                 <a-select-option v-for="(oep4) of oep4s" :key="oep4.contract_hash" :value="oep4.contract_hash">
                     {{oep4.symbol}}
                 </a-select-option>
@@ -67,7 +67,7 @@
                     v-model="gas"
                     style="width:60px;margin-right:10px;margin-left:10px;"
                 />
-                <label class="font-medium">ONG</label>
+                <label class="font-medium">TSG</label>
             </a-col>
       </a-row>
 
@@ -101,7 +101,7 @@ export default {
             // address: currentWallet.address,
             gas: 0.01,
             asset:'ONT',
-            scriptHash: 'ONT',
+            scriptHash: 'TST',
             decimal: 1,
             amount: 0,
             to:'',
@@ -175,7 +175,15 @@ export default {
                     }
                 }
             } else {
-                this.asset = value;
+                if(value === 'TST'){
+                    this.asset = 'ONT';
+                }
+                else if (value === 'TSG'){
+                    this.asset = 'ONG';
+                }
+                else {
+                    this.asset = value;
+                }
             }
             
             console.log(value)

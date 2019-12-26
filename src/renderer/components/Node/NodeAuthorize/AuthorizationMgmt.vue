@@ -100,18 +100,18 @@
                 <a-button type="primary" class="btn-next new-stake" @click="newStakeAuthorization">{{$t('nodeMgmt.newStakeAuthorization')}}</a-button>
                 <div class="in-authorization">
                     <span class="label font-medium-black">{{$t('nodeMgmt.inAuthorization')}}: </span>
-                    <span class="font-medium">{{authorizationInfo.inAuthorization}} ONT</span>
+                    <span class="font-medium">{{authorizationInfo.inAuthorization}} TST</span>
                     <a-tooltip placement="top" :title="$t('nodeMgmt.refresh')">
                         <span class="common-icon refresh-icon" @click="handleRefresh"></span>
                     </a-tooltip>
                 </div>
                 <div>
                     <span>{{$t('nodeMgmt.getProfitPart')}}:</span>
-                    <span>{{authorizationInfo.receiveProfitPortion}} ONT</span>
+                    <span>{{authorizationInfo.receiveProfitPortion}} TST</span>
                 </div>
                 <div>
                     <span>{{$t('nodeMgmt.newStakePart')}}:</span>
-                    <span>{{authorizationInfo.newStakePortion}} ONT</span>
+                    <span>{{authorizationInfo.newStakePortion}} TST</span>
                 </div>
                 <div class="authorize-tip">
                     <a-icon type="info-circle" />
@@ -121,28 +121,28 @@
                 <div class="redeem-ont">
                     <p class="redeem-item">
                         <span class="font-medium-black label">
-                            <a-tooltip placement="right" :title="$t('nodeMgmt.lockedONT')">
+                            <a-tooltip placement="right" :title="$t('nodeMgmt.lockedTST')">
                                 <a-icon type="info-circle-o" />
                             </a-tooltip>
                             {{$t('nodeMgmt.locked')}}: 
                         </span>
-                        <span class="font-medium">{{authorizationInfo.locked}} ONT</span>
+                        <span class="font-medium">{{authorizationInfo.locked}} TST</span>
                     </p>
                     <p class="redeem-item">
                         <span class="font-medium-black label">
                             {{$t('nodeMgmt.claimable')}}: 
                         </span>
-                        <span class="font-medium">{{authorizationInfo.claimable}} ONT</span>
+                        <span class="font-medium">{{authorizationInfo.claimable}} TST</span>
                         <a-button type="primary" class="redeem-btn" @click="redeemOnt">{{$t('nodeMgmt.redeem')}}</a-button>
                     </p>
                     <p class="redeem-item">
                         <span class="font-medium-black label">
-                            <a-tooltip placement="right" :title="$t('nodeMgmt.unboundONG')">
+                            <a-tooltip placement="right" :title="$t('nodeMgmt.unboundTSG')">
                                 <a-icon type="info-circle-o" />
                             </a-tooltip>
                             {{$t('nodeMgmt.unboundOng')}}: 
                         </span>
-                        <span class="font-medium">{{unboundOng}} ONG</span>
+                        <span class="font-medium">{{unboundOng}} TSG</span>
                         <a-button type="primary" class="redeem-btn" @click="redeemOng">{{$t('nodeMgmt.redeem')}}</a-button>
                     </p>
                 </div>
@@ -151,12 +151,12 @@
                 <p class="font-medium-black label">{{$t('nodeMgmt.rewards')}}</p>
                 <p>
                     <span class="font-medium-black label">
-                        <a-tooltip placement="right" :title="$t('nodeMgmt.profitONG')">
+                        <a-tooltip placement="right" :title="$t('nodeMgmt.profitTSG')">
                                 <a-icon type="info-circle-o" />
                             </a-tooltip>
                         {{$t('nodeMgmt.profit')}}: 
                     </span>
-                    <span class="font-medium">{{splitFee.amount}} ONG</span>
+                    <span class="font-medium">{{splitFee.amount}} TSG</span>
                 </p>
                 <a-button type="primary" class="redeem-btn" @click="redeemRewards">{{$t('nodeMgmt.redeem')}}</a-button>
 
@@ -178,7 +178,7 @@
                 </div>
                 <div class="in-authorization">
                     <span class="label font-medium-black">{{$t('nodeMgmt.inAuthorization')}}: </span>
-                    <span class="font-medium">{{authorizationInfo.inAuthorization}} ONT</span>
+                    <span class="font-medium">{{authorizationInfo.inAuthorization}} TST</span>
                 </div>
                 <div>
                     <span class="label font-medium-black">{{$t('nodeMgmt.unitToCancel')}}: </span>
@@ -187,7 +187,7 @@
                 </div>
                 <div>
                     <span class="label font-medium-black">{{$t('nodeMgmt.amountToCancel')}}: </span>
-                    <span class="font-medium">{{cancelAmount*500}} ONT</span>
+                    <span class="font-medium">{{cancelAmount*500}} TST</span>
                 </div>
             </div>
         </a-modal>

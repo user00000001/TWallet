@@ -475,7 +475,7 @@ const actions = {
         try {   
             let peerUnboundOng = await GovernanceTxBuilder.getPeerUnboundOng(addr, url);
             peerUnboundOng = new BigNumber(peerUnboundOng).div(1e9).toNumber();
-            commit('UPDATE_PEER_UNBOUND_ONG', {peerUnboundOng})
+            commit('UPDATE_PEER_UNBOUND_TSG', {peerUnboundOng})
             return peerUnboundOng;
         } catch(err) {
             console.log(err);

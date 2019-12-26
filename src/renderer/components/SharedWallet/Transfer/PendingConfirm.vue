@@ -122,7 +122,7 @@
                 <span class="font-medium">{{$t('sharedWalletHome.recipient')}}</span>  
                 <span class="font-medium-black">{{pendingTx.receiveaddress}}</span>                
             </div>
-            <div class="fee font-medium-black">{{$t('sharedWalletHome.fee')}}: {{gas}} ONG</div>
+            <div class="fee font-medium-black">{{$t('sharedWalletHome.fee')}}: {{gas}} TSG</div>
         </div>
 
         <div >

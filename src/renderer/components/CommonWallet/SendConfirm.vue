@@ -150,14 +150,16 @@
         <div class="asset-table">
             <div class="asset-item">
                 <span class="font-medium">{{$t('sharedWalletHome.amount')}}</span>
-                <span class="font-medium-black">{{transfer.amount}} {{transfer.asset}}</span>
+                <span class="font-medium-black" v-if="transfer.asset === 'ONT'">{{transfer.amount}} TST</span>
+                <span class="font-medium-black" v-else-if="transfer.asset === 'ONG'">{{transfer.amount}} TSG</span>
+                <span class="font-medium-black" v-else>{{transfer.amount}} {{transfer.asset}}</span>
 
             </div>
             <div class="asset-item">
                 <span class="font-medium">{{$t('sharedWalletHome.recipient')}}</span>
                 <span class="font-medium-black">{{transfer.to}}</span>
             </div>
-            <div class="fee font-medium-black">{{$t('sharedWalletHome.fee')}}: {{transfer.gas}} ONG</div>
+            <div class="fee font-medium-black">{{$t('sharedWalletHome.fee')}}: {{transfer.gas}} TSG</div>
         </div>
 
        <p class="label">{{$t('sharedWalletHome.confirmation')}}</p>

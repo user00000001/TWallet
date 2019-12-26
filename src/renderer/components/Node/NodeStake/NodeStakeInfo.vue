@@ -173,8 +173,8 @@
           @ok="handleRedeemPosOk"
           @cancel="handleRedeemPosCancel">
             <div>
-              <p class="font-medium-black">{{$t('nodeMgmt.initPosInLock')}}: {{authorizationInfo.locked}} ONT</p>
-              <p class="font-medium-black">{{$t('nodeMgmt.initPosRedeemable')}}: {{authorizationInfo.claimable}} ONT</p>
+              <p class="font-medium-black">{{$t('nodeMgmt.initPosInLock')}}: {{authorizationInfo.locked}} TST</p>
+              <p class="font-medium-black">{{$t('nodeMgmt.initPosRedeemable')}}: {{authorizationInfo.claimable}} TST</p>
             </div>
         </a-modal>
 

@@ -227,13 +227,13 @@
         </div>
         <div class="asset-container">
           <div class="asset-item">
-            <span class="asset-label">ONT</span>
+            <span class="asset-label">TST</span>
             <span class="asset-amount">{{balance.ont}}</span>
           </div>
           <!-- <div class="asset-value">${{balance.ontValue}}</div> -->
 
           <div class="asset-item">
-            <span class="asset-label">ONG</span>
+            <span class="asset-label">TSG</span>
             <span class="asset-amount">{{balance.ong}}</span>
           </div>
           <!-- <div class="asset-value">{{'$900'}}</div> -->
@@ -337,7 +337,9 @@
             @click="showTxDetail(tx.txHash)"
           >
             <span>{{tx.txHash.substring(0,40)+'...'}}</span>
-            <span>{{tx.amount}} {{tx.asset}}</span>
+            <span v-if="tx.asset === 'ONT'">{{tx.amount}} TST</span>
+            <span v-else-if="tx.asset === 'ONG'">{{tx.amount}} TSG</span>
+            <span v-else>{{tx.amount}} {{tx.asset}}</span>
           </div>
           <div
             class="check-more"
@@ -655,14 +657,14 @@ export default {
       );
     },
     checkMoreTx() {
-      let url = `http://121.41.30.85:3000/address/${this.sharedWallet.sharedWalletAddress}/10/1`;
+      let url = `http://121.41.30.85:3000/v2/address/${this.sharedWallet.sharedWalletAddress}/10/1`;
       if (this.network === "TestNet") {
         url += "/testnet";
       }
       open(url);
     },
     showTxDetail(txHash) {
-      let url = `http://121.41.30.85:3000/transaction/${txHash}`;
+      let url = `http://121.41.30.85:3000/v2/transactions/${txHash}`;
       if (this.network === "TestNet") {
         url += "/testnet";
       }

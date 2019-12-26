@@ -209,13 +209,13 @@
         </div>
         <div class="asset-container">
           <div class="asset-item">
-            <span class="asset-label">ONT</span>
+            <span class="asset-label">TST</span>
             <span class="asset-amount">{{balance.ont}}</span>
           </div>
           <!-- <div class="asset-value">${{balance.ontValue}}</div> -->
 
           <div class="asset-item">
-            <span class="asset-label">ONG</span>
+            <span class="asset-label">TSG</span>
             <span class="asset-amount">{{balance.ong}}</span>
           </div>
 
@@ -227,7 +227,7 @@
           <!-- <div class="asset-value">{{'$900'}}</div> -->
           <!-- <div class="asset-ong" v-if="currentWallet.key">
             <div class="asset-label nep5-label">
-              <span>ONT</span>
+              <span>TST</span>
               <span>(NEP-5)</span>
             </div>
             <span class="asset-amount">{{nep5Ont}}</span>
@@ -280,7 +280,9 @@
           <div v-for="(tx,index) in completedTx" :key="tx.txHash+index" class="tx-item"
                @click="showTxDetail(tx.txHash)">
             <span>{{tx.txHash.substring(0, 40) + '...'}}</span>
-            <span>{{tx.amount}} {{tx.asset}}</span>
+            <span v-if="tx.asset === 'ONT'">{{tx.amount}} TST</span>
+            <span v-else-if="tx.asset === 'ONG'">{{tx.amount}} TSG</span>
+            <span v-else>{{tx.amount}} {{tx.asset}}</span>
           </div>
           <div class="check-more" v-if="completedTx.length > 6" @click="checkMoreTx">
             {{$t('sharedWalletHome.checkMore')}}
@@ -347,7 +349,7 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
     },
     created() {
       this.$store.commit('CLEAR_NATIVE_BALANCE')
-      this.$store.commit('CLEAR_OEP4S_BALANCE')
+      this.$store.commit('CLEAR_OEP4S_BALANCES')
     },
     mounted: function () {
       //UPDATE_CURRENT_WALLET
@@ -371,7 +373,7 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
     },
     beforeDestroy(){
         clearInterval(this.intervalId)
-        this.$store.commit('UPDATE_NEP5_ONT', {nep5Ont:0})
+        this.$store.commit('UPDATE_NEP5_TST', {nep5Ont:0})
     },
     methods: {
       handleBack() {
@@ -481,7 +483,7 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
           if(res.result) {
             nep5Ont = res.result / NEO_TRAN
           } 
-          this.$store.commit('UPDATE_NEP5_ONT', {nep5Ont})
+          this.$store.commit('UPDATE_NEP5_TST', {nep5Ont})
         })
       },
       getExchangeCurrency() {
@@ -553,14 +555,14 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
         this.$router.push({name: 'Wallets'})
       },
       checkMoreTx() {
-        let url = `http://121.41.30.85:3000/address/${this.address}/10/1`
+        let url = `http://121.41.30.85:3000/v2/address/${this.address}/10/1`
         if (this.network === 'TestNet') {
           url += '/testnet'
         }
         open(url)
       },
       showTxDetail(txHash) {
-        let url = `http://121.41.30.85:3000/transaction/${txHash}`
+        let url = `http://121.41.30.85:3000/v2/transactions/${txHash}`
         if (this.network === 'TestNet') {
           url += '/testnet'
         }

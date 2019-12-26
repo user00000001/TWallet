@@ -11,11 +11,11 @@
           :class="activeTab == 2? 'active show' : ''"
            aria-controls="pills-shared" aria-selected="false">{{ $t('wallets.shared') }}</a>
       </li>
-      <li class="nav-item" @click="setActiveTab(3)">
+      <!-- <li class="nav-item" @click="setActiveTab(3)">
         <a class="nav-link" id="pills-ledger-tab" data-toggle="pill" href="#pills-ledger" role="tab"
           :class="activeTab == 3? 'active show' : ''"
            aria-controls="pills-ledger" aria-selected="false">{{ $t('wallets.ledger') }}</a>
-      </li>
+      </li> -->
     </ul>
 
     <div class="tab-content" id="pills-tabContent">

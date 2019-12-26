@@ -177,7 +177,9 @@
                     <div v-for="(tx,index) in completedTx" :key="tx.txHash+index" class="tx-item" v-if="index<10"
                         @click="showTxDetail(tx.txHash)">
                         <span>{{tx.txHash}}</span>
-                        <span>{{tx.amount}} {{tx.asset}}</span>
+                        <span v-if="tx.asset === 'ONT'">{{tx.amount}} TST</span>
+                        <span v-else-if="tx.asset === 'ONG'">{{tx.amount}} TSG</span>
+                        <span v-else>{{tx.amount}} {{tx.asset}}</span>
                     </div>
                     <div class="check-more" v-if="completedTx.length > 6" @click="checkMoreTx">
                         {{$t('sharedWalletHome.checkMore')}}>>
@@ -297,14 +299,14 @@ export default {
             this.$router.push({path: '/commonWalletReceive/commonWallet'})
         },
         showTxDetail(txHash) {
-            let url = `http://121.41.30.85:3000/transaction/${txHash}`
+            let url = `http://121.41.30.85:3000/v2/transactions/${txHash}`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }
             openUrl(url)
         },
         checkMoreTx() {
-        let url = `http://121.41.30.85:3000/address/${this.address}/10/1`
+        let url = `http://121.41.30.85:3000/v2/address/${this.address}/10/1`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }

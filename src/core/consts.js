@@ -3,15 +3,14 @@ export const GAS_PRICE = '500';
 export const GAS_LIMIT = '20000';
 
 export const ONT_CONTRACT = '0000000000000000000000000000000000000001';
-export const TEST_NET = 'http://polaris1.ont.io';
+export const TEST_NET = 'http://121.41.30.85:3000';
 export const MAIN_NET = 'http://121.41.30.85:3000';
 
 export const TEST_NET_LIST = [
-    'http://polaris1.ont.io',
-    'http://polaris2.ont.io',
-    'http://polaris3.ont.io',
-    'http://polaris4.ont.io',
-    'http://polaris5.ont.io'
+    'http://121.41.30.85:3000',
+    'http://121.41.30.85:3000',
+    'http://121.41.30.85:3000',
+    'http://121.41.30.85:3000',
 ]
 
 export const MAIN_NET_LIST = [
@@ -63,9 +62,9 @@ export const DEFAULT_SCRYPT = {
 export const SWAP_ADDRESS = 'AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM'
 
 export const NODE_DETAIL = 'http://121.41.30.85:3000/nodes/detail/'
-export const NODE_NAME_LIST = 'https://ont.io/api/v1/candidate/info/All'
+export const NODE_NAME_LIST = 'http://121.41.30.85:3000/api/v1/candidate/info/All'
 export const OFF_CHAIN_NODES = {
-    TEST_NET: 'https://polarisexplorer.ont.io/v2/nodes/off-chain-infos',
+    TEST_NET: 'http://121.41.30.85:3000/v2/nodes/off-chain-infos',
     MAIN_NET: 'http://121.41.30.85:3000/v2/nodes/off-chain-infos'
 }
 

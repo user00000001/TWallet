@@ -7,7 +7,7 @@ export default {
     confirmTips: 'Please confirm the transfer.',
     transSentSuccess: 'Transaction has been sent successfully!',
     pwdErr: 'Password error',
-    ongNoEnough: 'Transaction does not have enough ONG to process',
+    ongNoEnough: 'Transaction does not have enough TSG to process',
     transferFailed: 'Transfer failed. ',
     networkErr: 'Network error!',
     normalWallet: 'Individual wallet',
@@ -27,7 +27,7 @@ export default {
     authentication: 'Authentication',
     confirmation: 'Confirmation',
     enterWalletPassword: 'Please enter your wallet password',
-    enterIdentityPassword: 'Please enter your ONT ID password',
+    enterIdentityPassword: 'Please enter your TST ID password',
     password: 'Password',
     invalidLedger: 'The current ledger dose not match with the wallet.Please try with another ledger device.',
     exportDat: 'Export .dat',
@@ -43,7 +43,7 @@ export default {
     download: 'Download .dat',
     balanceInsufficient: 'Sorry, your balance is insufficient.',
     exportIdentity: 'Export keystore',
-    deleteIdentity: 'Delete ONT ID',
+    deleteIdentity: 'Delete TST ID',
     savedbFailed: 'Save to db file failed.Please make sure you have set the path to save the keystore.db file and try again.',
     selectOep4: 'Select OEP-4 token',
     contractHash: 'Contract hash: '
@@ -78,23 +78,23 @@ export default {
   },
 
   identitys: {
-    pageTit: 'ONT ID',
-    createIdentity: 'Create ONT ID',
-    importIdentity: 'Import ONT ID',
+    pageTit: 'TST ID',
+    createIdentity: 'Create TST ID',
+    importIdentity: 'Import TST ID',
     identity: 'Identity',
-    ontid: 'ONT ID'
+    ontid: 'TST ID'
   },
 
   createIdentity: {
-    create: 'Create ONT ID',
+    create: 'Create TST ID',
     basicInfo: 'Basic info',
     confirmInfo: 'Confirm info',
-    label: 'Name of Identity (ONT ID)',
+    label: 'Name of Identity (TST ID)',
     password: 'Password',
     rePassword: 'Repeat password',
     cancel: 'Cancel',
     next: 'Next',
-    ontid: 'ONT ID',
+    ontid: 'TST ID',
     selectWallet: 'Select Wallet to pay for the transaction fee',
     commonWallet: 'Individual Wallet',
     ledgerWallet: 'Ledger Wallet',
@@ -102,18 +102,18 @@ export default {
     selectCommonWallet: 'Select local individual wallet',
     selectOneWallet: 'Please select one individual wallet',
     enterPassword: 'Please enter the password of your selected wallet',
-    createSuccess: 'Create ONT ID successfully!'
+    createSuccess: 'Create TST ID successfully!'
   },
 
   importIdentity: {
-    import: 'Import ONT ID',
+    import: 'Import TST ID',
     basicInfo: 'Basic info',
-    keystore: 'ONT ID Keystore',
-    ontidPassword: 'ONT ID Password',
+    keystore: 'TST ID Keystore',
+    ontidPassword: 'TST ID Password',
     label: '',
     passError: 'Password error',
-    ontidNotExist: 'The ONT ID to import does not exist on the blockchain',
-    keystoreImport: 'ONT ID Keystore Import',
+    ontidNotExist: 'The TST ID to import does not exist on the blockchain',
+    keystoreImport: 'TST ID Keystore Import',
     invalidKeystore: 'The keystore you input is invalid.',
     ontidExist: 'The identity already exists in local.',
     importSuccess: 'Import Identity succeessfully!'
@@ -141,9 +141,9 @@ export default {
     newPassword: 'New password',
     reNewPassword: 'Repeat new password',
     changePassSuccess: 'Change password successfully!',
-    exportOntid: 'You are about to export the keystore of identiy with ONT ID:',
-    deleteIdentityFailed: 'Delete ONT ID failed',
-    deleteIdentitySuccess: 'Delete ONT ID successfully',
+    exportOntid: 'You are about to export the keystore of identiy with TST ID:',
+    deleteIdentityFailed: 'Delete TST ID failed',
+    deleteIdentitySuccess: 'Delete TST ID successfully',
     exportedWIF: 'Your private key (WIF) is:'
   },
 
@@ -310,7 +310,7 @@ export default {
     sign: 'Sign',
     checkMore: 'Check more',
     publicKey: 'Public key',
-    redeemOng: 'Redeem ONG',
+    redeemOng: 'Redeem TSG',
     paxMgmt: 'PAX management',
     unprocessed: 'Unprocessed',
     processing: 'In processing',
@@ -323,7 +323,7 @@ export default {
 
   pax: {
     ethAddress: 'Eth Address',
-    ontAddress: 'Ont Address',
+    ontAddress: 'Tsg Address',
     amount: 'Amount',
     date: 'Date',
     toProcess: 'To process',
@@ -379,26 +379,26 @@ export default {
   },
 
   commonWalletHome: {
-    claimableOng: 'Claimable ONG',
-    unboundOng: 'Unbound ONG',
+    claimableOng: 'Claimable TSG',
+    unboundOng: 'Unbound TSG',
     redeem: 'Redeem',
     receive: 'Receive',
     swap: 'Swap',
     walletQrCode: 'Wallet QR code',
     walletAddress: 'Wallet address',
     publicKey: 'Public key',
-    redeemCharge: 'Each redeem charges 0.01 ONG',
+    redeemCharge: 'Each redeem charges 0.01 TSG',
     inputPass: 'Please input your wallet password',
     emptyPass: 'Password can not be empty',
     cancel: 'Cancel',
     submit: 'Submit',
-    swapText: 'Here you can perform the MainNet ONT token swap.Users can exchange Nep-5 ONT for ONT for ONT on the Tesra SuperNet MainNet.Swap takes up to 1 month, you can check the status on https://swap.ont.io',
+    swapText: 'Here you can perform the MainNet TST token swap.Users can exchange Nep-5 TST for TST for TST on the Tesra SuperNet MainNet.Swap takes up to 1 month, you can check the status on http://121.41.30.85',
     stepFollow: 'Just do as follows:',
     step1: '1. Import your private key(from your NEO wallet) to create a wallet',
     step2: '2. Press [Swap] button to start the swap',
     step3: '3. View the status of your token swap',
     swapAmount: 'Swap Amount',
-    nep5Balance: 'Balance of NEP-5 ONT:',
+    nep5Balance: 'Balance of NEP-5 TST:',
     password: 'Password',
     validAmount: 'Please input valid amount',
     checkMore: 'Check more',
@@ -419,8 +419,8 @@ export default {
     inputValidAmount: 'Please input valid transfer amount.',
     inputValidAddress: 'Please input valid receiver address.',
     exceedBalance: 'Amount of transfer can not exceed your balance.',
-    ongBalanceNotEnough: 'Your ONG balance is not enough for transfer and fee.',
-    warningTransferAllONG: 'Transferring this amount of ONG means you will not have enough ONG to pay\r\nfor further transaction fees (including claiming unbound ONG). \r\n\r\nContinue?'
+    ongBalanceNotEnough: 'Your TSG balance is not enough for transfer and fee.',
+    warningTransferAllONG: 'Transferring this amount of TSG means you will not have enough TSG to pay\r\nfor further transaction fees (including claiming unbound TSG). \r\n\r\nContinue?'
   },
 
   setting: {
@@ -436,7 +436,7 @@ export default {
     change: 'Change',
     setNetworkSuccess: 'The network has been set to: ',
     wallets: 'Wallets',
-    ontid: 'ONT ID',
+    ontid: 'TST ID',
     nodeStake: 'Node Stake',
     help: 'Help',
     settings: 'Settings',
@@ -449,7 +449,7 @@ export default {
   ledgerWallet: {
     nameOfLedgerWallet: 'Name of your ledger wallet',
     info: 'Ledger Info',
-    connectApp: 'Please connect to your ledger device and open the ONT app on it.',
+    connectApp: 'Please connect to your ledger device and open the TST app on it.',
     status: 'Device Status',
     labelEmpty: 'Label can not be empty.',
     deviceError: 'Can not connect to device.Please try again.',
@@ -461,11 +461,11 @@ export default {
     NOT_SUPPORT: 'Ledger not supported',
     NO_DEVICE: 'Please plugin the device and login.',
     READY: 'Ledger is Ready',
-    NOT_OPEN: 'The ONT app on ledger is not open.'
+    NOT_OPEN: 'The TST app on ledger is not open.'
   },
   nodeStake: {
     iHaveKnown: 'I Have Known',
-    ontid: 'ONT ID',
+    ontid: 'TST ID',
     nodeStake: 'Node Stake',
     stakeWalletAddress: 'Stake Wallet Address',
     nodePk: 'Node Public Key',
@@ -473,20 +473,20 @@ export default {
     commitmentQuantity: 'Commitment Quantity',
     stakeQuantity: 'Stake Quantity',
     stake: 'Stake',
-    feeTip: 'Stake needs 500 ONG for service fee',
-    selectOntid: 'Select ONT ID',
+    feeTip: 'Stake needs 500 TSG for service fee',
+    selectOntid: 'Select TST ID',
     selectStakeWallet: 'Select stake wallet',
     next: 'Next',
-    selectIdentity: 'Please select your ONT ID',
+    selectIdentity: 'Please select your TST ID',
     selectIndividualWallet: 'Please select your individual wallet',
-    selectLedgerWallet: 'Please connect your ledger and open ONT app on it.',
-    invalidOntid: 'Invalid ONT ID ',
+    selectLedgerWallet: 'Please connect your ledger and open TST app on it.',
+    invalidOntid: 'Invalid TST ID ',
     invalidAddress: 'Invalid stake wallet address',
     stakeQuantityEmpty: 'Please enter valid stake quantity',
     password: 'Enter Password',
-    signWithOntid: 'Sign with ONT ID',
+    signWithOntid: 'Sign with TST ID',
     signWithWallet: 'Sign with stake wallet',
-    enterOntidPass: 'Please enter the password of your ONT ID',
+    enterOntidPass: 'Please enter the password of your TST ID',
     enterWalletPass: 'Please enter the password of your stake wallet',
     back: 'Back',
     recall: 'Recall',
@@ -516,18 +516,18 @@ export default {
     nodeExited: 'Node Exited',
     unfrozenToRefund: 'Unfreeze successfully, you can refund now',
     transferNeedTime: 'Transfer needs a period of time',
-    serviceFee: 'Stake needs 500 ONG for service fee',
+    serviceFee: 'Stake needs 500 TSG for service fee',
     auditNeedTime: 'Audit needs a period of time',
     refundNeedTime: 'Refund needs a period of time',
     txFailed: 'Transaction failed.'
   },
   redeemInfo: {
     info: 'Redeem Info',
-    claimableOng: `Claimable ONG is the amount of ONG you can claim for a 0.01 ONG fee. This balance will update each time a transaction is made in your wallet address.`,
-    unboundOng: `Unbound ONG is an amount of ONG which has not been added to your claimable ONG balance yet (since it only updates each you make a transaction in your wallet address). When a transaction is made in your address, the claimable ONG balance will update (adding your unbound ONG amount to your claimable ONG amount).`,
-    claimableOngName: 'Claimable ONG: ',
-    unboundOngName: 'Unbound ONG: ',
-    noClaimableOng: 'Your claimable ONG is 0. When a transaction of ONT is made in your address, the claimable ONG balance will update'
+    claimableOng: `Claimable TSG is the amount of TSG you can claim for a 0.01 TSG fee. This balance will update each time a transaction is made in your wallet address.`,
+    unboundOng: `Unbound TSG is an amount of TSG which has not been added to your claimable TSG balance yet (since it only updates each you make a transaction in your wallet address). When a transaction is made in your address, the claimable TSG balance will update (adding your unbound TSG amount to your claimable TSG amount).`,
+    claimableOngName: 'Claimable TSG: ',
+    unboundOngName: 'Unbound TSG: ',
+    noClaimableOng: 'Your claimable TSG is 0. When a transaction of TST is made in your address, the claimable TSG balance will update'
   },
 
   nodeMgmt: {
@@ -572,7 +572,7 @@ export default {
     newStakeAuthorization: 'Submit new stake authorization',
     cancelAuthorization: 'Cancel stake authorization',
     units: 'Units of stake authorization',
-    stakeAmountTip: 'Stake amount = input number * 500 ONT/unit.',
+    stakeAmountTip: 'Stake amount = input number * 500 TST/unit.',
     stakeAmount: 'Stake amount',
     submit: 'Submit',
     allowedStakeUnits: 'Allowed stake unit',
@@ -580,7 +580,7 @@ export default {
     noChange: 'You did not make a change.',
     noRewards: 'No rewards to redeem.',
     switchWallet: 'Switch wallet',
-    noClaimableOnt: 'No redeemable ONT',
+    noClaimableOnt: 'No redeemable TST',
     amountToCancel: 'Amount to cancel',
     unitToCancel: 'Units to cancel',
     invalidInput: 'Please enter valid value.',
@@ -599,12 +599,12 @@ export default {
     proportionNextRoundTip: 'This is the portion of transaction fees received the node has chosen to share with users who have authorized stakes with them in the next consensus round. Note not all nodes share the Tesra SuperNet Foundation bonus with users who have authorized stakes with them. Please check the link below for more.',
     authorizationFAQ: 'TesraWallet Stake Authorization FAQ',
     nodeAndUser: 'Node / User',
-    authorizeTip: `If new stake is cancelled it will be cancelled immediately and be shown as redeemable ONT. If authorized ONT from previous consensus rounds is cancelled it will be redeemable only at the beginning of the next consensus round for candidate nodes (or one round later for consensus nodes). If a user has both authorized ONT from this consensus round and a previous consensus round and cancels an ONT amount exceeding the amount from this consensus round, they will receive authorized ONT from this consensus round first and the remaining authorized ONT in the next consensus round.`,
+    authorizeTip: `If new stake is cancelled it will be cancelled immediately and be shown as redeemable TST. If authorized TST from previous consensus rounds is cancelled it will be redeemable only at the beginning of the next consensus round for candidate nodes (or one round later for consensus nodes). If a user has both authorized TST from this consensus round and a previous consensus round and cancels an TST amount exceeding the amount from this consensus round, they will receive authorized TST from this consensus round first and the remaining authorized TST in the next consensus round.`,
     rewardTip: `All transactions fees received by Tesra SuperNet are distributed to all candidate nodes and consensus nodes - 50% to each group.
 Within their 50% share each candidate node will receive their share linearly according to their stake amount.
 Within their 50% share each consensus node will receive their share according to their stake amount, which is subject to the incentive curve that discourages too high stakes.
 `,
-    unboundOng: 'Unbound ONG',
+    unboundOng: 'Unbound TSG',
     activeT: 'Active in current round',
     activeT1: 'Active in next round',
     activeT2: 'Active in next 2 round',
@@ -618,19 +618,19 @@ Within their 50% share each consensus node will receive their share according to
     switchMainnet: 'Please switch to MainNet.',
     consensusNode: 'Consensus node',
     candidateNode: 'Candidate consensus node',
-    lockedONT: 'This is your canceled authorized stake amount currently held in a smart contract. Once it is available to be withdrawn, it will appear as redeemable ONT.',
-    unboundONG: 'This is the unbound ONG amount of your authorized ONT stake.',
+    lockedONT: 'This is your canceled authorized stake amount currently held in a smart contract. Once it is available to be withdrawn, it will appear as redeemable TST.',
+    unboundONG: 'This is the unbound TSG amount of your authorized TST stake.',
     profitONG: 'This is the transaction fee profit you have made. This will update at the beginning of each new consensus round.',
     getProfitPart: 'Already receiving profit portion',
     newStakePart: 'New stake portion',
-    claimableONT: 'Claimable ONT',
+    claimableONT: 'Claimable TST',
     redeemInitPos: 'Redeem Init Pos',
     initPosInLock: "Locked",
     initPosRedeemable: 'Claimable',
-    noClaimbleInitPos: 'No claimble ONT.',
+    noClaimbleInitPos: 'No claimble TST.',
     redeemInitPosOk: 'Redeem',
     hasClaimableInitPos: 'You have redeemable init pos. Plase redeem this part first.',
-    noClaimbleToRefund: 'No redeemable ONT to refund.'
+    noClaimbleToRefund: 'No redeemable TST to refund.'
   },
   exchange: {
     exchange: 'Exchange',
@@ -646,9 +646,9 @@ Within their 50% share each consensus node will receive their share according to
     userPolicy: 'You will be redirected to the third party dApp. Use of the third party dApp will be subject to their User Agreement and Privacy Policy. You will be liable to the third party dApp only.'
   },
   sesameseed: {
-    stakeAmountTip: 'Stake amount for Sesameseed is 1 unit equals 1 ONT',
-    authorizeTip: 'If a new stake is canceled, it will add to the “canceled” ONT and be directly deposited in the users account within 24 hours. If authorized ONT from a previous consensus round is canceled it will be added to the “canceled” ONT and be directly deposited in the originating users account within 24 hours of the beginning of the next consensus round if Sesameseed is a candidate node (or one round later if Sesameseed is a consensus node). If a user has both authorized ONT from this consensus round and a previous round and cancels an ONT amount exceeding the amount from this round, they will receive authorized ONT from this consensus round first and the remaining authorized ONT in the next round.',
-    rewardTip: 'Sesameseed rewards Tesra SuperNet Stake Authorizations in SEED for both foundation rewards created as a candidate or consensus node as an OEP-4 token “SEED”. This token is rewarded directly to Staking participants. In addition to node rewards, 100% of ONG unbound while staking is pooled by all stake authorizations and added to the total “Node Reward”, as a result this node reward is also provided in the form of “SEED” Token. Rewards are distributed daily without the need to redeem. Find out more at https://sesameseed.org.',
+    stakeAmountTip: 'Stake amount for Sesameseed is 1 unit equals 1 TST',
+    authorizeTip: 'If a new stake is canceled, it will add to the “canceled” TST and be directly deposited in the users account within 24 hours. If authorized TST from a previous consensus round is canceled it will be added to the “canceled” TST and be directly deposited in the originating users account within 24 hours of the beginning of the next consensus round if Sesameseed is a candidate node (or one round later if Sesameseed is a consensus node). If a user has both authorized TST from this consensus round and a previous round and cancels an TST amount exceeding the amount from this round, they will receive authorized TST from this consensus round first and the remaining authorized TST in the next round.',
+    rewardTip: 'Sesameseed rewards Tesra SuperNet Stake Authorizations in SEED for both foundation rewards created as a candidate or consensus node as an OEP-4 token “SEED”. This token is rewarded directly to Staking participants. In addition to node rewards, 100% of TSG unbound while staking is pooled by all stake authorizations and added to the total “Node Reward”, as a result this node reward is also provided in the form of “SEED” Token. Rewards are distributed daily without the need to redeem. Find out more at https://sesameseed.org.',
     pendingWithdrawals: 'Pending canceled stake authorization'
   }
 }

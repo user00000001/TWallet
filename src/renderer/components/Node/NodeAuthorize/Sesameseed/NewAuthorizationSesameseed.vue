@@ -34,11 +34,11 @@
       </div>
       <div>
         <span class="font-medium-black label">{{$t('nodeMgmt.allowedStakeAmount')}}:</span>
-        <span class="font-medium">{{current_node.maxAuthorizeStr}} ONT</span>
+        <span class="font-medium">{{current_node.maxAuthorizeStr}} TST</span>
       </div>
       <div>
         <span class="font-medium-black label">{{$t('nodeMgmt.totalStakeAmount')}}:</span>
-        <span class="font-medium">{{current_node.totalPosStr}} ONT</span>
+        <span class="font-medium">{{current_node.totalPosStr}} TST</span>
       </div>
       <div>
         <span class="label font-medium-black">{{$t('nodeMgmt.walletAddress')}}:</span>
@@ -60,7 +60,7 @@
       </p>
       <div>
         <span class="font-medium-black label">{{$t('nodeMgmt.stakeAmount')}}:</span>
-        <span class="font-medium">{{amount}} ONT</span>
+        <span class="font-medium">{{amount}} TST</span>
       </div>
     </div>
     <div class="footer-btns">

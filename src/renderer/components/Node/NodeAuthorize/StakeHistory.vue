@@ -102,7 +102,7 @@ export default {
                 key: 'locked'
             },
             {
-                title: this.$t('nodeMgmt.claimableONT'),
+                title: this.$t('nodeMgmt.claimableTST'),
                 dataIndex: 'claimable',
                 key: 'claimable'
             },

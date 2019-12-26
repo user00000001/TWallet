@@ -138,7 +138,7 @@
             @change="validateUnit"
             ></a-input>
             <span class="font-medium">{{$t('nodeMgmt.allowedStakeAmount')}}: </span>
-            <span>{{unit*500}} ONT</span>
+            <span>{{unit*500}} TST</span>
             <span class="font-medium" style="margin-left:20px;">({{$t('nodeMgmt.current')}} {{peer_attrs.maxAuthorizeStr}} ONT)</span>
             <p class="authorize-tip">
                 <a-icon type="info-circle" /> 
@@ -150,17 +150,17 @@
             <div class="content-row">
                 <div class="content-column">
                     <span>{{$t('nodeMgmt.yourStakeAmount')}}</span>
-                    <span>{{current_peer.initPosStr}} ONT</span>
+                    <span>{{current_peer.initPosStr}} TST</span>
                 </div>
                 <div class="content-column">
                     <span>{{$t('nodeMgmt.stakeLimit')}}</span>
-                    <span>{{maxStakeLimit}} ONT</span>
+                    <span>{{maxStakeLimit}} TST</span>
                 </div>
             </div>
             <div class="content-row">
                 <div class="content-column">
                     <span>{{$t('nodeMgmt.userStake')}}</span>
-                    <span>{{current_peer.totalPosStr}} ONT</span>
+                    <span>{{current_peer.totalPosStr}} TST</span>
                 </div>
             </div>
             
@@ -184,12 +184,12 @@
         <div class="redeem-profit">
             <div class="redeem-item">
                 <span class="font-medium-black label">{{$t('nodeMgmt.profit')}}: </span>
-                <span class="font-medium">{{splitFee.amount}} ONG</span>
+                <span class="font-medium">{{splitFee.amount}} TSG</span>
                 <a-button type="primary" class="redeem-btn" @click="redeemRewards">{{$t('nodeMgmt.redeem')}}</a-button>
             </div>
             <div class="redeem-item">
                 <span class="font-medium-black label">{{$t('nodeMgmt.unboundOng')}}: </span>
-                <span class="font-medium">{{peerUnboundOng}} ONG</span>
+                <span class="font-medium">{{peerUnboundOng}} TSG</span>
                 <a-button type="primary" class="redeem-btn" @click="redeemPeerUnboundOng">{{$t('nodeMgmt.redeem')}}</a-button>
             </div>
         </div>

@@ -65,7 +65,7 @@ const actions = {
         const net = localStorage.getItem('net');
         let url = ''
         if(net === 'TEST_NET') {
-            url = 'https://polarisexplorer.ont.io/api/v1/explorer/oep4/info'
+            url = 'http://121.41.30.85:3000/api/v1/explorer/oep4/info'
         } else {
             url = 'http://121.41.30.85:3000/api/v1/explorer/oep4/info'
         }
@@ -163,7 +163,7 @@ const actions = {
     },
     async queryTxForOep4({commit, dispatch}, {address,oep4s}) {
         const net = localStorage.getItem('net')
-        const url = net === 'TEST_NET' ? 'https://polarisexplorer.ont.io' : 'http://121.41.30.85:3000';
+        const url = net === 'TEST_NET' ? 'http://121.41.30.85:3000' : 'http://121.41.30.85:3000';
         axios.get(url + '/api/v1/explorer/address/' + address + '/10/1').then(response => {
             if (response.status === 200 && response.data && response.data.Result) {
                 const txlist = response.data.Result.TxnList;

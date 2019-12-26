@@ -17,7 +17,7 @@ const TX_PARSE_ERR = 0x6d07
 const evalTransportError = err => {
     switch (err.statusCode) {
         case APP_CLOSED:
-            err.message = 'Your ONT app is closed! Please login.'
+            err.message = 'Your TST app is closed! Please login.'
             break
         case MSG_TOO_BIG:
             err.message = 'Your transaction is too big for the ledger to sign!'
@@ -26,7 +26,7 @@ const evalTransportError = err => {
             err.message = 'You have denied the transaction on your ledger.'
             break
         case TX_PARSE_ERR:
-            err.message = 'Error parsing transaction. Make sure your ONT app version is up to date.'
+            err.message = 'Error parsing transaction. Make sure your TST app version is up to date.'
             break
     }
     return err
