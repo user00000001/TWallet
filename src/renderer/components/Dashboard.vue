@@ -555,14 +555,14 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
         this.$router.push({name: 'Wallets'})
       },
       checkMoreTx() {
-        let url = `http://121.41.30.85:3000/v2/address/${this.address}/10/1`
+        let url = `http://121.41.30.85/address/${this.address}/10/1`
         if (this.network === 'TestNet') {
           url += '/testnet'
         }
         open(url)
       },
       showTxDetail(txHash) {
-        let url = `http://121.41.30.85:3000/v2/transactions/${txHash}`
+        let url = `http://121.41.30.85/transaction/${txHash}`
         if (this.network === 'TestNet') {
           url += '/testnet'
         }

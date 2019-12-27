@@ -299,14 +299,14 @@ export default {
             this.$router.push({path: '/commonWalletReceive/commonWallet'})
         },
         showTxDetail(txHash) {
-            let url = `http://121.41.30.85:3000/v2/transactions/${txHash}`
+            let url = `http://121.41.30.85/transaction/${txHash}`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }
             openUrl(url)
         },
         checkMoreTx() {
-        let url = `http://121.41.30.85:3000/v2/address/${this.address}/10/1`
+        let url = `http://121.41.30.85/address/${this.address}/10/1`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }

@@ -248,7 +248,7 @@ export default {
             const net = localStorage.getItem('net');
             let url = '';
             if(this.status === '3') {
-                let url = `http://121.41.30.85:3000/v2/transactions/${record.Senthash}`
+                let url = `http://121.41.30.85/transaction/${record.Senthash}`
                 const net = localStorage.getItem('net')
                 if(net === 'TEST_NET') {
                     url = url+ '/testnet'

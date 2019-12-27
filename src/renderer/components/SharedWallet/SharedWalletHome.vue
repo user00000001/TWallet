@@ -657,14 +657,14 @@ export default {
       );
     },
     checkMoreTx() {
-      let url = `http://121.41.30.85:3000/v2/address/${this.sharedWallet.sharedWalletAddress}/10/1`;
+      let url = `http://121.41.30.85/address/${this.sharedWallet.sharedWalletAddress}/10/1`;
       if (this.network === "TestNet") {
         url += "/testnet";
       }
       open(url);
     },
     showTxDetail(txHash) {
-      let url = `http://121.41.30.85:3000/v2/transactions/${txHash}`;
+      let url = `http://121.41.30.85/transaction/${txHash}`;
       if (this.network === "TestNet") {
         url += "/testnet";
       }
