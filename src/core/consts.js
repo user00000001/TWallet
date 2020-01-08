@@ -4,20 +4,15 @@ export const GAS_LIMIT = '20000';
 
 export const ONT_CONTRACT = '0000000000000000000000000000000000000001';
 export const TEST_NET = 'http://121.41.30.85:3000';
-export const MAIN_NET = 'http://121.41.30.85:3000';
+export const MAIN_NET = 'http://explorer.tesra.me:3000';
 
 export const TEST_NET_LIST = [
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
     'http://121.41.30.85:3000',
 ]
 
 export const MAIN_NET_LIST = [
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
+    'http://explorer.tesra.me:3000',
+    'http://download-cn.tesra.me:3000',
 ]
 //test environment
 export const ONT_PASS_NODE = 'https://service-test.onto.app'

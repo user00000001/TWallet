@@ -108,16 +108,16 @@ const actions = {
         return axios.get(url).then(res => {
           if (res.data.result) {
             for (let r of res.data.result) {
-              if (r.asset_name === 'ong') {
+              if (r.asset_name === 'tsg') {
                 balance.ong = r.balance;
               }
-              if (r.asset_name === 'waitboundong') {
+              if (r.asset_name === 'waitboundtsg') {
                 balance.waitBoundOng = r.balance;
               }
-              if (r.asset_name === 'unboundong') {
+              if (r.asset_name === 'unboundtsg') {
                 balance.unboundOng = r.balance;
               }
-              if (r.asset_name === 'ont') {
+              if (r.asset_name === 'tst') {
                 balance.ont = r.balance;
               }
             }

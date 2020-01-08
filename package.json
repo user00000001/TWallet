@@ -1,8 +1,8 @@
 {
   "name": "TesraWallet",
   "productName": "TesraWallet",
-  "homepage": "http://121.41.30.85",
-  "version": "v2019.12.27",
+  "homepage": "http://explorer.tesra.me",
+  "version": "v0.0.1b",
   "author": "Tesra SuperNet Foundation Ltd. <devops@ont.io>",
   "description": "TesraWallet is a comprehensive Tesra SuperNet desktop wallet",
   "license": "Apache-2.0",
