@@ -64,11 +64,11 @@ export default {
       const lang = localStorage.getItem("user_lang");
       let url = "";
       if (lang === "zh") {
-        url = "http://ontfans.io/article/41.html";
+        url = "http://docs-cn.tesra.me/";
         // url = 'https://medium.com/ontologynetwork/owallet-faq-7f4f96784253'
       } else {
         // url = 'https://ontfans.io/?/article/39'
-        url = "https://medium.com/ontologynetwork/owallet-faq-7f4f96784253";
+        url = "https://docs.tesra.me/";
       }
 
       open(url)
