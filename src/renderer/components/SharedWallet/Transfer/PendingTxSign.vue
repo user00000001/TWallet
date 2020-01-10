@@ -84,11 +84,11 @@
 
 <script>
 import {mapState} from 'vuex'
-import {OntAssetTxBuilder, Crypto, TransactionBuilder, Transaction, RestClient, utils, TxSignature} from 'ontology-ts-sdk'
-import {ONT_PASS_NODE, ONT_PASS_NODE_PRD, ONT_PASS_URL, DEFAULT_SCRYPT, TEST_NET, MAIN_NET} from '../../../../core/consts'
+import {TstAssetTxBuilder, Crypto, TransactionBuilder, Transaction, RestClient, utils, TxSignature} from 'tesrasdk-ts'
+import {TST_PASS_NODE, TST_PASS_NODE_PRD, TST_PASS_URL, DEFAULT_SCRYPT, TEST_NET, MAIN_NET} from '../../../../core/consts'
 import axios from 'axios'
 import dbService from '../../../../core/dbService'
-import {legacySignWithLedger} from '../../../../core/ontLedger'
+import {legacySignWithLedger} from '../../../../core/tstLedger'
 import { getRestClient } from '../../../../core/utils';
 
 export default {
@@ -170,8 +170,8 @@ export default {
                 }
                 //send
                 const net = localStorage.getItem('net')
-                const ontPassNode = net === 'TEST_NET' ? ONT_PASS_NODE : ONT_PASS_NODE_PRD
-                const url = ontPassNode + ONT_PASS_URL.SignSharedTransfer
+                const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
+                const url = tstPassNode + TST_PASS_URL.SignSharedTransfer
 
                 const body = {
                     transactionIdHash:txHash,

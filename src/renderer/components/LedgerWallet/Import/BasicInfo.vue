@@ -29,10 +29,10 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Wallet, Account, Crypto} from "ontology-ts-sdk"
+  import {Wallet, Account, Crypto} from "tesrasdk-ts"
   import dbService from '../../../../core/dbService'
   import {WALLET_TYPE}  from '../../../../core/consts'
-  import {getDeviceInfo, getPublicKey} from '../../../../core/ontLedger'
+  import {getDeviceInfo, getPublicKey} from '../../../../core/tstLedger'
 
   export default {
     name: 'BasicInfo',

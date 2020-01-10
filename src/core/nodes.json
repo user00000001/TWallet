@@ -90,7 +90,7 @@
         "isConsensus": false
     },
     {
-        "name": "ont-huobipool",
+        "name": "tst-huobipool",
         "pk": "03c793b05687137803952cb0327aaed8cfb1a7199badd23a34b2fa8417f614faae",
         "isConsensus": false
     },
@@ -125,12 +125,12 @@
         "isConsensus": false
     },
     {
-        "name": "Ontology Universe",
+        "name": "TesraSupernet Universe",
         "pk": "02a0ca41d2544cdea25fe98102157ea9ca051ac1e565e43847c3f006c9caedc297",
         "isConsensus": false
     },
     {
-        "name": "ONTLabo",
+        "name": "TesraLabo",
         "pk": "037acf1bb88200138b44f5d645d0e0c063043addc30db0102eea508db2585f9171",
         "isConsensus": false
     },

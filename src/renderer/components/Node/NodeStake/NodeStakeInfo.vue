@@ -10,7 +10,7 @@
 .detail-item p {
   margin-bottom: 5px;
 }
-.select-ontid {
+.select-tstid {
   width: 100%;
 }
 
@@ -91,8 +91,8 @@
             </div>
 
             <div class="detail-item">
-                <p class="font-medium-black" for="">{{$t('nodeStake.ontid')}}</p>
-                <p>{{detail.ontid}}</p>
+                <p class="font-medium-black" for="">{{$t('nodeStake.tstid')}}</p>
+                <p>{{detail.tstid}}</p>
             </div>
             <div class="detail-item">
                 <p class="font-medium-black" for="">{{$t('nodeStake.stakeWalletAddress')}}</p>
@@ -147,7 +147,7 @@
                 <div>
                     <span class="label font-medium-black">{{$t('nodeMgmt.amountToAdd')}}: </span>
                     <a-input class="input add-pos-input" :class="validAddPos? '': 'error-input'"
-                    v-model="addPos" @change="validateAddPos"></a-input> ONT
+                    v-model="addPos" @change="validateAddPos"></a-input> TST
                 </div>
             </div>
         </a-modal>
@@ -161,7 +161,7 @@
                 <div>
                     <span class="label font-medium-black">{{$t('nodeMgmt.amountToReduce')}}: </span>
                     <a-input class="input add-pos-input" :class="validReducePos? '': 'error-input'"
-                    v-model="reducePos" @change="validateReducePos"></a-input> ONT
+                    v-model="reducePos" @change="validateReducePos"></a-input> TST
                 </div>
             </div>
         </a-modal>
@@ -199,14 +199,14 @@
 <script>
 import Breadcrumb from "../../Breadcrumb";
 import { mapState } from "vuex";
-import { Crypto, TransactionBuilder, utils, TxSignature, GovernanceTxBuilder, RestClient } from "ontology-ts-sdk";
-import {legacySignWithLedger} from '../../../../core/ontLedger'
+import { Crypto, TransactionBuilder, utils, TxSignature, GovernanceTxBuilder, RestClient } from "tesrasdk-ts";
+import {legacySignWithLedger} from '../../../../core/tstLedger'
 import {varifyPositiveInt, getNodeUrl} from '../../../../core/utils.js'
 import axios from "axios";
 import {
-  ONT_PASS_NODE,
-  ONT_PASS_NODE_PRD,
-  ONT_PASS_URL,
+  TST_PASS_NODE,
+  TST_PASS_NODE_PRD,
+  TST_PASS_URL,
   GAS_PRICE,
   GAS_LIMIT,
   DEFAULT_SCRYPT
@@ -220,7 +220,7 @@ export default {
   },
   data() {
     return {
-      localOntid: [],
+      localTstid: [],
       intervalId: "",
       interval: 10000,
       refundClicked: false,
@@ -245,14 +245,14 @@ export default {
     if(!this.stakeWallet.key) {//common wallet
       this.$store.dispatch('getLedgerStatus')
     }
-    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.ontid);
+    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
     this.$store.dispatch('fetchPeerItem', this.detail.publickey);
     this.$store.dispatch('fetchPosLimit')
     this.$store.dispatch('fetchAuthorizationInfo', 
       {pk: this.detail.publickey, address: this.stakeWallet.address}
       )
     const intervalId = setInterval(() => {
-      this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.ontid);
+      this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
       this.$store.dispatch('fetchPeerItem', this.detail.publickey);
       this.$store.dispatch('fetchPosLimit')
       this.$store.dispatch('fetchAuthorizationInfo', 
@@ -366,20 +366,20 @@ export default {
     },
     delegateSendTx(tx) {
       const body = {
-        ontid: this.stakeIdentity.ontid,
+        tstid: this.stakeIdentity.tstid,
         stakewalletaddress: this.stakeWallet.address,
         transactionhash: utils.reverseHex(tx.getHash()),
         transactionbodyhash: tx.serialize()
       };
       const net = localStorage.getItem("net");
-      const ontPassNode =
-        net === "TEST_NET" ? ONT_PASS_NODE : ONT_PASS_NODE_PRD;
-      axios.post(ontPassNode + ONT_PASS_URL.DelegateSendTx, body).then(res => {
+      const tstPassNode =
+        net === "TEST_NET" ? TST_PASS_NODE : TST_PASS_NODE_PRD;
+      axios.post(tstPassNode + TST_PASS_URL.DelegateSendTx, body).then(res => {
         this.walletPassModal = false;
         this.walletPassword = ''
         this.tx = ''
         this.$store.dispatch("hideLoadingModals");
-        this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.ontid);
+        this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
       }).catch(err=>{
         this.$store.dispatch("hideLoadingModals");
         this.$message.error(this.$t('common.networkErr'))
@@ -403,7 +403,7 @@ export default {
           if(res.Result.indexOf('balance insufficient') > -1 ) {
               this.$message.error(this.$t('common.balanceInsufficient'))
           } else if(res.Result.indexOf('cover gas cost') > -1) {
-              this.$message.error(this.$t('common.ongNoEnough'))
+              this.$message.error(this.$t('common.tsgNoEnough'))
           } else {
               this.$message.error(res.Result)
           }

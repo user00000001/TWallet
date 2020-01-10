@@ -228,13 +228,13 @@
         <div class="asset-container">
           <div class="asset-item">
             <span class="asset-label">TST</span>
-            <span class="asset-amount">{{balance.ont}}</span>
+            <span class="asset-amount">{{balance.tst}}</span>
           </div>
-          <!-- <div class="asset-value">${{balance.ontValue}}</div> -->
+          <!-- <div class="asset-value">${{balance.tstValue}}</div> -->
 
           <div class="asset-item">
             <span class="asset-label">TSG</span>
-            <span class="asset-amount">{{balance.ong}}</span>
+            <span class="asset-amount">{{balance.tsg}}</span>
           </div>
           <!-- <div class="asset-value">{{'$900'}}</div> -->
 
@@ -245,22 +245,22 @@
         </div>
 
         <div class="left-footer">
-          <div class="claim-ong-container">
-            <div class="claim-ong">
-              <div class="claim-ong-item">
-                <span>{{$t('commonWalletHome.claimableOng')}}:</span>
-                <span>{{balance.unboundOng}}</span>
+          <div class="claim-tsg-container">
+            <div class="claim-tsg">
+              <div class="claim-tsg-item">
+                <span>{{$t('commonWalletHome.claimableTsg')}}:</span>
+                <span>{{balance.unboundTsg}}</span>
               </div>
-              <div class="claim-ong-item">
-                <span>{{$t('commonWalletHome.unboundOng')}}:</span>
-                <span>{{balance.waitBoundOng}}</span>
+              <div class="claim-tsg-item">
+                <span>{{$t('commonWalletHome.unboundTsg')}}:</span>
+                <span>{{balance.waitBoundTsg}}</span>
               </div>
             </div>
             <div class="redeem-container">
               <a-button
                 type="default"
                 class="btn-redeem"
-                @click="redeemOng"
+                @click="redeemTsg"
               >{{$t('commonWalletHome.redeem')}}</a-button>
               <redeem-info-icon></redeem-info-icon>
             </div>
@@ -337,8 +337,8 @@
             @click="showTxDetail(tx.txHash)"
           >
             <span>{{tx.txHash.substring(0,40)+'...'}}</span>
-            <span v-if="tx.asset === 'ONT'">{{tx.amount}} TST</span>
-            <span v-else-if="tx.asset === 'ONG'">{{tx.amount}} TSG</span>
+            <span v-if="tx.asset === 'TST'">{{tx.amount}} TST</span>
+            <span v-else-if="tx.asset === 'TSG'">{{tx.amount}} TSG</span>
             <span v-else>{{tx.amount}} {{tx.asset}}</span>
           </div>
           <div
@@ -354,7 +354,7 @@
     <a-modal :title="$t('redeemInfo.info')" v-model="redeemInfoVisible" @ok="handleModalOk">
       <p class="font-regular">
         <span class="font-medium"></span>
-        {{$t('redeemInfo.noClaimableOng')}}
+        {{$t('redeemInfo.noClaimableTsg')}}
       </p>
     </a-modal>
 
@@ -367,9 +367,9 @@ import { mapState } from "vuex";
 import {
   TEST_NET,
   MAIN_NET,
-  ONT_PASS_NODE,
-  ONT_PASS_NODE_PRD,
-  ONT_PASS_URL,
+  TST_PASS_NODE,
+  TST_PASS_NODE_PRD,
+  TST_PASS_URL,
   PAX_SC_HASH
 } from "../../../core/consts";
 import dbService from "../../../core/dbService";
@@ -384,8 +384,8 @@ import {
   getTransactionListUrl,
   getBalanceUrl
 } from "../../../core/utils";
-import { TransactionBuilder, Crypto, utils } from "ontology-ts-sdk";
-const ONG_GOVERNANCE_CONTRACT = "AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK";
+import { TransactionBuilder, Crypto, utils } from "tesrasdk-ts";
+const TSG_GOVERNANCE_CONTRACT = "AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK";
 export default {
   name: "SharedWalletHome",
   data() {
@@ -480,13 +480,13 @@ export default {
           for (const tx of t.transfers) {
             const asset = tx.asset_name.toUpperCase();
             if (
-              tx.to_address === ONG_GOVERNANCE_CONTRACT &&
-              asset === "ONG" &&
+              tx.to_address === TSG_GOVERNANCE_CONTRACT &&
+              asset === "TSG" &&
               Number(tx.amount) == 0.01
             ) {
               continue;
             }
-            let amount = asset === "ONT" ? parseInt(tx.amount) : tx.amount;
+            let amount = asset === "TST" ? parseInt(tx.amount) : tx.amount;
             if (tx.from_address === this.sharedWallet.sharedWalletAddress) {
               amount = "-" + amount;
             } else {
@@ -532,25 +532,25 @@ export default {
         });
     },
     getExchangeCurrency() {
-      const currency = "ont";
+      const currency = "tst";
       const goaltype = "USD";
-      const amount = this.balance.ont;
+      const amount = this.balance.tst;
       const url = `https://service.onto.app/S3/api/v1/onto/exchangerate/reckon/${currency}/${goaltype}/${amount}`;
       axios.get(url).then(res => {
         console.log(res);
         if (res.data.Result) {
-          this.balance.ontValue = res.data.Result.Money;
+          this.balance.tstValue = res.data.Result.Money;
         }
       });
     },
     getPendingTx() {
       const sharedAddress = this.sharedWallet.sharedWalletAddress;
-      // const assetName = 'ONT'
+      // const assetName = 'TST'
       const timeStamp = new Date().getTime();
       const net = localStorage.getItem("net");
-      const ontPassNode =
-        net === "TEST_NET" ? ONT_PASS_NODE : ONT_PASS_NODE_PRD;
-      const url = ontPassNode + ONT_PASS_URL.QueryPendingTransfer;
+      const tstPassNode =
+        net === "TEST_NET" ? TST_PASS_NODE : TST_PASS_NODE_PRD;
+      const url = tstPassNode + TST_PASS_URL.QueryPendingTransfer;
       this.axios
         .get(url, {
           params: {
@@ -562,7 +562,7 @@ export default {
         .then(res => {
           console.log(res);
           this.pendingTx = res.data.SigningSharedTransfers.map(p => {
-            if (p.assetName.toLowerCase() === "ong") {
+            if (p.assetName.toLowerCase() === "tsg") {
               p.amount = new BigNumber(p.amount).div(1e9).toFixed(9);
             }
             return p;
@@ -598,8 +598,8 @@ export default {
       this.$router.push({ name: "Dashboard" });
     },
     showTransferBox() {
-      if (Number(this.balance.ong) < 0.01) {
-        this.$message.warning(this.$t("common.ongNoEnough"));
+      if (Number(this.balance.tsg) < 0.01) {
+        this.$message.warning(this.$t("common.tsgNoEnough"));
         return;
       }
       this.$store.commit("CLEAR_CURRENT_TRANSFER");
@@ -624,7 +624,7 @@ export default {
         return;
       }
       this.$store.commit("UPDATE_PENDINGTX", { pendingTx: tx });
-      if (tx.receiveaddress === tx.sendaddress && tx.assetName === "ONG") {
+      if (tx.receiveaddress === tx.sendaddress && tx.assetName === "TSG") {
         this.$store.commit("UPDATE_TRANSFER_REDEEM_TYPE", { type: true });
       }
       this.$router.push("/sharedWallet/pendingTxHome");
@@ -657,14 +657,14 @@ export default {
       );
     },
     checkMoreTx() {
-      let url = `http://121.41.30.85/address/${this.sharedWallet.sharedWalletAddress}/10/1`;
+      let url = `http://explorer.tesra.me/address/${this.sharedWallet.sharedWalletAddress}/10/1`;
       if (this.network === "TestNet") {
         url += "/testnet";
       }
       open(url);
     },
     showTxDetail(txHash) {
-      let url = `http://121.41.30.85/transaction/${txHash}`;
+      let url = `http://explorer.tesra.me/transaction/${txHash}`;
       if (this.network === "TestNet") {
         url += "/testnet";
       }
@@ -674,21 +674,21 @@ export default {
       this.$copyText(this.sharedWallet.sharedWalletAddress);
       this.$message.success(this.$t("common.copied"));
     },
-    redeemOng() {
-      if (this.balance.unboundOng == 0) {
+    redeemTsg() {
+      if (this.balance.unboundTsg == 0) {
         this.redeemInfoVisible = true;
         return;
       }
-      if (Number(this.balance.ong) < 0.01) {
-        this.$message.warning(this.$t("common.ongNoEnough"));
+      if (Number(this.balance.tsg) < 0.01) {
+        this.$message.warning(this.$t("common.tsgNoEnough"));
         return;
       }
       this.$store.commit("CLEAR_CURRENT_TRANSFER");
       this.$store.commit("UPDATE_TRANSFER_REDEEM_TYPE", { type: true });
 
       const redeem = {
-        claimableOng: this.balance.unboundOng,
-        balance: this.balance.ong
+        claimableTsg: this.balance.unboundTsg,
+        balance: this.balance.tsg
       };
       this.$store.commit("UPDATE_CURRENT_REDEEM", { redeem: redeem });
       this.$router.push({ path: "/sharedWallet/sendTransfer" });

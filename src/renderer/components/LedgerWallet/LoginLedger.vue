@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import {getDeviceInfo, getPublicKey} from '../../../core/ontLedger'
+  import {getDeviceInfo, getPublicKey} from '../../../core/tstLedger'
   const interval = 3000;
   export default {
     name: 'LoginLedger',

@@ -1,4 +1,4 @@
-import { Crypto } from 'ontology-ts-sdk'
+import { Crypto } from 'tesrasdk-ts'
 import { WALLET_TYPE} from '../../../core/consts'
 import dbService from '../../../core/dbService'
 const state = {

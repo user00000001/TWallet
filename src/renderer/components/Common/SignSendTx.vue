@@ -24,8 +24,8 @@
 import {mapState} from 'vuex'
 import {DEFAULT_SCRYPT} from '../../../core/consts'
 import { getRestClient } from '../../../core/utils'
-import {legacySignWithLedger} from '../../../core/ontLedger'
-import {Crypto, TransactionBuilder, TxSignature, utils, RestClient} from 'ontology-ts-sdk'
+import {legacySignWithLedger} from '../../../core/tstLedger'
+import {Crypto, TransactionBuilder, TxSignature, utils, RestClient} from 'tesrasdk-ts'
 export default {
     name: 'SignSendTx',
     props:['tx', 'wallet', 'visible'],
@@ -123,7 +123,7 @@ export default {
                     if(res.Result.indexOf('balance insufficient') > -1 ) {
                         this.$message.error(this.$t('common.balanceInsufficient'))
                     } else if(res.Result.indexOf('cover gas cost') > -1){
-                        this.$message.error(this.$t('common.ongNoEnough'))
+                        this.$message.error(this.$t('common.tsgNoEnough'))
                     } else {
                         this.$message.error(res.Result)
                     }

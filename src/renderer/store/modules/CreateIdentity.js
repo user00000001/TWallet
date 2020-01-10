@@ -1,9 +1,9 @@
-import { Wallet, Identity, Crypto, OntidContract, TransactionBuilder } from "ontology-ts-sdk";
+import { Wallet, Identity, Crypto, TstidContract, TransactionBuilder } from "tesrasdk-ts";
 import {GAS_PRICE, GAS_LIMIT} from '../../../core/consts'
 const state = {
   currentStep: 0,
   label: '',
-  ontid: '',
+  tstid: '',
   identity: '',
   tx: ''
 }
@@ -19,14 +19,14 @@ const mutations = {
   },
   CREATE_IDENTITY(state, payload) {
     state.label = payload.label
-    state.ontid = payload.ontid
+    state.tstid = payload.tstid
     state.identity = payload.identity,
     state.tx = payload.tx
   },
   INIT_CREATE_IDENTITY(state, payload) {
     state.currentStep = 0
     state.label = ''
-    state.ontid = ''
+    state.tstid = ''
     state.identity = '',
     state.tx = ''
   }
@@ -45,13 +45,13 @@ const actions = {
 
     let identity = Identity.create(body.privateKey, body.password, body.label)
     const publicKey = body.privateKey.getPublicKey();
-    const tx = OntidContract.buildRegisterOntidTx(identity.ontid, publicKey, GAS_PRICE, GAS_LIMIT);
+    const tx = TstidContract.buildRegisterTstidTx(identity.tstid, publicKey, GAS_PRICE, GAS_LIMIT);
     tx.payer = body.payer;
     TransactionBuilder.signTransaction(tx, body.privateKey);
     identity = identity.toJsonObj();
     commit('CREATE_IDENTITY', {
       label: body.label,
-      ontid: identity.ontid,
+      tstid: identity.tstid,
       identity,
       tx: tx
     })

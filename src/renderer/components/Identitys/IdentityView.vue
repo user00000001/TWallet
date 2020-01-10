@@ -7,8 +7,8 @@
       <div class="div-wallet-name">{{identity.label}}</div>
       <!--<img class="img-wallet-edit" src="./../assets/edit.png" alt="">-->
       <div class="div-wallet-address">
-        <div>{{$t('identitys.ontid')}} :</div>
-        {{identity.ontid}}
+        <div>{{$t('identitys.tstid')}} :</div>
+        {{identity.tstid}}
       </div>
     </div>
     <div v-show="addressCopied" class="copied-label">Copied</div>
@@ -36,8 +36,8 @@
         @cancel="handleCancel">
           <div>
               <p class="font-medium">
-                {{option==='EXPORT_ONTID' ? $t('wallets.exportOntid') : '' }}
-                 {{identity.ontid}}</p>
+                {{option==='EXPORT_TSTID' ? $t('wallets.exportTstid') : '' }}
+                 {{identity.tstid}}</p>
               <div >
                 <p>{{$t('common.enterIdentityPassword')}}</p>
                 <a-input class="input" v-model="password" :plaecholder="$t('common.password')" type="password"></a-input>
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-  import {Wallet, Account, Crypto, Identity} from 'ontology-ts-sdk';
+  import {Wallet, Account, Crypto, Identity} from 'tesrasdk-ts';
   import dbService from '../../../core/dbService'
   import { formatScryptParams } from '../../../core/utils'
 	export default {
@@ -77,7 +77,7 @@
     },
     methods: {
       copyAddress(identity) {
-        this.$copyText(identity.ontid)
+        this.$copyText(identity.tstid)
         this.addressCopied = true
         this.$nextTick(function () {
           setInterval(this.addressCopiedDisabled, 3000);
@@ -88,11 +88,11 @@
       },
       handleExportIdentity() {
         this.passModal = true;
-        this.option = 'EXPORT_ONTID'
+        this.option = 'EXPORT_TSTID'
       },
       deleteIdentity() {
         this.passModal = true;
-        this.option = 'DELETE_ONTID'
+        this.option = 'DELETE_TSTID'
       },
       handleCancel() {
         this.passModal = false;
@@ -123,9 +123,9 @@
           this.$message.error(this.$t('common.pwdErr'))
           return;
         }
-        if(this.option === 'DELETE_ONTID') {
+        if(this.option === 'DELETE_TSTID') {
           this.handleDelete();
-        } else if (this.option === 'EXPORT_ONTID') {
+        } else if (this.option === 'EXPORT_TSTID') {
           this.passModal = false;         
           this.showIdentityKeystore = true;
           const keystore = {
@@ -151,14 +151,14 @@
         const that = this;
         const type = 'Identity'
         const commitType = 'DELETE_IDENTITY';
-        dbService.remove({type:type, address: this.identity.ontid}, {}, function(err, numRemoved) {
+        dbService.remove({type:type, address: this.identity.tstid}, {}, function(err, numRemoved) {
           if(err) {
             that.$store.dispatch('hideLoadingModals')
             that.$message.error(that.$t('wallets.deleteIdentityFailed'));
             return;
           }
            // remove from store
-          that.$store.commit(commitType, {ontid: that.identity.ontid})
+          that.$store.commit(commitType, {tstid: that.identity.tstid})
           that.$store.dispatch('hideLoadingModals')
           that.$message.success(that.$t('wallets.deleteIdentitySuccess'))
           that.passModal = false;

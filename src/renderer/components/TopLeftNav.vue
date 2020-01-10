@@ -12,7 +12,7 @@
         </router-link>
 
       <router-link :to="{name:'Identitys'}" active-class="nav-accounts-active">
-        <a-tooltip placement="right" :title="$t('setting.ontid')">
+        <a-tooltip placement="right" :title="$t('setting.tstid')">
               <div class="nav-accounts"></div>
           </a-tooltip>
       </router-link>
@@ -64,11 +64,11 @@ export default {
       const lang = localStorage.getItem("user_lang");
       let url = "";
       if (lang === "zh") {
-        url = "http://ontfans.io/article/41.html";
-        // url = 'https://medium.com/ontologynetwork/owallet-faq-7f4f96784253'
+        url = "http://tstfans.io/article/41.html";
+        // url = 'https://medium.com/TesraSupernet/twallet-faq-7f4f96784253'
       } else {
-        // url = 'https://ontfans.io/?/article/39'
-        url = "https://medium.com/ontologynetwork/owallet-faq-7f4f96784253";
+        // url = 'https://tstfans.io/?/article/39'
+        url = "https://medium.com/TesraSupernet/twallet-faq-7f4f96784253";
       }
 
       open(url)

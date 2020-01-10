@@ -28,7 +28,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Crypto} from 'ontology-ts-sdk'
+  import {Crypto} from 'tesrasdk-ts'
 
   export default {
     name: 'ConfirmSigNum',

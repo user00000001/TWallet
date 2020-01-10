@@ -95,12 +95,12 @@
 <script>
 import {mapState} from 'vuex'
 import draggable from 'vuedraggable'
-import {OntAssetTxBuilder, Crypto, TransactionBuilder, TxSignature, utils, Oep4} from 'ontology-ts-sdk'
-import {ONT_PASS_NODE, ONT_PASS_NODE_PRD, ONT_PASS_URL, DEFAULT_SCRYPT} from '../../../../core/consts'
+import {TstAssetTxBuilder, Crypto, TransactionBuilder, TxSignature, utils, Oep4} from 'tesrasdk-ts'
+import {TST_PASS_NODE, TST_PASS_NODE_PRD, TST_PASS_URL, DEFAULT_SCRYPT} from '../../../../core/consts'
 import axios from 'axios'
 import dbService from '../../../../core/dbService'
 import { BigNumber } from 'bignumber.js';
-import {legacySignWithLedger} from '../../../../core/ontLedger'
+import {legacySignWithLedger} from '../../../../core/tstLedger'
 
 export default {
     name:'InputPassword',
@@ -166,19 +166,19 @@ export default {
             if(this.transfer.isRedeem) {
                 const from = new Crypto.Address(this.sharedWallet.sharedWalletAddress)
                 const to = from
-                const value = new BigNumber(this.redeem.claimableOng);
+                const value = new BigNumber(this.redeem.claimableTsg);
                 gasPrice = '500'
                 amount = value.multipliedBy(1e9).toString();
-                tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, from, gasPrice, gasLimit);
+                tx = TstAssetTxBuilder.makeWithdrawTsgTx(from, to, amount, from, gasPrice, gasLimit);
             } else {
             //create transaction
                 gasPrice = gas.div(gasLimit).toString();
                 const from = new Crypto.Address(this.sharedWallet.sharedWalletAddress)
                 const to = new Crypto.Address(this.transfer.to);
-                if(tokenType === 'ONT' || tokenType === 'ONG') {
-                    amount = tokenType === 'ONT' ? this.transfer.amount : new BigNumber(this.transfer.amount).multipliedBy(1e9);
+                if(tokenType === 'TST' || tokenType === 'TSG') {
+                    amount = tokenType === 'TST' ? this.transfer.amount : new BigNumber(this.transfer.amount).multipliedBy(1e9);
                     
-                    tx = OntAssetTxBuilder.makeTransferTx(tokenType, from, to, amount, gasPrice, gasLimit, from);
+                    tx = TstAssetTxBuilder.makeTransferTx(tokenType, from, to, amount, gasPrice, gasLimit, from);
                 } else { // now only supports oep4
                     const contractAddr = new Crypto.Address(utils.reverseHex(this.transfer.scriptHash));
                     const oep4 = new Oep4.Oep4TxBuilder(contractAddr);
@@ -226,13 +226,13 @@ export default {
             const txData = tx.serialize();
             //save transaction to backend
             const net = localStorage.getItem('net')
-            const ontPassNode = net === 'TEST_NET' ? ONT_PASS_NODE : ONT_PASS_NODE_PRD
-            const url = ontPassNode + ONT_PASS_URL.CreateSharedTransfer
+            const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
+            const url = tstPassNode + TST_PASS_URL.CreateSharedTransfer
             const body = {
                 sendAddress: this.sharedWallet.sharedWalletAddress,
                 receiveAddress: this.transfer.isRedeem ? this.sharedWallet.sharedWalletAddress : this.transfer.to,
                 assetName: tokenType,
-                amount: (tokenType === 'ONT' || tokenType === 'ONG') ? amount : this.transfer.amount,
+                amount: (tokenType === 'TST' || tokenType === 'TSG') ? amount : this.transfer.amount,
                 gasLimit,
                 gasPrice,
                 transactionIdHash: txHash,
@@ -251,7 +251,7 @@ export default {
                     this.$emit('inputPassNext')
                     this.$message.success(this.$t('sharedWalletHome.createTransferSuccess'))
                     // //save signed tx
-                    // const url2 = ONT_PASS_NODE + ONT_PASS_URL.SignSharedTransfer
+                    // const url2 = TST_PASS_NODE + TST_PASS_URL.SignSharedTransfer
                     // const body2 = {
                     //     transactionIdHash:txHash,
                     //     signedAddress: this.sponsorWallet.address,

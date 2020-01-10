@@ -9,7 +9,7 @@
 .detail-item p {
   margin-bottom: 5px;
 }
-.select-ontid {
+.select-tstid {
   width: 100%;
 }
 
@@ -41,8 +41,8 @@
         <div class="nodeStake-container">
 
             <div class="detail-item">
-                <p class="font-medium-black" for="">{{$t('nodeStake.ontid')}}</p>
-                <p>{{detail.ontid}}</p>
+                <p class="font-medium-black" for="">{{$t('nodeStake.tstid')}}</p>
+                <p>{{detail.tstid}}</p>
             </div>
             <div class="detail-item">
                 <p class="font-medium-black" for="">{{$t('nodeStake.stakeWalletAddress')}}</p>
@@ -73,13 +73,13 @@
             
         </div>
         <a-modal 
-        :title="$t('nodeStake.signWithOntid')"
-        :visible="ontidPassModal"
-        @ok="handleOntidSignOK"
-        @cancel="handleOntidSignCancel">
+        :title="$t('nodeStake.signWithTstid')"
+        :visible="tstidPassModal"
+        @ok="handleTstidSignOK"
+        @cancel="handleTstidSignCancel">
           <div>
-              <p>{{$t('nodeStake.enterOntidPass')}}</p>
-              <a-input class="input" v-model="ontidPassword" :plaecholder="$t('nodeStake.password')" type="password"></a-input>
+              <p>{{$t('nodeStake.enterTstidPass')}}</p>
+              <a-input class="input" v-model="tstidPassword" :plaecholder="$t('nodeStake.password')" type="password"></a-input>
           </div>
         </a-modal>
 
@@ -104,10 +104,10 @@
 <script>
 import Breadcrumb from "../../Breadcrumb";
 import { mapState } from "vuex";
-import { GAS_PRICE, GAS_LIMIT, TEST_NET, MAIN_NET, ONT_PASS_NODE, ONT_PASS_NODE_PRD, ONT_PASS_URL, DEFAULT_SCRYPT } from "../../../../core/consts";
-import { Crypto, TransactionBuilder, RestClient, utils, GovernanceTxBuilder, TxSignature } from "ontology-ts-sdk";
+import { GAS_PRICE, GAS_LIMIT, TEST_NET, MAIN_NET, TST_PASS_NODE, TST_PASS_NODE_PRD, TST_PASS_URL, DEFAULT_SCRYPT } from "../../../../core/consts";
+import { Crypto, TransactionBuilder, RestClient, utils, GovernanceTxBuilder, TxSignature } from "tesrasdk-ts";
 import axios from 'axios'
-import {legacySignWithLedger} from '../../../../core/ontLedger'
+import {legacySignWithLedger} from '../../../../core/tstLedger'
 
 export default {
   name: "NodeStakeRegister",
@@ -120,12 +120,12 @@ export default {
   data() {
     const net = localStorage.getItem('net');
     return {
-      localOntid: [],
+      localTstid: [],
       stakeQuantity: 0,
-      ontidPassModal: false,
+      tstidPassModal: false,
       walletPassModal: false,
       walletModalHandled: false,
-      ontidPassword: "",
+      tstidPassword: "",
       walletPassword: "",
       tx: ""
     };
@@ -135,7 +135,7 @@ export default {
     if(!this.stakeWallet.key) {//common wallet
       this.$store.dispatch('getLedgerStatus')
     }
-    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.ontid);
+    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
   },
   computed: {
     ...mapState({
@@ -156,14 +156,14 @@ export default {
         this.$message.error(this.$t("nodeStake.stakeQuantityEmpty"));
         return;
       }
-      const ontid = this.detail.ontid;
+      const tstid = this.detail.tstid;
       const peerPubkey = this.detail.publickey;
       const keyNo = 1;
       const userAddr = new Crypto.Address(this.detail.stakewalletaddress);
       const initPos = parseInt(this.stakeQuantity);
       const payer = userAddr;
       const tx = GovernanceTxBuilder.makeRegisterCandidateTx(
-        ontid,
+        tstid,
         peerPubkey,
         keyNo,
         userAddr,
@@ -173,34 +173,34 @@ export default {
         GAS_LIMIT
       );
       this.tx = tx;
-      this.ontidPassModal = true;
+      this.tstidPassModal = true;
     },
-    handleOntidSignOK() {
-      if(!this.ontidPassword) {
+    handleTstidSignOK() {
+      if(!this.tstidPassword) {
         this.$message.error(this.$t('nodeStake.passwordEmpty'))
         return;
       }
-      if (this.ontidPassword) {
+      if (this.tstidPassword) {
         const enc = new Crypto.PrivateKey(this.stakeIdentity.controls[0].key);
         let pri;
         try {
           pri = enc.decrypt(
-            this.ontidPassword,
+            this.tstidPassword,
             new Crypto.Address(this.stakeIdentity.controls[0].address),
             this.stakeIdentity.controls[0].salt
-          );// ontid use 4096 as n
+          );// tstid use 4096 as n
         } catch (err) {
           console.log(err);
           this.$message.error(this.$t("common.pwdErr"));
           return;
         }
         TransactionBuilder.signTransaction(this.tx, pri);
-        this.ontidPassModal = false;
+        this.tstidPassModal = false;
         this.walletPassModal = true;
       }
     },
-    handleOntidSignCancel() {
-      this.ontidPassModal = false;
+    handleTstidSignCancel() {
+      this.tstidPassModal = false;
     },
     handleWalletSignOK(){
       if(this.walletModalHandled) {
@@ -261,23 +261,23 @@ export default {
     },
     delegateSendTx(tx){
       const body = {
-        ontid: this.stakeIdentity.ontid,
+        tstid: this.stakeIdentity.tstid,
         stakewalletaddress: this.stakeWallet.address,
         transactionhash: utils.reverseHex(tx.getHash()),
         transactionbodyhash: tx.serialize()
       }
       const net = localStorage.getItem('net')
-      const ontPassNode = net === 'TEST_NET' ? ONT_PASS_NODE : ONT_PASS_NODE_PRD
+      const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
       this.$store.dispatch('showLoadingModals')
-      axios.post(ontPassNode + ONT_PASS_URL.DelegateSendTx, body).then(res => {
+      axios.post(tstPassNode + TST_PASS_URL.DelegateSendTx, body).then(res => {
         this.$store.dispatch('hideLoadingModals')
         this.walletModalHandled = false;
         const params = {
-          ontid: this.stakeIdentity.ontid,
+          tstid: this.stakeIdentity.tstid,
           stakewalletaddress: this.stakeWallet.address,
           stakequantity: this.stakeQuantity
         }
-        axios.post(ontPassNode + ONT_PASS_URL.SetStakeInfo, params).then(res => {
+        axios.post(tstPassNode + TST_PASS_URL.SetStakeInfo, params).then(res => {
           this.$router.push({name: 'NodeStakeInfo'})
         })
       }).catch(err => {

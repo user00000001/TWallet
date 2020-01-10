@@ -61,7 +61,7 @@
   .redeem-item button {
       margin-left: 20px;
   }
-  .redeem-ont {
+  .redeem-tst {
       margin: 15px 0;
   }
   .redeem-btn {
@@ -118,7 +118,7 @@
                     <span class="font-regular tip-font">{{$t('nodeMgmt.authorizeTip')}}</span>
                 </div>
                 <a-button type="default" class="cancel-btn" @click="cancelAuthorization">{{$t('nodeMgmt.cancelAuthorization')}}</a-button>
-                <div class="redeem-ont">
+                <div class="redeem-tst">
                     <p class="redeem-item">
                         <span class="font-medium-black label">
                             <a-tooltip placement="right" :title="$t('nodeMgmt.lockedTST')">
@@ -133,17 +133,17 @@
                             {{$t('nodeMgmt.claimable')}}: 
                         </span>
                         <span class="font-medium">{{authorizationInfo.claimable}} TST</span>
-                        <a-button type="primary" class="redeem-btn" @click="redeemOnt">{{$t('nodeMgmt.redeem')}}</a-button>
+                        <a-button type="primary" class="redeem-btn" @click="redeemTst">{{$t('nodeMgmt.redeem')}}</a-button>
                     </p>
                     <p class="redeem-item">
                         <span class="font-medium-black label">
                             <a-tooltip placement="right" :title="$t('nodeMgmt.unboundTSG')">
                                 <a-icon type="info-circle-o" />
                             </a-tooltip>
-                            {{$t('nodeMgmt.unboundOng')}}: 
+                            {{$t('nodeMgmt.unboundTsg')}}: 
                         </span>
-                        <span class="font-medium">{{unboundOng}} TSG</span>
-                        <a-button type="primary" class="redeem-btn" @click="redeemOng">{{$t('nodeMgmt.redeem')}}</a-button>
+                        <span class="font-medium">{{unboundTsg}} TSG</span>
+                        <a-button type="primary" class="redeem-btn" @click="redeemTsg">{{$t('nodeMgmt.redeem')}}</a-button>
                     </p>
                 </div>
             </div>
@@ -202,7 +202,7 @@ import Breadcrumb from '../../Breadcrumb'
 import {mapState} from 'vuex'
 import SignSendTx from '../../Common/SignSendTx'
 import {GAS_PRICE, GAS_LIMIT} from '../../../../core/consts'
-import {Crypto, GovernanceTxBuilder, utils} from 'ontology-ts-sdk'
+import {Crypto, GovernanceTxBuilder, utils} from 'tesrasdk-ts'
 import numeral from 'numeral'
 import {varifyPositiveInt} from '../../../../core/utils.js'
 
@@ -245,7 +245,7 @@ export default {
             splitFee: state => state.NodeAuthorization.splitFee,
             authorizationInfo: state => state.NodeAuthorization.authorizationInfo,
             peer_attrs: state => state.NodeAuthorization.peer_attrs,
-            unboundOng: state => state.NodeAuthorization.peerUnboundOng
+            unboundTsg: state => state.NodeAuthorization.peerUnboundTsg
         }),
         inAuthorization: {
             get() {
@@ -261,7 +261,7 @@ export default {
             this.$store.dispatch('fetchAuthorizationInfo', {pk, address})
             this.$store.dispatch('fetchSplitFee', address)
             this.$store.dispatch('fetchPeerAttributes', pk)
-            this.$store.dispatch('fetchPeerUnboundOng', address)
+            this.$store.dispatch('fetchPeerUnboundTsg', address)
         },
         handleRouteBack() {
             this.$router.go(-1);
@@ -363,9 +363,9 @@ export default {
             this.cancelVisible = true
             this.tx = '';
         },
-        redeemOnt() {
+        redeemTst() {
             if(!this.authorizationInfo.withdrawUnfreezePos) {
-                this.$message.warning(this.$t('nodeMgmt.noClaimableOnt'))
+                this.$message.warning(this.$t('nodeMgmt.noClaimableTst'))
                 return;
             }
             const claimable = this.authorizationInfo.claimableVal
@@ -380,12 +380,12 @@ export default {
             this.signVisible = true;
             this.tx = tx;
         },
-        redeemOng() {
-            if(!this.unboundOng) {
-                this.$message.warning(this.$t('nodeMgmt.noUnboundOng'));
+        redeemTsg() {
+            if(!this.unboundTsg) {
+                this.$message.warning(this.$t('nodeMgmt.noUnboundTsg'));
                 return;
             }
-            const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundOngTx(
+            const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundTsgTx(
                 new Crypto.Address(this.stakeWallet.address),
                 new Crypto.Address(this.stakeWallet.address),
                 GAS_PRICE,

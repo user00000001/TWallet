@@ -1,6 +1,6 @@
 import LedgerNode from '@ledgerhq/hw-transport-node-hid'
 import asyncWrap from './asyncHelper'
-import {utils, Crypto} from 'ontology-ts-sdk'
+import {utils, Crypto} from 'tesrasdk-ts'
 import * as elliptic from 'elliptic';
 
 const VALID_STATUS = 0x9000
@@ -46,7 +46,7 @@ const BIP44 = (acct = 0, neo = false) => {
     )
 }
 
-export default class OntLedger {
+export default class TstLedger {
     path: string;
     device: any;
 
@@ -56,16 +56,16 @@ export default class OntLedger {
 
     /**
      * Initialises by listing devices and trying to find a ledger device connected. Throws an error if no ledgers detected or unable to connect.
-     * @return {Promise<OntLedger>}
+     * @return {Promise<TstLedger>}
      */
     static async init() {
         const supported = await LedgerNode.isSupported()
         // if (!supported) { throw new Error(`Your computer does not support the ledger!`) }
         if (!supported) { throw 'NOT_SUPPORT' }
-        const paths = await OntLedger.list()
+        const paths = await TstLedger.list()
         // if (paths.length === 0) throw new Error('USB Error: No device found.')
         if (paths.length === 0) throw 'NOT_FOUND'
-        const ledger = new OntLedger(paths[0])
+        const ledger = new TstLedger(paths[0])
         return ledger.open()
     }
 
@@ -75,9 +75,9 @@ export default class OntLedger {
 
     /**
      * Opens an connection with the selected ledger.
-     * @return {Promise<OntLedger>}this
+     * @return {Promise<TstLedger>}this
      */
-    async open(): Promise<OntLedger> {
+    async open(): Promise<TstLedger> {
         try {
             this.device = await LedgerNode.open(this.path)
             return this
@@ -209,7 +209,7 @@ const assembleSignature = (response: string): string => {
 }
 
 export const getPublicKey = async (acct: number = 0, neo: boolean = false): Promise<string> => {
-    const ledger = await OntLedger.init()
+    const ledger = await TstLedger.init()
     try {
         return await ledger.getPublicKey(acct, neo)
     } finally {
@@ -218,7 +218,7 @@ export const getPublicKey = async (acct: number = 0, neo: boolean = false): Prom
 }
 
 export const getDeviceInfo = async () => {
-    const ledger = await OntLedger.init()
+    const ledger = await TstLedger.init()
     try {
         return await ledger.getDeviceInfo()
     } finally {
@@ -232,7 +232,7 @@ export const legacySignWithLedger = async (
     neo: boolean = false,
     acct: number = 0
 ): Promise<string> => {
-    const ledger = await OntLedger.init()
+    const ledger = await TstLedger.init()
     try {
         const signData = await ledger.getSignature(unsignedTx, acct, neo)
         return signData;

@@ -19,7 +19,7 @@
 
         <a-input type="password" class="input input-password"
                  v-validate="{required: true ,min:6}" :data-vv-as="$t('FormField.password')" name="keystorePassword"
-                 v-model="keystorePassword" :placeholder="$t('importIdentity.ontidPassword')"></a-input>
+                 v-model="keystorePassword" :placeholder="$t('importIdentity.tstidPassword')"></a-input>
         <span class="v-validate-span-errors" v-show="errors.has('keystorePassword')">{{ errors.first('keystorePassword') }}</span>
       </div>
     </div>
@@ -35,7 +35,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Wallet, Account, Crypto, Identity, OntidContract, RestClient, SDK} from "ontology-ts-sdk"
+  import {Wallet, Account, Crypto, Identity, TstidContract, RestClient, SDK} from "tesrasdk-ts"
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {DEFAULT_SCRYPT, TEST_NET, MAIN_NET} from '../../../../core/consts'
@@ -114,13 +114,13 @@ import { getRestClient, formatScryptParams } from '../../../../core/utils';
             this.$store.dispatch('hideLoadingModals')
             return;
         }
-        const tx = OntidContract.buildGetDDOTx(identity.ontid)
+        const tx = TstidContract.buildGetDDOTx(identity.tstid)
         const restClient = getRestClient()
         restClient.sendRawTransaction(tx.serialize(), true).then(res => {
           if(res.Result) {
             this.saveToDb(identity)
           } else {
-            this.$message.error(this.$t('importIdentity.ontidNotExist'))
+            this.$message.error(this.$t('importIdentity.tstidNotExist'))
             this.$store.dispatch('hideLoadingModals')            
             return;
           }
@@ -133,13 +133,13 @@ import { getRestClient, formatScryptParams } from '../../../../core/utils';
         const that = this;
         const wallet = {
           type: 'Identity',
-          address: identity.ontid,
+          address: identity.tstid,
           wallet: identity
         }
         dbService.insert(wallet, function (err, newDoc) {
           if (err) {
             console.log(err)
-            that.$message.warning(that.$t('importIdentity.ontidExist'))
+            that.$message.warning(that.$t('importIdentity.tstidExist'))
             that.$store.dispatch('hideLoadingModals')
             return;
           }

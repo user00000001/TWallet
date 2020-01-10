@@ -42,8 +42,8 @@
     <div class=" clearfix">
         <p class="label">{{$t('sharedWalletHome.send')}}</p>
         <a-select v-model="scriptHash" @change="changeAsset" class="select-asset">
-                <a-select-option value="ONT">TST</a-select-option>
-                <a-select-option value="ONG">TSG</a-select-option>
+                <a-select-option value="TST">TST</a-select-option>
+                <a-select-option value="TSG">TSG</a-select-option>
                 <a-select-option v-for="(oep4) of oep4s" :key="oep4.contract_hash" :value="oep4.contract_hash">
                     {{oep4.symbol}}
                 </a-select-option>
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import {varifyPositiveInt, varifyOngValue, validateAddress} from '../../../../core/utils.js'
+import {varifyPositiveInt, varifyTsgValue, validateAddress} from '../../../../core/utils.js'
 import {mapState} from 'vuex'
 import { BigNumber } from 'bignumber.js';
 
@@ -100,7 +100,7 @@ export default {
         return {
             // address: currentWallet.address,
             gas: 0.01,
-            asset:'ONT',
+            asset:'TST',
             scriptHash: 'TST',
             decimal: 1,
             amount: 0,
@@ -139,23 +139,23 @@ export default {
             this.validToAddress = true;
         },
         validateAmount() {
-            if(this.asset === 'ONT' && !varifyPositiveInt(this.amount)) {
+            if(this.asset === 'TST' && !varifyPositiveInt(this.amount)) {
                 this.validAmount = false;
                 return;
             }
-            else if(!varifyOngValue(this.amount)) {
+            else if(!varifyTsgValue(this.amount)) {
                 this.validAmount = false;
                 return;
             } 
-            if(this.asset === 'ONT' && Number(this.amount) > Number(this.balance.ont) 
-             || this.asset === 'ONG' && Number(this.amount) > Number(this.balance.ong)
-             || this.asset !== 'ONT' && this.asset !== 'ONG' && Number(this.amount) > Number(this.selectedOep4.balance)) {
+            if(this.asset === 'TST' && Number(this.amount) > Number(this.balance.tst) 
+             || this.asset === 'TSG' && Number(this.amount) > Number(this.balance.tsg)
+             || this.asset !== 'TST' && this.asset !== 'TSG' && Number(this.amount) > Number(this.selectedOep4.balance)) {
                  this.validAmount = false;
                  this.$message.error(this.$t('transfer.exceedBalance'))
                  return;
              }
 
-            if (this.asset === "ONG" && new BigNumber(this.amount).plus(this.gas).isGreaterThan(this.balance.ong)) {
+            if (this.asset === "TSG" && new BigNumber(this.amount).plus(this.gas).isGreaterThan(this.balance.tsg)) {
                 this.$message.error(this.$t('transfer.exceedBalance'))
                 this.validAmount = false;
                 return;
@@ -164,7 +164,7 @@ export default {
         },
         changeAsset(value) {
             this.amount = '0';
-            if(value !== 'ONT' && value !=='ONG'){
+            if(value !== 'TST' && value !=='TSG'){
                 for(let i=0; i<this.oep4s.length; i++){
                     if(this.oep4s[i].contract_hash === value) {
                         this.scriptHash = this.oep4s[i].contract_hash
@@ -176,10 +176,10 @@ export default {
                 }
             } else {
                 if(value === 'TST'){
-                    this.asset = 'ONT';
+                    this.asset = 'TST';
                 }
                 else if (value === 'TSG'){
-                    this.asset = 'ONG';
+                    this.asset = 'TSG';
                 }
                 else {
                     this.asset = value;
@@ -189,10 +189,10 @@ export default {
             console.log(value)
         },
         maxAmount() {
-            if(this.asset === 'ONT') {
-                this.amount = this.balance.ont;
-            } else if(this.asset === 'ONG'){
-                this.amount = (new BigNumber(this.balance.ong).minus(this.gas)).toString();
+            if(this.asset === 'TST') {
+                this.amount = this.balance.tst;
+            } else if(this.asset === 'TSG'){
+                this.amount = (new BigNumber(this.balance.tsg).minus(this.gas)).toString();
                 this.validateAmount()
             } else {
                 for(let i=0; i<this.oep4s.length; i++){
@@ -216,8 +216,8 @@ export default {
                 this.$message.error(this.$t('transfer.inputValidAddress'))
                 return;
             }
-            if(this.asset === 'ONG' && new BigNumber(this.amount).plus(this.gas).isGreaterThan(this.balance.ong) ) {
-                this.$message.error(this.$t('transfer.ongBalanceNotEnough'))
+            if(this.asset === 'TSG' && new BigNumber(this.amount).plus(this.gas).isGreaterThan(this.balance.tsg) ) {
+                this.$message.error(this.$t('transfer.tsgBalanceNotEnough'))
                 return;
             }
             if(this.amount && this.to) {

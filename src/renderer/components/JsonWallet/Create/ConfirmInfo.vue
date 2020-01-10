@@ -23,7 +23,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Crypto, Wallet, Account} from 'ontology-ts-sdk'
+  import {Crypto, Wallet, Account} from 'tesrasdk-ts'
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {WALLET_TYPE,DEFAULT_SCRYPT} from '../../../../core/consts'

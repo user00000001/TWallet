@@ -177,8 +177,8 @@
 import Breadcrumb from '../../Breadcrumb'
 import {mapState} from 'vuex'
 import { getRestClient } from '../../../../core/utils'
-import {Transaction, Crypto, TransactionBuilder, TxSignature, utils, RestClient} from 'ontology-ts-sdk'
-import {legacySignWithLedger} from '../../../../core/ontLedger'
+import {Transaction, Crypto, TransactionBuilder, TxSignature, utils, RestClient} from 'tesrasdk-ts'
+import {legacySignWithLedger} from '../../../../core/tstLedger'
 import {PAX_API} from '../../../../core/consts'
 import {decryptWallet} from '../../../../core/utils'
 
@@ -370,7 +370,7 @@ export default {
                     if(res.Result.indexOf('balance insufficient') > -1 ) {
                         this.$message.error(this.$t('common.balanceInsufficient'), 5)
                     } else if(res.Result.indexOf('cover gas cost') > -1){
-                        this.$message.error(this.$t('common.ongNoEnough'), 5)
+                        this.$message.error(this.$t('common.tsgNoEnough'), 5)
                     } else {
                         this.$message.error(res.Result, 5)
                     }

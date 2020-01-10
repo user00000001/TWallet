@@ -55,11 +55,11 @@
 
 <script>
 import Breadcrumb from '../Breadcrumb'
-import {legacySignWithLedger} from '../../../core/ontLedger'
-import {RestClient, Crypto,OntAssetTxBuilder, TransactionBuilder, utils, TxSignature} from 'ontology-ts-sdk'
-import { TEST_NET, MAIN_NET, ONT_CONTRACT, ONT_PASS_NODE, DEFAULT_SCRYPT } from '../../../core/consts'
+import {legacySignWithLedger} from '../../../core/tstLedger'
+import {RestClient, Crypto,TstAssetTxBuilder, TransactionBuilder, utils, TxSignature} from 'tesrasdk-ts'
+import { TEST_NET, MAIN_NET, TST_CONTRACT, TST_PASS_NODE, DEFAULT_SCRYPT } from '../../../core/consts'
 import {mapState} from 'vuex'
-import {getDeviceInfo, getPublicKey} from '../../../core/ontLedger'
+import {getDeviceInfo, getPublicKey} from '../../../core/tstLedger'
 import {BigNumber} from 'bignumber.js'
 import { getRestClient } from '../../../core/utils'
 export default {
@@ -150,7 +150,7 @@ export default {
             if (res.Error === 0) {
                 this.$message.success(this.$t('common.transSentSuccess'))
             } else if (res.Error === -1) {
-                const err = res.Result.indexOf('cover gas cost') > -1 ? this.$t('common.ongNoEnough') : res.Result
+                const err = res.Result.indexOf('cover gas cost') > -1 ? this.$t('common.tsgNoEnough') : res.Result
                 this.$message.error(err)
                 return;
             } else {
@@ -178,9 +178,9 @@ export default {
             this.sending = true;
             const from = new Crypto.Address(this.currentWallet.address);
             const to = from;
-            const value = new BigNumber(this.redeem.claimableOng);
+            const value = new BigNumber(this.redeem.claimableTsg);
             const amount = value.multipliedBy(1e9).toString();
-            const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, to, amount, from, '500', '20000');
+            const tx = TstAssetTxBuilder.makeWithdrawTsgTx(from, to, amount, from, '500', '20000');
             if(this.type === 'commonWallet') {
                 this.$store.dispatch('showLoadingModals')
                 const enc = new Crypto.PrivateKey(this.currentWallet.key)

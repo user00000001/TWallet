@@ -17,7 +17,7 @@
   import LoadingModal from './components/Modals/Loading'
 
   export default {
-    name: 'ont-wallet-test',
+    name: 'tst-wallet-test',
     components: {TopLeftNav, LoadingModal},
     watch: {
       '$route': 'hideLoadingPage'
@@ -271,7 +271,7 @@
     border-bottom:1px solid #F4F4F6;
   }
 
-  .asset-ong {
+  .asset-tsg {
     height: 2.56rem;
     line-height: 2.56rem;
     margin-top: 12px;
@@ -312,7 +312,7 @@
     height: 34px;
   }
 
-  .claim-ong-container {
+  .claim-tsg-container {
     display:flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -321,12 +321,12 @@
     margin-bottom:20px;
   }
 
-  .claim-ong-item {
+  .claim-tsg-item {
     margin-bottom: 10px;
     position: relative;
   }
 
-  .claim-ong-item :first-child {
+  .claim-tsg-item :first-child {
     font-family: AvenirNext-Medium;
     font-size: 12px;
     color: #515457;
@@ -336,7 +336,7 @@
     float: left;
   }
 
-  .claim-ong-item :nth-child(2) {
+  .claim-tsg-item :nth-child(2) {
     font-family: AvenirNext-Medium;
     font-size: 12px;
     color: #000000;

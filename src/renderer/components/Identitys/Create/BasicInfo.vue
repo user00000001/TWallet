@@ -56,11 +56,11 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Wallet, Account, Crypto, TransactionBuilder, TxSignature, RestClient} from "ontology-ts-sdk"
+  import {Wallet, Account, Crypto, TransactionBuilder, TxSignature, RestClient} from "tesrasdk-ts"
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {DEFAULT_SCRYPT, TEST_NET, MAIN_NET} from '../../../../core/consts'
-import {legacySignWithLedger} from '../../../../core/ontLedger'
+import {legacySignWithLedger} from '../../../../core/tstLedger'
 import { getRestClient } from '../../../../core/utils'
 
   export default {
@@ -190,7 +190,7 @@ import { getRestClient } from '../../../../core/utils'
           if (res.Error === 0) {
             this.$message.success(this.$t('common.transSentSuccess'))
           } else if (res.Error === -1) {
-            this.$message.error(this.$t('common.ongNoEnough'))
+            this.$message.error(this.$t('common.tsgNoEnough'))
             return;
           } else {
             this.$message.error(res.Result)

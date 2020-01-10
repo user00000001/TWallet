@@ -7,7 +7,7 @@ export default {
     confirmTips: 'Please confirm the transfer.',
     transSentSuccess: 'Transaction has been sent successfully!',
     pwdErr: 'Password error',
-    ongNoEnough: 'Transaction does not have enough TSG to process',
+    tsgNoEnough: 'Transaction does not have enough TSG to process',
     transferFailed: 'Transfer failed. ',
     networkErr: 'Network error!',
     normalWallet: 'Individual wallet',
@@ -36,7 +36,7 @@ export default {
     deleteWallet: 'Delete Wallet',
     more: 'More',
     neoCompatible: 'NEO Address Compatible',
-    versionUpdate: 'You can upgrade your TesraWallet.',
+    versionUpdate: 'You can upgrade your TWallet.',
     getLatestVersion: 'Get the latest version here.',
     changePassSuccess: 'Change password successfully',
     changePassSuccessTip: 'You have already changed the password of the wallet. We recommand you to download and backup the .dat file.(Please replace or delete the old .dat file of this wallet.)',
@@ -72,7 +72,7 @@ export default {
 
   SetPaths: {
     name: 'Keystore File Path',
-    tips: '*The keystore.db file stores your encrypted private keys. Please make sure your computer is safe and make a backup of your keystore.db file. You need to set a file path for your keystore. Please do not set to the installation location of TesraWallet.',
+    tips: '*The keystore.db file stores your encrypted private keys. Please make sure your computer is safe and make a backup of your keystore.db file. You need to set a file path for your keystore. Please do not set to the installation location of TWallet.',
     close: 'Close',
     enter: 'Set file path'
   },
@@ -82,7 +82,7 @@ export default {
     createIdentity: 'Create TST ID',
     importIdentity: 'Import TST ID',
     identity: 'Identity',
-    ontid: 'TST ID'
+    tstid: 'TST ID'
   },
 
   createIdentity: {
@@ -94,7 +94,7 @@ export default {
     rePassword: 'Repeat password',
     cancel: 'Cancel',
     next: 'Next',
-    ontid: 'TST ID',
+    tstid: 'TST ID',
     selectWallet: 'Select Wallet to pay for the transaction fee',
     commonWallet: 'Individual Wallet',
     ledgerWallet: 'Ledger Wallet',
@@ -109,13 +109,13 @@ export default {
     import: 'Import TST ID',
     basicInfo: 'Basic info',
     keystore: 'TST ID Keystore',
-    ontidPassword: 'TST ID Password',
+    tstidPassword: 'TST ID Password',
     label: '',
     passError: 'Password error',
-    ontidNotExist: 'The TST ID to import does not exist on the blockchain',
+    tstidNotExist: 'The TST ID to import does not exist on the blockchain',
     keystoreImport: 'TST ID Keystore Import',
     invalidKeystore: 'The keystore you input is invalid.',
-    ontidExist: 'The identity already exists in local.',
+    tstidExist: 'The identity already exists in local.',
     importSuccess: 'Import Identity succeessfully!'
   },
 
@@ -141,7 +141,7 @@ export default {
     newPassword: 'New password',
     reNewPassword: 'Repeat new password',
     changePassSuccess: 'Change password successfully!',
-    exportOntid: 'You are about to export the keystore of identiy with TST ID:',
+    exportTstid: 'You are about to export the keystore of identiy with TST ID:',
     deleteIdentityFailed: 'Delete TST ID failed',
     deleteIdentitySuccess: 'Delete TST ID successfully',
     exportedWIF: 'Your private key (WIF) is:'
@@ -310,7 +310,7 @@ export default {
     sign: 'Sign',
     checkMore: 'Check more',
     publicKey: 'Public key',
-    redeemOng: 'Redeem TSG',
+    redeemTsg: 'Redeem TSG',
     paxMgmt: 'PAX management',
     unprocessed: 'Unprocessed',
     processing: 'In processing',
@@ -323,7 +323,7 @@ export default {
 
   pax: {
     ethAddress: 'Eth Address',
-    ontAddress: 'Tsg Address',
+    tstAddress: 'Tsg Address',
     amount: 'Amount',
     date: 'Date',
     toProcess: 'To process',
@@ -379,8 +379,8 @@ export default {
   },
 
   commonWalletHome: {
-    claimableOng: 'Claimable TSG',
-    unboundOng: 'Unbound TSG',
+    claimableTsg: 'Claimable TSG',
+    unboundTsg: 'Unbound TSG',
     redeem: 'Redeem',
     receive: 'Receive',
     swap: 'Swap',
@@ -419,8 +419,8 @@ export default {
     inputValidAmount: 'Please input valid transfer amount.',
     inputValidAddress: 'Please input valid receiver address.',
     exceedBalance: 'Amount of transfer can not exceed your balance.',
-    ongBalanceNotEnough: 'Your TSG balance is not enough for transfer and fee.',
-    warningTransferAllONG: 'Transferring this amount of TSG means you will not have enough TSG to pay\r\nfor further transaction fees (including claiming unbound TSG). \r\n\r\nContinue?'
+    tsgBalanceNotEnough: 'Your TSG balance is not enough for transfer and fee.',
+    warningTransferAllTSG: 'Transferring this amount of TSG means you will not have enough TSG to pay\r\nfor further transaction fees (including claiming unbound TSG). \r\n\r\nContinue?'
   },
 
   setting: {
@@ -432,17 +432,17 @@ export default {
     en: 'English',
     zh: '中文',
     pathTit: 'Path: ',
-    path: 'Save keystore file path（Please do not set to the installation location of TesraWallet!）',
+    path: 'Save keystore file path（Please do not set to the installation location of TWallet!）',
     change: 'Change',
     setNetworkSuccess: 'The network has been set to: ',
     wallets: 'Wallets',
-    ontid: 'TST ID',
+    tstid: 'TST ID',
     nodeStake: 'Node Stake',
     help: 'Help',
     settings: 'Settings',
     nodeAddress: 'Node address',
     setNodeSuccess: 'The node address has been set t: ',
-    notInstallationPath: 'Please do not set to the installation location of TesraWallet.',
+    notInstallationPath: 'Please do not set to the installation location of TWallet.',
     notSetPath: 'You did not set the keystore path.'
   },
 
@@ -465,7 +465,7 @@ export default {
   },
   nodeStake: {
     iHaveKnown: 'I Have Known',
-    ontid: 'TST ID',
+    tstid: 'TST ID',
     nodeStake: 'Node Stake',
     stakeWalletAddress: 'Stake Wallet Address',
     nodePk: 'Node Public Key',
@@ -474,19 +474,19 @@ export default {
     stakeQuantity: 'Stake Quantity',
     stake: 'Stake',
     feeTip: 'Stake needs 500 TSG for service fee',
-    selectOntid: 'Select TST ID',
+    selectTstid: 'Select TST ID',
     selectStakeWallet: 'Select stake wallet',
     next: 'Next',
     selectIdentity: 'Please select your TST ID',
     selectIndividualWallet: 'Please select your individual wallet',
     selectLedgerWallet: 'Please connect your ledger and open TST app on it.',
-    invalidOntid: 'Invalid TST ID ',
+    invalidTstid: 'Invalid TST ID ',
     invalidAddress: 'Invalid stake wallet address',
     stakeQuantityEmpty: 'Please enter valid stake quantity',
     password: 'Enter Password',
-    signWithOntid: 'Sign with TST ID',
+    signWithTstid: 'Sign with TST ID',
     signWithWallet: 'Sign with stake wallet',
-    enterOntidPass: 'Please enter the password of your TST ID',
+    enterTstidPass: 'Please enter the password of your TST ID',
     enterWalletPass: 'Please enter the password of your stake wallet',
     back: 'Back',
     recall: 'Recall',
@@ -523,11 +523,11 @@ export default {
   },
   redeemInfo: {
     info: 'Redeem Info',
-    claimableOng: `Claimable TSG is the amount of TSG you can claim for a 0.01 TSG fee. This balance will update each time a transaction is made in your wallet address.`,
-    unboundOng: `Unbound TSG is an amount of TSG which has not been added to your claimable TSG balance yet (since it only updates each you make a transaction in your wallet address). When a transaction is made in your address, the claimable TSG balance will update (adding your unbound TSG amount to your claimable TSG amount).`,
-    claimableOngName: 'Claimable TSG: ',
-    unboundOngName: 'Unbound TSG: ',
-    noClaimableOng: 'Your claimable TSG is 0. When a transaction of TST is made in your address, the claimable TSG balance will update'
+    claimableTsg: `Claimable TSG is the amount of TSG you can claim for a 0.01 TSG fee. This balance will update each time a transaction is made in your wallet address.`,
+    unboundTsg: `Unbound TSG is an amount of TSG which has not been added to your claimable TSG balance yet (since it only updates each you make a transaction in your wallet address). When a transaction is made in your address, the claimable TSG balance will update (adding your unbound TSG amount to your claimable TSG amount).`,
+    claimableTsgName: 'Claimable TSG: ',
+    unboundTsgName: 'Unbound TSG: ',
+    noClaimableTsg: 'Your claimable TSG is 0. When a transaction of TST is made in your address, the claimable TSG balance will update'
   },
 
   nodeMgmt: {
@@ -580,7 +580,7 @@ export default {
     noChange: 'You did not make a change.',
     noRewards: 'No rewards to redeem.',
     switchWallet: 'Switch wallet',
-    noClaimableOnt: 'No redeemable TST',
+    noClaimableTst: 'No redeemable TST',
     amountToCancel: 'Amount to cancel',
     unitToCancel: 'Units to cancel',
     invalidInput: 'Please enter valid value.',
@@ -597,14 +597,14 @@ export default {
     blocks: 'Blocks',
     proportionNextRound: "Reward proportion for others",
     proportionNextRoundTip: 'This is the portion of transaction fees received the node has chosen to share with users who have authorized stakes with them in the next consensus round. Note not all nodes share the Tesra SuperNet Foundation bonus with users who have authorized stakes with them. Please check the link below for more.',
-    authorizationFAQ: 'TesraWallet Stake Authorization FAQ',
+    authorizationFAQ: 'TWallet Stake Authorization FAQ',
     nodeAndUser: 'Node / User',
     authorizeTip: `If new stake is cancelled it will be cancelled immediately and be shown as redeemable TST. If authorized TST from previous consensus rounds is cancelled it will be redeemable only at the beginning of the next consensus round for candidate nodes (or one round later for consensus nodes). If a user has both authorized TST from this consensus round and a previous consensus round and cancels an TST amount exceeding the amount from this consensus round, they will receive authorized TST from this consensus round first and the remaining authorized TST in the next consensus round.`,
     rewardTip: `All transactions fees received by Tesra SuperNet are distributed to all candidate nodes and consensus nodes - 50% to each group.
 Within their 50% share each candidate node will receive their share linearly according to their stake amount.
 Within their 50% share each consensus node will receive their share according to their stake amount, which is subject to the incentive curve that discourages too high stakes.
 `,
-    unboundOng: 'Unbound TSG',
+    unboundTsg: 'Unbound TSG',
     activeT: 'Active in current round',
     activeT1: 'Active in next round',
     activeT2: 'Active in next 2 round',
@@ -618,12 +618,12 @@ Within their 50% share each consensus node will receive their share according to
     switchMainnet: 'Please switch to MainNet.',
     consensusNode: 'Consensus node',
     candidateNode: 'Candidate consensus node',
-    lockedONT: 'This is your canceled authorized stake amount currently held in a smart contract. Once it is available to be withdrawn, it will appear as redeemable TST.',
-    unboundONG: 'This is the unbound TSG amount of your authorized TST stake.',
-    profitONG: 'This is the transaction fee profit you have made. This will update at the beginning of each new consensus round.',
+    lockedTST: 'This is your canceled authorized stake amount currently held in a smart contract. Once it is available to be withdrawn, it will appear as redeemable TST.',
+    unboundTSG: 'This is the unbound TSG amount of your authorized TST stake.',
+    profitTSG: 'This is the transaction fee profit you have made. This will update at the beginning of each new consensus round.',
     getProfitPart: 'Already receiving profit portion',
     newStakePart: 'New stake portion',
-    claimableONT: 'Claimable TST',
+    claimableTST: 'Claimable TST',
     redeemInitPos: 'Redeem Init Pos',
     initPosInLock: "Locked",
     initPosRedeemable: 'Claimable',

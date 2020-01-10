@@ -13,7 +13,7 @@ import {
   BigNumber
 } from 'bignumber.js'
 import numeral from 'numeral'
-import {Crypto, RestClient} from 'ontology-ts-sdk'
+import {Crypto, RestClient} from 'tesrasdk-ts'
 const opn = require('opn')
 const {
     BrowserWindow
@@ -42,7 +42,7 @@ export function varifyPositiveInt(value) {
     return true;
 }
 
-export function varifyOngValue(value) {
+export function varifyTsgValue(value) {
     if (!/^[0-9]+([.]{1}[0-9]{1,9})?$/.test(value)) {
         return false;
     }
@@ -162,7 +162,7 @@ export default service;
 
 export function getExplorerUrl() {
   const net = localStorage.getItem('net');
-  const url = net === 'TEST_NET' ? 'http://121.41.30.85:3000' : 'http://121.41.30.85:3000';
+  const url = net === 'TEST_NET' ? 'http://explorer.tesra.me:3000' : 'http://explorer.tesra.me:3000';
   return url;
 }
 
@@ -194,7 +194,7 @@ export function validateKeystorePath(path) {
   const system = os.platform();
   if(system.indexOf('win') > -1 && system !== 'darwin') {
     const files = fs.readdirSync(path)
-    if(files && files.indexOf('resources') > -1 && files.indexOf('TesraWallet.exe') > -1) {
+    if(files && files.indexOf('resources') > -1 && files.indexOf('TWallet.exe') > -1) {
       return false;
     }
     const cwd = process.cwd();

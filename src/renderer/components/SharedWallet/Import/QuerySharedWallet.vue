@@ -65,7 +65,7 @@
 
 <script>
 import axios from 'axios';
-import {ONT_PASS_NODE, ONT_PASS_NODE_PRD,ONT_PASS_URL} from '../../../../core/consts'
+import {TST_PASS_NODE, TST_PASS_NODE_PRD,TST_PASS_URL} from '../../../../core/consts'
 import dbService from '../../../../core/dbService'
 import en from '../../../../common/lang/en'
 import zh from '../../../../common/lang/zh'
@@ -94,9 +94,9 @@ export default {
         },
         next() {
             const net = localStorage.getItem('net')
-            const ontPassNode = net === 'TEST_NET' ? ONT_PASS_NODE : ONT_PASS_NODE_PRD
+            const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
             this.$store.dispatch('showLoadingModals')
-            axios.get(ontPassNode+ONT_PASS_URL.QuerySharedWallet, {
+            axios.get(tstPassNode+TST_PASS_URL.QuerySharedWallet, {
                 params: {
                     sharedWalletAddress: this.searchText
                 }

@@ -35,8 +35,8 @@
 import {mapState} from 'vuex'
 import {DEFAULT_SCRYPT} from '../../../core/consts'
 import {decryptWallet} from '../../../core/utils'
-import {legacySignWithLedger} from '../../../core/ontLedger'
-import {Crypto, Transaction, TransactionBuilder, TxSignature, utils, RestClient} from 'ontology-ts-sdk'
+import {legacySignWithLedger} from '../../../core/tstLedger'
+import {Crypto, Transaction, TransactionBuilder, TxSignature, utils, RestClient} from 'tesrasdk-ts'
 
 export default {
     name: 'SignSharedTx',

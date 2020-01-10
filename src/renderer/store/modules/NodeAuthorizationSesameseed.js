@@ -1,4 +1,4 @@
-import { utils } from 'ontology-ts-sdk'
+import { utils } from 'tesrasdk-ts'
 import axios from 'axios';
 
 const state = {

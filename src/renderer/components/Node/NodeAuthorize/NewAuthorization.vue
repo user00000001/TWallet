@@ -76,7 +76,7 @@ import {varifyPositiveInt} from '../../../../core/utils.js'
 import SignSendTx from '../../Common/SignSendTx'
 import {mapState} from 'vuex'
 import {GAS_LIMIT, GAS_PRICE} from '../../../../core/consts'
-import {Crypto, GovernanceTxBuilder, utils} from 'ontology-ts-sdk'
+import {Crypto, GovernanceTxBuilder, utils} from 'tesrasdk-ts'
 
 export default {
     name: 'NewAuthorization',

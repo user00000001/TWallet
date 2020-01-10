@@ -110,7 +110,7 @@
 <template>
     <div class="confirm-container clearfix">
             <p class="label" v-if="!isRedeem">{{$t('sharedWalletHome.send')}}</p>
-            <p class="label" v-if="isRedeem">{{$t('sharedWalletHome.redeemOng')}}</p>
+            <p class="label" v-if="isRedeem">{{$t('sharedWalletHome.redeemTsg')}}</p>
 
         <div class="asset-table">
             <div class="asset-item">

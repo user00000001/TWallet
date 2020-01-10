@@ -130,7 +130,7 @@ export default {
         handleExchangeChangelly() {
             // this.$router.push({ name: "Changelly" });
             const changellyURL =
-                "https://widget.changelly.com?currencies=&from=btc&to=ont&amount=1&address=&fiat=true&fixedTo=false&theme=default&ref_id=su5srryl1mhz4fno&merchant_id=su5srryl1mhz4fno";
+                "https://widget.changelly.com?currencies=&from=btc&to=tst&amount=1&address=&fiat=true&fixedTo=false&theme=default&ref_id=su5srryl1mhz4fno&merchant_id=su5srryl1mhz4fno";
             open(changellyURL);
         },
         handleExchangeCryptonex() {
@@ -187,14 +187,14 @@ export default {
                         });
 
                         try {
-                            // Find ONT in list and re-order it to top of the list
-                            let ONTindex = filteredlist.findIndex(
+                            // Find TST in list and re-order it to top of the list
+                            let TSTindex = filteredlist.findIndex(
                                 filteredlist =>
-                                    filteredlist.coin_long == "Ontology"
+                                    filteredlist.coin_long == "Tesra"
                             );
                             const reorderedArray = this.reorderArray(
                                 filteredlist,
-                                ONTindex,
+                                TSTindex,
                                 0
                             );
                             this.results = reorderedArray;

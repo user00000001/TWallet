@@ -210,13 +210,13 @@
         <div class="asset-container">
           <div class="asset-item">
             <span class="asset-label">TST</span>
-            <span class="asset-amount">{{balance.ont}}</span>
+            <span class="asset-amount">{{balance.tst}}</span>
           </div>
-          <!-- <div class="asset-value">${{balance.ontValue}}</div> -->
+          <!-- <div class="asset-value">${{balance.tstValue}}</div> -->
 
           <div class="asset-item">
             <span class="asset-label">TSG</span>
-            <span class="asset-amount">{{balance.ong}}</span>
+            <span class="asset-amount">{{balance.tsg}}</span>
           </div>
 
           <div class="asset-item" v-for="item of oep4s" :key="item.contract_hash">
@@ -225,12 +225,12 @@
           </div>
 
           <!-- <div class="asset-value">{{'$900'}}</div> -->
-          <!-- <div class="asset-ong" v-if="currentWallet.key">
+          <!-- <div class="asset-tsg" v-if="currentWallet.key">
             <div class="asset-label nep5-label">
               <span>TST</span>
               <span>(NEP-5)</span>
             </div>
-            <span class="asset-amount">{{nep5Ont}}</span>
+            <span class="asset-amount">{{nep5Tst}}</span>
             <a-button type="default" class="commonWallet-btn btn-swap" 
           @click="toSwap">{{$t('commonWalletHome.swap')}}</a-button>
           </div> -->
@@ -238,20 +238,20 @@
         </div>
 
         <div class="left-footer">
-          <div class="claim-ong-container">
-            <div class="claim-ong">
-              <div class="claim-ong-item ">
-                <span>{{$t('commonWalletHome.claimableOng')}}: </span>
-                <span>{{balance.unboundOng}}</span>
+          <div class="claim-tsg-container">
+            <div class="claim-tsg">
+              <div class="claim-tsg-item ">
+                <span>{{$t('commonWalletHome.claimableTsg')}}: </span>
+                <span>{{balance.unboundTsg}}</span>
               </div>
-              <div class="claim-ong-item ">
-                <span>{{$t('commonWalletHome.unboundOng')}}: </span>
-                <span>{{balance.waitBoundOng}}</span>
+              <div class="claim-tsg-item ">
+                <span>{{$t('commonWalletHome.unboundTsg')}}: </span>
+                <span>{{balance.waitBoundTsg}}</span>
               </div>
             </div>
             <div class="redeem-container">
               <a-button type="default" class="btn-redeem"
-              @click="redeemOng">{{$t('commonWalletHome.redeem')}}</a-button>
+              @click="redeemTsg">{{$t('commonWalletHome.redeem')}}</a-button>
               <redeem-info-icon></redeem-info-icon>
             </div>
           </div>
@@ -280,8 +280,8 @@
           <div v-for="(tx,index) in completedTx" :key="tx.txHash+index" class="tx-item"
                @click="showTxDetail(tx.txHash)">
             <span>{{tx.txHash.substring(0, 40) + '...'}}</span>
-            <span v-if="tx.asset === 'ONT'">{{tx.amount}} TST</span>
-            <span v-else-if="tx.asset === 'ONG'">{{tx.amount}} TSG</span>
+            <span v-if="tx.asset === 'TST'">{{tx.amount}} TST</span>
+            <span v-else-if="tx.asset === 'TSG'">{{tx.amount}} TSG</span>
             <span v-else>{{tx.amount}} {{tx.asset}}</span>
           </div>
           <div class="check-more" v-if="completedTx.length > 6" @click="checkMoreTx">
@@ -298,7 +298,7 @@
         v-model="redeemInfoVisible"
         @ok="handleModalOk"
         >
-          <p class="font-regular"><span class="font-medium"></span> {{$t('redeemInfo.noClaimableOng')}}</p>
+          <p class="font-regular"><span class="font-medium"></span> {{$t('redeemInfo.noClaimableTsg')}}</p>
       </a-modal>
     
     <oep4-selection :visible="showOep4Selection" @closeOep4Selection="closeOep4Selection" ></oep4-selection>
@@ -308,15 +308,15 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {TEST_NET, MAIN_NET, ONT_CONTRACT, ONT_PASS_NODE} from '../../core/consts'
-  import {Crypto, OntAssetTxBuilder, RestClient, SDK} from 'ontology-ts-sdk'
+  import {TEST_NET, MAIN_NET, TST_CONTRACT, TST_PASS_NODE} from '../../core/consts'
+  import {Crypto, TstAssetTxBuilder, RestClient, SDK} from 'tesrasdk-ts'
   import axios from 'axios';
   import Breadcrumb from './Breadcrumb'
 import { BigNumber } from 'bignumber.js';
 import RedeemInfoIcon from './RedeemInfoIcon'
 import Oep4Selection from './Common/Oep4Selection'
 import { open, getRestClient, getTransactionListUrl, getBalanceUrl } from '../../core/utils'
-const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
+const TSG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
 
   export default {
     name: 'Dashboard',
@@ -337,7 +337,7 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
         amount: 0,
         toAddress: '',
         transactions: '',
-        asset: 'ONT',
+        asset: 'TST',
         network: network,
         completedTx: [],
         intervalId: '',
@@ -366,14 +366,14 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
     },
     computed: {
       ...mapState({
-        nep5Ont : state => state.CurrentWallet.nep5Ont,
+        nep5Tst : state => state.CurrentWallet.nep5Tst,
         balance: state => state.CurrentWallet.balance,
         oep4s: state => state.Tokens.oep4WithBalances
       })
     },
     beforeDestroy(){
         clearInterval(this.intervalId)
-        this.$store.commit('UPDATE_NEP5_TST', {nep5Ont:0})
+        this.$store.commit('UPDATE_NEP5_TST', {nep5Tst:0})
     },
     methods: {
       handleBack() {
@@ -388,10 +388,10 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
             for(const t of txlist) {
               for(const tx of t.transfers) {
                 const asset = tx.asset_name.toUpperCase() 
-                if(tx.to_address === ONG_GOVERNANCE_CONTRACT && asset === 'ONG' && Number(tx.amount) == 0.01) {
+                if(tx.to_address === TSG_GOVERNANCE_CONTRACT && asset === 'TSG' && Number(tx.amount) == 0.01) {
                   continue;
                 }
-                let amount = asset === 'ONT' ? parseInt(tx.amount) : tx.amount;
+                let amount = asset === 'TST' ? parseInt(tx.amount) : tx.amount;
                 if (tx.from_address === this.address) {
                     amount = '-' + amount;
                 } else {
@@ -417,15 +417,15 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
             const txlist = response.data.Result.TxnList;
             const completed = []
             for(const t of txlist) {
-              // if(t.TransferList.length === 1 && t.TransferList[0].ToAddress === ONG_GOVERNANCE_CONTRACT) {
+              // if(t.TransferList.length === 1 && t.TransferList[0].ToAddress === TSG_GOVERNANCE_CONTRACT) {
               //   continue;
               // }
               for(const tx of t.TransferList) {
                 const asset = tx.AssetName.toUpperCase() 
-                if(tx.ToAddress === ONG_GOVERNANCE_CONTRACT && asset === 'ONG' && Number(tx.Amount) == 0.01) {
+                if(tx.ToAddress === TSG_GOVERNANCE_CONTRACT && asset === 'TSG' && Number(tx.Amount) == 0.01) {
                   continue;
                 }
-                let amount = asset === 'ONT' ? parseInt(tx.Amount) : tx.Amount;
+                let amount = asset === 'TST' ? parseInt(tx.Amount) : tx.Amount;
                 if (tx.FromAddress === this.address) {
                     amount = '-' + amount;
                 } else {
@@ -451,11 +451,11 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
           return false; // fetch tx history failed
         }) */
       },
-      getUnclaimOng() {
+      getUnclaimTsg() {
         const restClient = getRestClient();
-        restClient.getAllowance('ong', new Crypto.Address(ONT_CONTRACT), new Crypto.Address(this.address)).then(res => {
+        restClient.getAllowance('tsg', new Crypto.Address(TST_CONTRACT), new Crypto.Address(this.address)).then(res => {
           console.log(res.Result)
-          this.unclaimOng = new BigNumber(res.Result).div(1e9);
+          this.unclaimTsg = new BigNumber(res.Result).div(1e9);
         }).catch(err => {
           this.$message.error(this.$t('common.networkErr'))
         })
@@ -479,22 +479,22 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
       getNep5Balance() {
         const NEO_TRAN = 100000000;
         SDK.getNeoBalance(this.currentWallet.address).then(res => {
-          let nep5Ont = 0;
+          let nep5Tst = 0;
           if(res.result) {
-            nep5Ont = res.result / NEO_TRAN
+            nep5Tst = res.result / NEO_TRAN
           } 
-          this.$store.commit('UPDATE_NEP5_TST', {nep5Ont})
+          this.$store.commit('UPDATE_NEP5_TST', {nep5Tst})
         })
       },
       getExchangeCurrency() {
-        const currency = 'ont'
+        const currency = 'tst'
         const goaltype = 'USD'
-        const amount = this.balance.ont;
+        const amount = this.balance.tst;
         const url = `https://service.onto.app/S3/api/v1/onto/exchangerate/reckon/${currency}/${goaltype}/${amount}`;
         axios.get(url).then(res => {
           console.log(res)
           if (res.data.Result) {
-            this.balance.ontValue = res.data.Result.Money
+            this.balance.tstValue = res.data.Result.Money
           }
         })
       },
@@ -524,8 +524,8 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
         // this.getNep5Balance();
       },
       sendAsset() {
-        if(Number(this.balance.ong) < 0.01) {
-          this.$message.warning(this.$t('common.ongNoEnough'))
+        if(Number(this.balance.tsg) < 0.01) {
+          this.$message.warning(this.$t('common.tsgNoEnough'))
           return;
         }
         this.$store.commit('CLEAR_CURRENT_TRANSFER');
@@ -535,14 +535,14 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
       commonReceive() {
         this.$router.push({path: '/commonWalletReceive/commonWallet'})
       },
-      redeemOng() {
-          if(this.balance.unboundOng == 0) {
+      redeemTsg() {
+          if(this.balance.unboundTsg == 0) {
             this.redeemInfoVisible = true;
             return;
           }
           const redeem = {
-              claimableOng : this.balance.unboundOng,
-              balance: this.balance.ong
+              claimableTsg : this.balance.unboundTsg,
+              balance: this.balance.tsg
           }
         this.$store.commit('UPDATE_CURRENT_REDEEM', {redeem: redeem})
         if(this.currentWallet.key) {
@@ -555,14 +555,14 @@ const ONG_GOVERNANCE_CONTRACT = 'AFmseVrdL9f9oyCzZefL9tG6UbviEH9ugK'
         this.$router.push({name: 'Wallets'})
       },
       checkMoreTx() {
-        let url = `http://121.41.30.85/address/${this.address}/10/1`
+        let url = `http://explorer.tesra.me/address/${this.address}/10/1`
         if (this.network === 'TestNet') {
           url += '/testnet'
         }
         open(url)
       },
       showTxDetail(txHash) {
-        let url = `http://121.41.30.85/transaction/${txHash}`
+        let url = `http://explorer.tesra.me/transaction/${txHash}`
         if (this.network === 'TestNet') {
           url += '/testnet'
         }

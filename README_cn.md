@@ -2,28 +2,28 @@
 
 
 
-<h1 align="center">TesraWallet - Tesra超算网络综合性桌面版钱包 </h1>
-<h4 align="center">Version 0.9.18</h4>
+<h1 align="center">TWallet - Tesra超算网络综合性桌面版钱包 </h1>
+<h4 align="center">Version 0.0.1</h4>
 
 ## 总体介绍
 
-TesraWallet是Tesra超算网络综合性桌面版钱包，支持标准的钱包管理、基于多重签名技术的共享钱包管理，同时将连接Ledger、Trezor多种硬件钱包。未来，TesraWallet将持续集成更加丰富的应用功能，为开发者提供智能合约编译、运行等综合性服务。
+TWallet是Tesra超算网络综合性桌面版钱包，支持标准的钱包管理、基于多重签名技术的共享钱包管理，同时将连接Ledger、Trezor多种硬件钱包。未来，TWallet将持续集成更加丰富的应用功能，为开发者提供智能合约编译、运行等综合性服务。
 
-支持Windows/MacOS/Linux,下载请到[这里](https://github.com/ontio/OWallet/releases)，也欢迎加入我们的[技术讨论社区](https://discord.gg/4TQujHj)!
+支持Windows/MacOS/Linux,下载请到[这里](https://github.com/TesraSupernet/TersaWallet/releases)，也欢迎加入我们的技术讨论社区!
 
-TesraWallet核心功能如下:
+TWallet核心功能如下:
 
 * 创建钱包/导入钱包（支持使用Keystore，助记词，WIF私钥，明文私钥） 
 * 支持共享钱包（基于多重签名技术）
 * 支持硬件钱包Ledger
 * 查看余额和交易明细
-* 发送ONG和ONT
-* 提取ONG
+* 发送TSG和TST
+* 提取TSG
 * 节点质押和质押授权管理
-* 支持ONT ID功能
+* 支持TST ID功能
 * 集成changelly和cryptonex网关 
 
-![](images/OWallet.jpg)
+![](images/TWallet.jpg)
 
 
 ## 如何开始
@@ -31,7 +31,7 @@ TesraWallet核心功能如下:
 1. 克隆repo
 
 ```
-git clone https://github.com/ontio/OWallet.git
+git clone https://github.com/TesraSupernet/TersaWallet.git
 ```
 
 2. 安装依赖

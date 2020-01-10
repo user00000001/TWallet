@@ -100,10 +100,10 @@
 </template>
 
 <script>
-  import {Wallet, Account} from 'ontology-ts-sdk';
+  import {Wallet, Account} from 'tesrasdk-ts';
   import FileHelper from "../../../../core/fileHelper"
   import {DEFAULT_SCRYPT} from '../../../../core/consts'
-  import {Crypto} from 'ontology-ts-sdk'
+  import {Crypto} from 'tesrasdk-ts'
   import dbService from '../../../../core/dbService'
 	export default {
     name: "JsonWalletDetails",

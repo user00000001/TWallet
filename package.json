@@ -1,10 +1,10 @@
 {
-  "name": "TesraWallet",
-  "productName": "TesraWallet",
-  "homepage": "http://121.41.30.85",
-  "version": "v2019.12.27",
-  "author": "Tesra SuperNet Foundation Ltd. <devops@ont.io>",
-  "description": "TesraWallet is a comprehensive Tesra SuperNet desktop wallet",
+  "name": "TWallet",
+  "productName": "TWallet",
+  "homepage": "https://www.tesra.me",
+  "version": "2020.01.02",
+  "author": "Tesra SuperNet Foundation Ltd. <devops@tesra.me>",
+  "description": "TWallet is a comprehensive Tesra SuperNet desktop wallet",
   "license": "Apache-2.0",
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -29,8 +29,8 @@
     "electron-rebuild": "electron-rebuild --force --module_dir . -w node-hid"
   },
   "build": {
-    "productName": "TesraWallet",
-    "appId": "org.tersa.wallet",
+    "productName": "TWallet",
+    "appId": "org.tesra.wallet",
     "files": [
       "dist/",
       "node_modules/",
@@ -99,9 +99,9 @@
     "nedb": "^1.8.0",
     "node-hid": "^0.7.7",
     "numeral": "^2.0.6",
-    "ontology-ts-sdk": "^1.0.22",
     "opn": "^5.4.0",
     "popper.js": "^1.14.3",
+    "tesrasdk-ts": "../tesrasdk-ts/",
     "vee-validate": "^2.1.0-beta.7",
     "vue": "^2.3.3",
     "vue-axios": "^2.1.1",
@@ -141,7 +141,7 @@
     "electron-debug": "^1.4.0",
     "electron-devtools-installer": "^2.2.0",
     "electron-packager": "^12.1.0",
-    "electron-rebuild": "^1.8.1",
+    "electron-rebuild": "^1.8.8",
     "eslint": "^4.4.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-vue": "^2.0.2",

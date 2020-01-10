@@ -1,7 +1,7 @@
 import axios from 'axios'
 import en from '../../../common/lang/en'
 import zh from '../../../common/lang/zh'
-import {ONT_PASS_NODE, ONT_PASS_NODE_PRD, ONT_PASS_URL} from '../../../core/consts'
+import {TST_PASS_NODE, TST_PASS_NODE_PRD, TST_PASS_URL} from '../../../core/consts'
 const state = {
     detail: {
         publickey: ''
@@ -11,7 +11,7 @@ const state = {
         key: ''
     },
     stakeIdentity: {
-        ontid: ''
+        tstid: ''
     },
     status1: '',
     status2: '',
@@ -140,13 +140,13 @@ function getStatus(status) {
 }
 
 const actions = {
-    fetchStakeDetail({commit}, ontid){
+    fetchStakeDetail({commit}, tstid){
         const net = localStorage.getItem("net");
-        const ontPassNode =
-            net === "TEST_NET" ? ONT_PASS_NODE : ONT_PASS_NODE_PRD;
-        axios.get(ontPassNode + ONT_PASS_URL.GetStakeInfo, {
+        const tstPassNode =
+            net === "TEST_NET" ? TST_PASS_NODE : TST_PASS_NODE_PRD;
+        axios.get(tstPassNode + TST_PASS_URL.GetStakeInfo, {
             params: {
-                ontid: ontid
+                tstid: tstid
             }
         }).then(res => {
             commit('UPDATE_STAKE_DETAIL', { detail:res.data})

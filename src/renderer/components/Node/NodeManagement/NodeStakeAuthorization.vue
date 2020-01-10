@@ -139,7 +139,7 @@
             ></a-input>
             <span class="font-medium">{{$t('nodeMgmt.allowedStakeAmount')}}: </span>
             <span>{{unit*500}} TST</span>
-            <span class="font-medium" style="margin-left:20px;">({{$t('nodeMgmt.current')}} {{peer_attrs.maxAuthorizeStr}} ONT)</span>
+            <span class="font-medium" style="margin-left:20px;">({{$t('nodeMgmt.current')}} {{peer_attrs.maxAuthorizeStr}} TST)</span>
             <p class="authorize-tip">
                 <a-icon type="info-circle" /> 
                 <span class="font-regular">{{$t('nodeMgmt.stakeAmountTip')}}</span>
@@ -188,9 +188,9 @@
                 <a-button type="primary" class="redeem-btn" @click="redeemRewards">{{$t('nodeMgmt.redeem')}}</a-button>
             </div>
             <div class="redeem-item">
-                <span class="font-medium-black label">{{$t('nodeMgmt.unboundOng')}}: </span>
-                <span class="font-medium">{{peerUnboundOng}} TSG</span>
-                <a-button type="primary" class="redeem-btn" @click="redeemPeerUnboundOng">{{$t('nodeMgmt.redeem')}}</a-button>
+                <span class="font-medium-black label">{{$t('nodeMgmt.unboundTsg')}}: </span>
+                <span class="font-medium">{{peerUnboundTsg}} TSG</span>
+                <a-button type="primary" class="redeem-btn" @click="redeemPeerUnboundTsg">{{$t('nodeMgmt.redeem')}}</a-button>
             </div>
         </div>
        
@@ -234,7 +234,7 @@ import {varifyPositiveInt} from '../../../../core/utils.js'
 import {GAS_PRICE, GAS_LIMIT} from '../../../../core/consts'
 import numeral from 'numeral'
 import SignSendTx from '../../Common/SignSendTx'
-import {Crypto, GovernanceTxBuilder} from 'ontology-ts-sdk'
+import {Crypto, GovernanceTxBuilder} from 'tesrasdk-ts'
 export default {
     name: 'NodeStakeAuthorization',
     components: {
@@ -273,7 +273,7 @@ export default {
             stakeDetail: state => state.NodeStake.detail,
             splitFee: state => state.NodeAuthorization.splitFee,
             posLimit: state => state.NodeAuthorization.posLimit,
-            peerUnboundOng: state => state.NodeAuthorization.peerUnboundOng
+            peerUnboundTsg: state => state.NodeAuthorization.peerUnboundTsg
         }),
         maxStakeLimit: {
             get(){
@@ -353,7 +353,7 @@ export default {
             this.$store.dispatch('fetchPeerAttributes', pk)
             this.$store.dispatch('fetchSplitFee', address)
             this.$store.dispatch('fetchPosLimit')
-            this.$store.dispatch('fetchPeerUnboundOng', address)
+            this.$store.dispatch('fetchPeerUnboundTsg', address)
         },
         redeemRewards() {
             if(!this.splitFee.amount) {
@@ -369,12 +369,12 @@ export default {
             this.signVisible = true;
             this.tx = tx;
         },
-        redeemPeerUnboundOng() {
-            if(!this.peerUnboundOng) {
-                this.$message.warning(this.$t('nodeMgmt.noUnboundOng'))
+        redeemPeerUnboundTsg() {
+            if(!this.peerUnboundTsg) {
+                this.$message.warning(this.$t('nodeMgmt.noUnboundTsg'))
                 return;
             }
-            const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundOngTx(
+            const tx = GovernanceTxBuilder.makeWithdrawPeerUnboundTsgTx(
                 new Crypto.Address(this.stakeWallet.address),
                 new Crypto.Address(this.stakeWallet.address),
                 GAS_PRICE,

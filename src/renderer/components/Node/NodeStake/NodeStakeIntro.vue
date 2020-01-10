@@ -10,7 +10,7 @@
 .btn-known button {
   width: 150px !important;
 }
-.select-ontid {
+.select-tstid {
   width: 100%;
 }
 .intro-item {
@@ -31,8 +31,8 @@
         <breadcrumb  :current="$t('nodeStake.nodeStake')" v-on:backEvent="handleRouteBack"></breadcrumb>
         <div class="intro-content">
             <div class="intro-item">
-                <p class="font-medium-black">{{$t('nodeStake.selectOntid')}}</p>
-                <a-select :options="identities" class="select-ontid" @change="changeIdentity"></a-select>
+                <p class="font-medium-black">{{$t('nodeStake.selectTstid')}}</p>
+                <a-select :options="identities" class="select-tstid" @change="changeIdentity"></a-select>
 
             </div>
             <div class="intro-item">
@@ -42,7 +42,7 @@
                 <a-radio value="ledgerWallet" class="payer-radio-item">{{$t('createIdentity.ledgerWallet')}}</a-radio>
 
                 <div v-if="payerWalletType === 'commonWallet'">
-                    <a-select :options="normalWallet" class="select-ontid" 
+                    <a-select :options="normalWallet" class="select-tstid" 
                     :placeholder="$t('createIdentity.selectCommonWallet')"
                         @change="handleChangePayer">
                     </a-select>
@@ -76,7 +76,7 @@
 import Breadcrumb from "../../Breadcrumb";
 import { mapState } from "vuex";
 import axios from 'axios'
-import {ONT_PASS_NODE, ONT_PASS_NODE_PRD, ONT_PASS_URL} from '../../../../core/consts'
+import {TST_PASS_NODE, TST_PASS_NODE_PRD, TST_PASS_URL} from '../../../../core/consts'
 export default {
   name: "NodeStakeIntro",
   data() {
@@ -130,8 +130,8 @@ export default {
         const list = this.$store.state.Identities.Identities.slice();
         return list.map(i => {
           return Object.assign({}, i, {
-            label: i.label + " " + i.ontid,
-            value: i.ontid
+            label: i.label + " " + i.tstid,
+            value: i.tstid
           });
         });
       }
@@ -166,10 +166,10 @@ export default {
      }
      this.$store.dispatch('showLoadingModals')
      const net = localStorage.getItem('net')
-     const ontPassNode = net === 'TEST_NET' ? ONT_PASS_NODE : ONT_PASS_NODE_PRD
-     axios.get(ontPassNode + ONT_PASS_URL.GetQualifiedState, {
+     const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
+     axios.get(tstPassNode + TST_PASS_URL.GetQualifiedState, {
          params: {
-             ontid: this.stakeIdentity.ontid,
+             tstid: this.stakeIdentity.tstid,
              address: address
          }
      }).then(res => {
@@ -178,16 +178,16 @@ export default {
              this.$store.commit('UPDATE_STAKE_WALLET', {stakeWallet: stakeWallet})             
          } else if(res.data.QualifiedState === 1) {
              this.$store.dispatch('hideLoadingModals')
-             this.$message.error(this.$t('nodeStake.invalidOntid'))
+             this.$message.error(this.$t('nodeStake.invalidTstid'))
              return;
          } else if(res.data.QualifiedState === 2) {
              this.$store.dispatch('hideLoadingModals')
              this.$message.error(this.$t('nodeStake.invalidAddress'))
              return;
          }
-         axios.get(ontPassNode + ONT_PASS_URL.GetStakeInfo, {
+         axios.get(tstPassNode + TST_PASS_URL.GetStakeInfo, {
              params: {
-                 ontid: this.stakeIdentity.ontid
+                 tstid: this.stakeIdentity.tstid
              }
          }).then(res => {
              this.$store.commit('UPDATE_STAKE_DETAIL', { detail:res.data})
@@ -215,7 +215,7 @@ export default {
         this.payerWallet = this.normalWallet.find((v)=>{return v.address === value})
     },
     changeIdentity(value) {
-        this.stakeIdentity = this.identities.find(v => v.ontid === value)
+        this.stakeIdentity = this.identities.find(v => v.tstid === value)
     }
   }
 };

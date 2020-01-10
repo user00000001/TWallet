@@ -1,7 +1,7 @@
 import { getNodeUrl} from '../../../core/utils'
 import {NODE_DETAIL, NODE_NAME_LIST, OFF_CHAIN_NODES} from '../../../core/consts'
 import numeral from 'numeral'
-import { Crypto, RestClient, utils, GovernanceTxBuilder} from 'ontology-ts-sdk'
+import { Crypto, RestClient, utils, GovernanceTxBuilder} from 'tesrasdk-ts'
 import {BigNumber} from 'bignumber.js'
 import {dbUpsert, dbFind} from '../../../core/dbService'
 import axios from 'axios';
@@ -117,7 +117,7 @@ const state = {
     countdown: 0,
     node_list: [],
     posLimit: 10,
-    peerUnboundOng: 0,
+    peerUnboundTsg: 0,
     stakeHistory: [],
     stake_authorization_wallet: '',
     peerPoolMap:[],
@@ -180,8 +180,8 @@ const mutations = {
     UPDATE_POS_LIMIT(state, payload) {
         state.posLimit = payload.posLimit
     },
-    UPDATE_PEER_UNBOUND_ONG(state, payload) {
-        state.peerUnboundOng = payload.peerUnboundOng
+    UPDATE_PEER_UNBOUND_TSG(state, payload) {
+        state.peerUnboundTsg = payload.peerUnboundTsg
     },
     UPDATE_STAKE_HISTORY(state, payload) {
         state.stakeHistory = payload.history
@@ -406,7 +406,7 @@ const actions = {
             return dispatch('fetchNodeList', {pageSize, pageNum})
         } else {
             try {
-                const url = 'http://121.41.30.85:3000/v2/nodes/current-stakes'
+                const url = 'http://explorer.tesra.me:3000/v2/nodes/current-stakes'
                 const res = await axios.get(url)
                 console.log(res)
                 if(res.data.code === 0 && res.data.result) {
@@ -469,14 +469,14 @@ const actions = {
             console.log(err);
         }
     },
-    async fetchPeerUnboundOng({commit}, address) {
+    async fetchPeerUnboundTsg({commit}, address) {
         const url = getNodeUrl();
         const addr = new Crypto.Address(address);
         try {   
-            let peerUnboundOng = await GovernanceTxBuilder.getPeerUnboundOng(addr, url);
-            peerUnboundOng = new BigNumber(peerUnboundOng).div(1e9).toNumber();
-            commit('UPDATE_PEER_UNBOUND_TSG', {peerUnboundOng})
-            return peerUnboundOng;
+            let peerUnboundTsg = await GovernanceTxBuilder.getPeerUnboundTsg(addr, url);
+            peerUnboundTsg = new BigNumber(peerUnboundTsg).div(1e9).toNumber();
+            commit('UPDATE_PEER_UNBOUND_TSG', {peerUnboundTsg})
+            return peerUnboundTsg;
         } catch(err) {
             console.log(err);
         }

@@ -6,7 +6,7 @@ export default {
         let url = urlObject.createObjectURL(content)
         let el = document.createElement('a')
         el.href = url
-        el.download = fileName? `${fileName}.dat` : "wallet.dat"
+        el.download = fileName? `${fileName}.dat` : "twallet.dat"
         document.body.appendChild(el)
         el.click()
         urlObject.revokeObjectURL(url)

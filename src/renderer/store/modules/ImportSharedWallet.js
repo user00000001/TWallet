@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ONT_PASS_NODE, ONT_PASS_URL } from '../../../core/consts'
+import { TST_PASS_NODE, TST_PASS_URL } from '../../../core/consts'
 import dbService from '../../../core/dbService'
 const state = {
     currentStep: 0,

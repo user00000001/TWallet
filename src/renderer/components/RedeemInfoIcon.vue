@@ -19,8 +19,8 @@
             v-model="visible"
             @ok="handleOk"
             >
-            <p class="font-regular"><span class="font-medium">{{$t('redeemInfo.claimableOngName')}}</span> {{$t('redeemInfo.claimableOng')}}</p>
-            <p class="font-regular"><span class="font-medium">{{$t('redeemInfo.unboundOngName')}}</span> {{$t('redeemInfo.unboundOng')}}</p>
+            <p class="font-regular"><span class="font-medium">{{$t('redeemInfo.claimableTsgName')}}</span> {{$t('redeemInfo.claimableTsg')}}</p>
+            <p class="font-regular"><span class="font-medium">{{$t('redeemInfo.unboundTsgName')}}</span> {{$t('redeemInfo.unboundTsg')}}</p>
         </a-modal>
     </div>
 </template>

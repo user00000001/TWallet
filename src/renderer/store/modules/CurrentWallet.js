@@ -15,21 +15,21 @@ const state = {
         totalNumber:''
     },
     balance: {
-        ont: 0,
-        ong: 0,
-        waitBoundOng:0,
-        unboundOng: 0
+        tst: 0,
+        tsg: 0,
+        waitBoundTsg:0,
+        unboundTsg: 0
     },
     transfer: {
         balance : {
-            ont: 0,
-            ong: 0
+            tst: 0,
+            tsg: 0
         },
         oep4s:[],
         from:'',
         to: '',
         amount:0,
-        asset:'ONT',
+        asset:'TST',
         gas:0.01,
         coPayers : [],
         sponsorPayer:'',
@@ -41,10 +41,10 @@ const state = {
     currentSigner: '',
     localCopayers : [],
     redeem: {
-        claimableOng: 0,
-        balanceOng: 0
+        claimableTsg: 0,
+        balanceTsg: 0
     },
-    nep5Ont: 0
+    nep5Tst: 0
 }
 
 const mutations = {
@@ -72,14 +72,14 @@ const mutations = {
     CLEAR_CURRENT_TRANSFER(state, payload) {
         state.transfer = {
             balance: {
-                ont: 0,
-                ong: 0
+                tst: 0,
+                tsg: 0
             },
             oep4s: [],
             from: '',
             to: '',
             amount: 0,
-            asset: 'ONT',
+            asset: 'TST',
             gas: 0.01,
             coPayers: [],
             sponsorPayer: ''
@@ -89,11 +89,11 @@ const mutations = {
         state.redeem = payload.redeem
     },
     UPDATE_NEP5_TST(state, payload) {
-        state.nep5Ont = payload.nep5Ont
+        state.nep5Tst = payload.nep5Tst
     },
     UPDATE_TRANSFER_REDEEM_TYPE(state, payload) {
         state.transfer.isRedeem = payload.type;
-        state.transfer.asset = payload.type ? 'ONG' : 'ONT'
+        state.transfer.asset = payload.type ? 'TSG' : 'TST'
     }
 
 }
@@ -108,17 +108,17 @@ const actions = {
         return axios.get(url).then(res => {
           if (res.data.result) {
             for (let r of res.data.result) {
-              if (r.asset_name === 'ong') {
-                balance.ong = r.balance;
+              if (r.asset_name === 'tsg') {
+                balance.tsg = r.balance;
               }
-              if (r.asset_name === 'waitboundong') {
-                balance.waitBoundOng = r.balance;
+              if (r.asset_name === 'waitboundtsg') {
+                balance.waitBoundTsg = r.balance;
               }
-              if (r.asset_name === 'unboundong') {
-                balance.unboundOng = r.balance;
+              if (r.asset_name === 'unboundtsg') {
+                balance.unboundTsg = r.balance;
               }
-              if (r.asset_name === 'ont') {
-                balance.ont = r.balance;
+              if (r.asset_name === 'tst') {
+                balance.tst = r.balance;
               }
             }
             commit('UPDATE_NATIVE_BALANCE', {

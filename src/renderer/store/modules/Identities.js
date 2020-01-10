@@ -10,7 +10,7 @@ const mutations = {
     },
     DELETE_IDENTITY(state, payload) {
         const identities = state.Identities.slice();
-        const index = identities.findIndex((w) => w.ontid === payload.ontid)
+        const index = identities.findIndex((w) => w.tstid === payload.tstid)
         identities.splice(index, 1)
         state.Identities = identities;
     }

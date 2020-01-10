@@ -60,7 +60,7 @@
 .redeem-item button {
   margin-left: 20px;
 }
-.redeem-ont {
+.redeem-tst {
   margin: 15px 0;
 }
 .redeem-btn {
@@ -115,7 +115,7 @@
           class="cancel-btn"
           @click="cancelAuthorization"
         >{{$t('nodeMgmt.cancelAuthorization')}}</a-button>
-        <div class="redeem-ont">
+        <div class="redeem-tst">
           <p>
             <span class="font-medium-black label">
               <a-tooltip placement="right" :title="$t('sesameseed.pendingWithdrawals')">
@@ -176,7 +176,7 @@ import Breadcrumb from "../../../Breadcrumb";
 import { mapState } from "vuex";
 import SignSendTx from "../../../Common/SignSendTx";
 import { GAS_PRICE, GAS_LIMIT } from "../../../../../core/consts";
-import { Crypto, TransactionBuilder, utils } from "ontology-ts-sdk";
+import { Crypto, TransactionBuilder, utils } from "tesrasdk-ts";
 import numeral from "numeral";
 import { varifyPositiveInt } from "../../../../../core/utils.js";
 import { CONTRACT_HASH } from "./SesameseedVars";
@@ -219,7 +219,7 @@ export default {
       splitFee: state => state.NodeAuthorization.splitFee,
       authorizationInfo: state => state.NodeAuthorization.authorizationInfo,
       peer_attrs: state => state.NodeAuthorization.peer_attrs,
-      unboundOng: state => state.NodeAuthorization.peerUnboundOng,
+      unboundTsg: state => state.NodeAuthorization.peerUnboundTsg,
       ssInfo: state => state.NodeAuthorizationSesameseed.sesameseed
     }),
     inAuthorization: {
@@ -233,7 +233,7 @@ export default {
       this.$store.dispatch("fetchAuthorizationInfo", { pk, address });
       this.$store.dispatch("fetchSplitFee", address);
       this.$store.dispatch("fetchPeerAttributes", pk);
-      this.$store.dispatch("fetchPeerUnboundOng", address);
+      this.$store.dispatch("fetchPeerUnboundTsg", address);
       this.$store.dispatch("fetchSSPerInfo", address);
     },
     handleRouteBack() {

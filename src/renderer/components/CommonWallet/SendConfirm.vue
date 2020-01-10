@@ -150,8 +150,8 @@
         <div class="asset-table">
             <div class="asset-item">
                 <span class="font-medium">{{$t('sharedWalletHome.amount')}}</span>
-                <span class="font-medium-black" v-if="transfer.asset === 'ONT'">{{transfer.amount}} TST</span>
-                <span class="font-medium-black" v-else-if="transfer.asset === 'ONG'">{{transfer.amount}} TSG</span>
+                <span class="font-medium-black" v-if="transfer.asset === 'TST'">{{transfer.amount}} TST</span>
+                <span class="font-medium-black" v-else-if="transfer.asset === 'TSG'">{{transfer.amount}} TSG</span>
                 <span class="font-medium-black" v-else>{{transfer.amount}} {{transfer.asset}}</span>
 
             </div>
@@ -191,12 +191,12 @@
 </template>
 <script>
 import {mapState} from 'vuex'
-import {legacySignWithLedger} from '../../../core/ontLedger'
-import {Oep4} from 'ontology-ts-sdk'
-import { TEST_NET, MAIN_NET, ONT_CONTRACT, ONT_PASS_NODE, DEFAULT_SCRYPT } from '../../../core/consts'
-import {Crypto, OntAssetTxBuilder, TransactionBuilder, utils, RestClient, TxSignature} from 'ontology-ts-sdk'
+import {legacySignWithLedger} from '../../../core/tstLedger'
+import {Oep4} from 'tesrasdk-ts'
+import { TEST_NET, MAIN_NET, TST_CONTRACT, TST_PASS_NODE, DEFAULT_SCRYPT } from '../../../core/consts'
+import {Crypto, TstAssetTxBuilder, TransactionBuilder, utils, RestClient, TxSignature} from 'tesrasdk-ts'
 import axios from 'axios';
-import {getDeviceInfo, getPublicKey} from '../../../core/ontLedger'
+import {getDeviceInfo, getPublicKey} from '../../../core/tstLedger'
 import $ from 'jquery'
 import {BigNumber} from 'bignumber.js'
 import { getRestClient } from '../../../core/utils'
@@ -284,7 +284,7 @@ export default {
           if (res.Error === 0) {
             this.$message.success(this.$t('common.transSentSuccess'))
           } else if (res.Error === -1) {
-            const err = res.Result.indexOf('cover gas cost') > -1 ? this.$t('common.ongNoEnough') : res.Result
+            const err = res.Result.indexOf('cover gas cost') > -1 ? this.$t('common.tsgNoEnough') : res.Result
             this.$message.error(err)
             return;
           } else {
@@ -321,9 +321,9 @@ export default {
       const gasPrice = gas.div(parseInt(gasLimit)).toString();
   
       let tx;
-      if(asset === 'ONT' || asset === 'ONG') {
-        const amount = asset === 'ONT' ? this.transfer.amount : (new BigNumber(this.transfer.amount).multipliedBy(1e9)).toString();
-         tx = OntAssetTxBuilder.makeTransferTx(asset, from, to, amount, gasPrice, gasLimit);
+      if(asset === 'TST' || asset === 'TSG') {
+        const amount = asset === 'TST' ? this.transfer.amount : (new BigNumber(this.transfer.amount).multipliedBy(1e9)).toString();
+         tx = TstAssetTxBuilder.makeTransferTx(asset, from, to, amount, gasPrice, gasLimit);
       } else if (this.transfer.scriptHash) {
         const contractAddr = new Crypto.Address(utils.reverseHex(this.transfer.scriptHash));
         const oep4 = new Oep4.Oep4TxBuilder(contractAddr);

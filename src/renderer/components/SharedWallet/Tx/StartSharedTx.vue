@@ -86,7 +86,7 @@
 </template>
 <script>
 import CommonSignShared from '../../Common/CommonSignShared'
-import {utils, TransactionBuilder, Crypto, Parameter, ParameterType} from 'ontology-ts-sdk'
+import {utils, TransactionBuilder, Crypto, Parameter, ParameterType} from 'tesrasdk-ts'
 export default {
     name: 'StartSharedTx',
     props: ['sharedWallet','localSigners'],

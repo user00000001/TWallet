@@ -178,7 +178,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import {Crypto} from 'ontology-ts-sdk'
+import {Crypto} from 'tesrasdk-ts'
 import {DEFAULT_SCRYPT} from '../../../../core/consts'
 import dbService from '../../../../core/dbService'
 import en from '../../../../common/lang/en'

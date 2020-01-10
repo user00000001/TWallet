@@ -1,4 +1,4 @@
-import { Wallet, Account, Crypto } from "ontology-ts-sdk";
+import { Wallet, Account, Crypto } from "tesrasdk-ts";
 
 const state = {
   currentStep: 0,

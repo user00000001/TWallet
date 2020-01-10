@@ -2,47 +2,47 @@
 export const GAS_PRICE = '500';
 export const GAS_LIMIT = '20000';
 
-export const ONT_CONTRACT = '0000000000000000000000000000000000000001';
-export const TEST_NET = 'http://121.41.30.85:3000';
-export const MAIN_NET = 'http://121.41.30.85:3000';
+export const TST_CONTRACT = '0000000000000000000000000000000000000001';
+export const TEST_NET = 'http://explorer.tesra.me:3000';
+export const MAIN_NET = 'http://explorer.tesra.me:3000';
 
 export const TEST_NET_LIST = [
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
+    'http://explorer.tesra.me:3000',
+    'http://explorer.tesra.me:3000',
+    'http://explorer.tesra.me:3000',
+    'http://explorer.tesra.me:3000',
 ]
 
 export const MAIN_NET_LIST = [
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
-    'http://121.41.30.85:3000',
+    'http://explorer.tesra.me:3000',
+    'http://explorer.tesra.me:3000',
+    'http://explorer.tesra.me:3000',
+    'http://explorer.tesra.me:3000',
 ]
 //test environment
-export const ONT_PASS_NODE = 'https://service-test.onto.app'
+export const TST_PASS_NODE = 'https://service-test.onto.app'
 //prod 
-export const ONT_PASS_NODE_PRD = 'https://service.onto.app'
+export const TST_PASS_NODE_PRD = 'https://service.onto.app'
 
-export const ONT_PASS_URL = {
-    CreateSharedWallet: '/S1/api/v1/ontpass/SharedWallet/create',
-    QuerySharedWallet: '/S1/api/v1/ontpass/SharedWallet/getBySharedWalletAddress', //get
-    CreateSharedTransfer: '/S1/api/v1/ontpass/SharedTransfer/create',
-    SignSharedTransfer: '/S1/api/v1/ontpass/SharedTransfer/sign',
-    SendSharedTransfer: '/S1/api/v1/ontpass/SharedTransfer/isSendToChain', //get
-    QueryPendingTransfer: '/S1/api/v1/ontpass/SharedTransfer/listSigningBeforeTime',
+export const TST_PASS_URL = {
+    CreateSharedWallet: '/S1/api/v1/tstpass/SharedWallet/create',
+    QuerySharedWallet: '/S1/api/v1/tstpass/SharedWallet/getBySharedWalletAddress', //get
+    CreateSharedTransfer: '/S1/api/v1/tstpass/SharedTransfer/create',
+    SignSharedTransfer: '/S1/api/v1/tstpass/SharedTransfer/sign',
+    SendSharedTransfer: '/S1/api/v1/tstpass/SharedTransfer/isSendToChain', //get
+    QueryPendingTransfer: '/S1/api/v1/tstpass/SharedTransfer/listSigningBeforeTime',
     // sharedAddress={sharedAddress}&assetName={assetName}&beforeTimeStamp={beforeTimeStamp},
-    ExchangeCurrency: '/S1/api/v1/ontpass/api/v1/onto/exchangerate/reckon/'
+    ExchangeCurrency: '/S1/api/v1/tstpass/api/v1/onto/exchangerate/reckon/'
     ///api/v1/onto/exchangerate/reckon/{currency}/{goaltype}/{amount}
 
     //for node stake
     ,
     GetQualifiedState: '/S4/NodePledgeApi/v1/Nodepledge/getQuailifiedState',
-    // /NodePledgeApi/v1/Nodepledge/getQuailifiedState?ontid={ontid}&address={address}'
+    // /NodePledgeApi/v1/Nodepledge/getQuailifiedState?tstid={tstid}&address={address}'
     DelegateSendTx: '/S4/NodePledgeApi/v1/Nodepledge/delegateSendTransaction',
     SetStakeInfo: '/S4/NodePledgeApi/v1/Nodepledge/setInfo',
     GetStakeInfo: '/S4/NodePledgeApi/v1/Nodepledge/info'
-    // /NodePledgeApi/v1/Nodepledge/info?ontid={ontid}
+    // /NodePledgeApi/v1/Nodepledge/info?tstid={tstid}
 
 }
 
@@ -61,11 +61,11 @@ export const DEFAULT_SCRYPT = {
 
 export const SWAP_ADDRESS = 'AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM'
 
-export const NODE_DETAIL = 'http://121.41.30.85:3000/nodes/detail/'
-export const NODE_NAME_LIST = 'http://121.41.30.85:3000/api/v1/candidate/info/All'
+export const NODE_DETAIL = 'http://explorer.tesra.me/nodes/detail/'
+export const NODE_NAME_LIST = 'http://dapp2.tesra.me:25770/api/v1/candidate/info/All'
 export const OFF_CHAIN_NODES = {
-    TEST_NET: 'http://121.41.30.85:3000/v2/nodes/off-chain-infos',
-    MAIN_NET: 'http://121.41.30.85:3000/v2/nodes/off-chain-infos'
+    TEST_NET: 'http://explorer.tesra.me:3000/v2/nodes/off-chain-infos',
+    MAIN_NET: 'http://explorer.tesra.me:3000/v2/nodes/off-chain-infos'
 }
 
 export const PAX_API = {

@@ -128,8 +128,8 @@ export default {
                 dataIndex: 'EthAddress'
             },
             {
-                title: this.$t('pax.ontAddress'),
-                dataIndex: 'OntAddress'
+                title: this.$t('pax.tstAddress'),
+                dataIndex: 'TstAddress'
             },
             {
                 title: this.$t('pax.amount'),
@@ -196,7 +196,7 @@ export default {
             list.forEach(item => {
                 data.txhashs.push(item.Txhash),
                 data.ercaddresses.push(item.EthAddress),
-                data.oep4addresses.push(item.OntAddress),
+                data.oep4addresses.push(item.TstAddress),
                 data.amounts.push(item.Amount)
             })
             this.$store.dispatch('showLoadingModals')        
@@ -248,7 +248,7 @@ export default {
             const net = localStorage.getItem('net');
             let url = '';
             if(this.status === '3') {
-                let url = `http://121.41.30.85/transaction/${record.Senthash}`
+                let url = `http://explorer.tesra.me/transaction/${record.Senthash}`
                 const net = localStorage.getItem('net')
                 if(net === 'TEST_NET') {
                     url = url+ '/testnet'

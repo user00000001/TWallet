@@ -177,8 +177,8 @@
                     <div v-for="(tx,index) in completedTx" :key="tx.txHash+index" class="tx-item" v-if="index<10"
                         @click="showTxDetail(tx.txHash)">
                         <span>{{tx.txHash}}</span>
-                        <span v-if="tx.asset === 'ONT'">{{tx.amount}} TST</span>
-                        <span v-else-if="tx.asset === 'ONG'">{{tx.amount}} TSG</span>
+                        <span v-if="tx.asset === 'TST'">{{tx.amount}} TST</span>
+                        <span v-else-if="tx.asset === 'TSG'">{{tx.amount}} TSG</span>
                         <span v-else>{{tx.amount}} {{tx.asset}}</span>
                     </div>
                     <div class="check-more" v-if="completedTx.length > 6" @click="checkMoreTx">
@@ -299,14 +299,14 @@ export default {
             this.$router.push({path: '/commonWalletReceive/commonWallet'})
         },
         showTxDetail(txHash) {
-            let url = `http://121.41.30.85/transaction/${txHash}`
+            let url = `http://explorer.tesra.me/transaction/${txHash}`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }
             openUrl(url)
         },
         checkMoreTx() {
-        let url = `http://121.41.30.85/address/${this.address}/10/1`
+        let url = `http://explorer.tesra.me/address/${this.address}/10/1`
             if (this.net === 'TEST_NET') {
                 url += '/testnet'
             }

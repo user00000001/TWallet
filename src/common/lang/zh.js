@@ -7,7 +7,7 @@ export default {
     confirmTips: '请确认转账',
     transSentSuccess: '交易已成功发送',
     pwdErr: '密码错误',
-    ongNoEnough: 'TSG不足，无法支付转账手续费。',
+    tsgNoEnough: 'TSG不足，无法支付转账手续费。',
     transferFailed: '交易失败。',
     networkErr: '网络错误！',
     normalWallet: '普通钱包',
@@ -36,7 +36,7 @@ export default {
     deleteWallet: '删除钱包',
     more: '更多',
     neoCompatible: '兼容NEO地址',
-    versionUpdate: '您可以升级TesraWallet。',
+    versionUpdate: '您可以升级TWallet。',
     getLatestVersion: '下载最新版本。',
     changePassSuccess: '修改密码成功',
     changePassSuccessTip: '您已经修改了钱包密码。我们建议您下载并备份钱包的.dat文件。(旧的.dat文件可以被替换或者删除)',
@@ -72,7 +72,7 @@ export default {
 
   SetPaths: {
     name: '钱包文件存储路径',
-    tips: '* 钱包文件keystore.db保存着您的加密私钥，请确保您的PC安全和做好keystore.db文件的备份。您需要设置keystore文件的保存路径。请不要设置到TesraWallet的安装位置以免更新时被覆盖。',
+    tips: '* 钱包文件keystore.db保存着您的加密私钥，请确保您的PC安全和做好keystore.db文件的备份。您需要设置keystore文件的保存路径。请不要设置到TWallet的安装位置以免更新时被覆盖。',
     close: '关闭',
     enter: '去设置'
   },
@@ -82,7 +82,7 @@ export default {
     createIdentity: '创建TST ID账户',
     importIdentity: '导入TST ID账户',
     identity: 'Identity',
-    ontid: 'TST ID'
+    tstid: 'TST ID'
   },
 
   createIdentity: {
@@ -94,7 +94,7 @@ export default {
     rePassword: '确认密码',
     cancel: '取消',
     next: '继续',
-    ontid: 'TST ID',
+    tstid: 'TST ID',
     selectWallet: '请选择钱包来支付交易费用',
     commonWallet: '普通钱包',
     ledgerWallet: 'Ledger钱包',
@@ -109,13 +109,13 @@ export default {
     import: '导入TST ID',
     basicInfo: '基本信息',
     keystore: 'TST ID Keystore',
-    ontidPassword: 'TST ID 密码',
+    tstidPassword: 'TST ID 密码',
     label: '',
     passError: '密码错误',
-    ontidNotExist: '要导入的TST ID不存在于区块链上',
+    tstidNotExist: '要导入的TST ID不存在于区块链上',
     keystoreImport: '导入TST ID Keystore',
     invalidKeystore: '您输入的keystore不正确。',
-    ontidExist: '要导入的TST ID本地已存在。',
+    tstidExist: '要导入的TST ID本地已存在。',
     importSuccess: '导入TST ID成功。'
   },
 
@@ -141,7 +141,7 @@ export default {
     newPassword: '新密码',
     reNewPassword: '重复新密码',
     changePassSuccess: '修改密码成功！',
-    exportOntid: '您正要导出TST ID的keystore:',
+    exportTstid: '您正要导出TST ID的keystore:',
     deleteIdentityFailed: '删除TST ID失败',
     deleteIdentitySuccess: '删除TST ID成功。',
     exportedWIF: '您的私钥（WIF）是：'
@@ -309,7 +309,7 @@ export default {
     sign: '签名',
     checkMore: '查看更多',
     publicKey: '公钥',
-    redeemOng: '提取TSG',
+    redeemTsg: '提取TSG',
     paxMgmt: 'PAX管理',
     unprocessed: '未处理',
     processing: '处理中',
@@ -322,7 +322,7 @@ export default {
 
   pax: {
     ethAddress: 'Eth 地址',
-    ontAddress: 'TST 地址',
+    tstAddress: 'TST 地址',
     amount: '数额',
     date: '日期',
     toProcess: '去处理',
@@ -378,8 +378,8 @@ export default {
   },
 
   commonWalletHome: {
-    claimableOng: '可提取的TSG',
-    unboundOng: '未绑定的TSG',
+    claimableTsg: '可提取的TSG',
+    unboundTsg: '未绑定的TSG',
     redeem: '提取',
     receive: '接收',
     swap: '映射',
@@ -418,9 +418,9 @@ export default {
     inputValidAmount: '请输入有效的转账金额。',
     inputValidAddress: '请输入有效的转账地址。',
     exceedBalance: '转账金额不能超余额',
-    ongBalanceNotEnough: '您的TSG余额不足以支付转账和手续费。',
+    tsgBalanceNotEnough: '您的TSG余额不足以支付转账和手续费。',
     //Needs translation
-    warningTransferAllONG: 'Transferring this amount of TSG means you will not have enough TSG to pay\r\nfor further transaction fees (including claiming unbound TSG). \r\n\r\nContinue?'
+    warningTransferAllTSG: 'Transferring this amount of TSG means you will not have enough TSG to pay\r\nfor further transaction fees (including claiming unbound TSG). \r\n\r\nContinue?'
   },
   setting: {
     name: '设置',
@@ -431,17 +431,17 @@ export default {
     en: 'English',
     zh: '中文',
     pathTit: '当前路径： ',
-    path: '钱包保存路径(请不要设到TesraWallet的安装位置！)',
+    path: '钱包保存路径(请不要设到TWallet的安装位置！)',
     change: '修改',
     setNetworkSuccess: '网络成功设置为：',
     wallets: '钱包',
-    ontid: 'TST ID',
+    tstid: 'TST ID',
     nodeStake: '节点质押',
     help: '帮助',
     settings: '设置',
     nodeAddress: '节点',
     setNodeSuccess: '节点成功设置为：',
-    notInstallationPath: '请不要设置到TesraWallet的安装位置。',
+    notInstallationPath: '请不要设置到TWallet的安装位置。',
     notSetPath: '未设置keystore保存路径。'
   },
   ledgerWallet: {
@@ -462,7 +462,7 @@ export default {
   },
   nodeStake: {
     iHaveKnown: '我已知晓',
-    ontid: 'TST ID',
+    tstid: 'TST ID',
     nodeStake: '节点质押',
     stakeWalletAddress: '质押钱包地址',
     nodePk: '节点公钥',
@@ -471,19 +471,19 @@ export default {
     stakeQuantity: '实际质押数量',
     stake: '质押',
     feeTip: '质押需要收取500TSG作为服务费',
-    selectOntid: '选择TST ID',
+    selectTstid: '选择TST ID',
     selectStakeWallet: '选择质押钱包',
     next: '下一步',
     selectIdentity: '选择你的TST ID',
     selectIndividualWallet: '请选择普通钱包',
     selectLedgerWallet: '请连接您的ledger设备并打开TST',
-    invalidOntid: '无效的TST ID',
+    invalidTstid: '无效的TST ID',
     invalidAddress: '无效的质押钱包地址',
     stakeQuantityEmpty: '请输入质押数量',
     password: '输入密码',
-    signWithOntid: '使用TST ID签名',
+    signWithTstid: '使用TST ID签名',
     signWithWallet: '使用质押钱包签名',
-    enterOntidPass: '请输入TST ID的密码',
+    enterTstidPass: '请输入TST ID的密码',
     enterWalletPass: '请输入质押钱包的密码',
     back: '返回',
     recall: '撤销',
@@ -522,11 +522,11 @@ export default {
   },
   redeemInfo: {
     info: '提取TSG',
-    claimableOng: '可提取TSG是您可以提取的TSG的数量，手续费为0.01个TSG。每次钱包中完成一笔交易后，该余额会更新。',
-    unboundOng: '已解绑的TSG是指尚未添加到您的可提取TSG余额（仅会在您钱包做出一笔TST交易后更新）中的TSG。当您的地址完成一笔交易后，您可提取的TSG余额将会更新（即将已解绑的TSG数额将添加到您可提取的TSG余额中去。）',
-    claimableOngName: '可提取TSG：',
-    unboundOngName: '已解绑的TSG：',
-    noClaimableOng: '您没有可提取的TSG。当您地址上完成一笔TST转出交易后，可提取的TSG余额将会更新。'
+    claimableTsg: '可提取TSG是您可以提取的TSG的数量，手续费为0.01个TSG。每次钱包中完成一笔交易后，该余额会更新。',
+    unboundTsg: '已解绑的TSG是指尚未添加到您的可提取TSG余额（仅会在您钱包做出一笔TST交易后更新）中的TSG。当您的地址完成一笔交易后，您可提取的TSG余额将会更新（即将已解绑的TSG数额将添加到您可提取的TSG余额中去。）',
+    claimableTsgName: '可提取TSG：',
+    unboundTsgName: '已解绑的TSG：',
+    noClaimableTsg: '您没有可提取的TSG。当您地址上完成一笔TST转出交易后，可提取的TSG余额将会更新。'
   },
   nodeMgmt: {
     nodeUser: '您是节点用户，从这里可以管理节点质押',
@@ -578,7 +578,7 @@ export default {
     noChange: '您没有修改',
     noRewards: '没有可提取的收益',
     switchWallet: '切换钱包',
-    noClaimableOnt: '没有可提取的TST',
+    noClaimableTst: '没有可提取的TST',
     amountToCancel: '要取消的质押数额',
     unitToCancel: '要取消的质押份数',
     invalidInput: '请输入合理的值',
@@ -599,7 +599,7 @@ export default {
     nodeAndUser: '节点 / 用户',
     authorizeTip: '用户对该节点的授权抵押金额，包括本轮新授权的TST和已生效的授权TST，取消授权会优先取消本轮新授权的TST，取消后进入用户的可提取TST中。本轮新授权的TST不足则会取消已生效的授权TST，按照节点是候选/共识状态分别锁定1轮或2轮，之后进入用户的可提取TST中。',
     rewardTip: 'Tesra超算网络网络收到的所有手续费按照50%/50%的比例分给所有候选节点和共识节点，其中候选节点部分按照节点总抵押大小线性分配到每个候选节点，每个候选节点先拿走自己的部分（百分比），剩下的按照每个地址授权TST的多少线性分配到每个地址。其中共识节点部分按照分润曲线分配到每个共识节点，每个共识节点先拿走自己的部分（百分比），剩下的按照每个地址授权TST的多少线性分配到每个地址。',
-    unboundOng: '解绑的 TSG',
+    unboundTsg: '解绑的 TSG',
     activeT: '本轮生效',
     activeT1: '下一轮生效',
     activeT2: '下下轮生效',
@@ -613,12 +613,12 @@ export default {
     switchMainnet: '请切换到主网。',
     consensusNode: '共识节点',
     candidateNode: '候选节点',
-    lockedONT: '当前锁定的TST是由智能合约暂时持有的用户授权质押数额。锁定期满后，会在可提取的TST中显示并可提取',
-    unboundONG: '这是用户授权质押的TST所解绑的TSG。',
-    profitONG: '这是您已获得的交易费收益。该收益会在每轮共识周期开始时更新。',
+    lockedTST: '当前锁定的TST是由智能合约暂时持有的用户授权质押数额。锁定期满后，会在可提取的TST中显示并可提取',
+    unboundTSG: '这是用户授权质押的TST所解绑的TSG。',
+    profitTSG: '这是您已获得的交易费收益。该收益会在每轮共识周期开始时更新。',
     getProfitPart: '产生收益中',
     newStakePart: '新的质押',
-    claimableONT: '可提取TST',
+    claimableTST: '可提取TST',
     redeemInitPos: '提取初始质押',
     initPosInLock: "锁定中",
     initPosRedeemable: '可提取',

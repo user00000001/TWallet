@@ -1,4 +1,4 @@
-import {Oep4, RestClient, Crypto, utils} from 'ontology-ts-sdk'
+import {Oep4, RestClient, Crypto, utils} from 'tesrasdk-ts'
 import {TEST_NET, MAIN_NET} from '../../../core/consts'
 import { BigNumber } from 'bignumber.js';
 import axios from 'axios';
@@ -65,9 +65,9 @@ const actions = {
         const net = localStorage.getItem('net');
         let url = ''
         if(net === 'TEST_NET') {
-            url = 'http://121.41.30.85:3000/api/v1/explorer/oep4/info'
+            url = 'http://dapp2.tesra.me:25770/api/v1/explorer/oep4/info'
         } else {
-            url = 'http://121.41.30.85:3000/api/v1/explorer/oep4/info'
+            url = 'http://dapp2.tesra.me:25770/api/v1/explorer/oep4/info'
         }
         axios.post(url, {
             scriptHash
@@ -163,17 +163,17 @@ const actions = {
     },
     async queryTxForOep4({commit, dispatch}, {address,oep4s}) {
         const net = localStorage.getItem('net')
-        const url = net === 'TEST_NET' ? 'http://121.41.30.85:3000' : 'http://121.41.30.85:3000';
+        const url = net === 'TEST_NET' ? 'http://dapp2.tesra.me:25770' : 'http://dapp2.tesra.me:25770';
         axios.get(url + '/api/v1/explorer/address/' + address + '/10/1').then(response => {
             if (response.status === 200 && response.data && response.data.Result) {
                 const txlist = response.data.Result.TxnList;
                 const completed = []
                 for (const t of txlist) {
-                    // if(t.TransferList.length === 1 && t.TransferList[0].ToAddress === ONG_GOVERNANCE_CONTRACT) {
+                    // if(t.TransferList.length === 1 && t.TransferList[0].ToAddress === TSG_GOVERNANCE_CONTRACT) {
                     //   continue;
                     // }
                     for (const tx of t.TransferList) {
-                        if(tx.AssetName === 'ong'){
+                        if(tx.AssetName === 'tsg'){
                             continue;
                         } 
                         for(let o of oep4s) {

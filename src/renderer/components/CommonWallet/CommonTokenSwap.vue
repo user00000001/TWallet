@@ -43,7 +43,7 @@
                 @change="validateAmount" :class="validAmount? '': 'error-amount'"
                 ></a-input>
                 <p class="font-regular">{{$t('commonWalletHome.nep5Balance')}}
-                    <span class="font-medium-black">{{nep5Ont}}</span> </p>
+                    <span class="font-medium-black">{{nep5Tst}}</span> </p>
                 <p class="font-medium-black">{{$t('commonWalletHome.password')}}</p>
                 <a-input class="input" v-model="password" type="password"
                 @change="validatePass" :class="validPassword? '': 'error-amount'"
@@ -61,7 +61,7 @@ import Breadcrumb from '../Breadcrumb'
 import {mapState} from 'vuex'
 import {varifyPositiveInt} from '../../../core/utils.js'
 import {SWAP_ADDRESS, DEFAULT_SCRYPT} from '../../../core/consts'
-import {Crypto, SDK} from 'ontology-ts-sdk'
+import {Crypto, SDK} from 'tesrasdk-ts'
 
 export default {
     name: 'CommonTokenSwap',
@@ -76,7 +76,7 @@ export default {
             sending:false,
             validAmount:true,
             validPassword:true,
-            nep5Ont: 0
+            nep5Tst: 0
         }
     },
     components: {
@@ -92,10 +92,10 @@ export default {
             const NEO_TRAN = 100000000;
             SDK.getNeoBalance(this.currentWallet.address).then(res => {
                 if(res.result) {
-                    const nep5Ont = res.result / NEO_TRAN
-                    this.nep5Ont = nep5Ont;
+                    const nep5Tst = res.result / NEO_TRAN
+                    this.nep5Tst = nep5Tst;
                 } else {
-                    this.nep5Ont = 0;
+                    this.nep5Tst = 0;
                 }
             })
         },
@@ -110,7 +110,7 @@ export default {
                 this.validAmount = false;
                 return;
             }
-            if(Number(this.amount) > Number(this.nep5Ont)) {
+            if(Number(this.amount) > Number(this.nep5Tst)) {
                 this.validAmount = false;
                 return;
             }
@@ -137,7 +137,7 @@ export default {
             const value = this.amount;
             const encKey = this.currentWallet.key;
             const salt = this.currentWallet.salt;
-            // must transform password to base when call Ont.SDK's api
+            // must transform password to base when call Tst.SDK's api
             const password = Buffer.from(this.password).toString('base64');
             const params = DEFAULT_SCRYPT;
             const resp =  SDK.neoTransfer(from, to, value, encKey,password,salt,'', params)

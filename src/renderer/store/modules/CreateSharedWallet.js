@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ONT_PASS_NODE, ONT_PASS_NODE_PRD, ONT_PASS_URL } from '../../../core/consts'
+import { TST_PASS_NODE, TST_PASS_NODE_PRD, TST_PASS_URL } from '../../../core/consts'
 import dbService from '../../../core/dbService'
 const state = {
     currentStep: 0,
@@ -50,9 +50,9 @@ const mutations = {
 const actions = {
     createSharedWallet({ commit, dispatch }, body) {
         const net = localStorage.getItem('net')
-        const ontPassNode = net === 'TEST_NET' ? ONT_PASS_NODE : ONT_PASS_NODE_PRD
+        const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
         dispatch('showLoadingModals')
-        return axios.post(ontPassNode + ONT_PASS_URL.CreateSharedWallet, body).then(res => {
+        return axios.post(tstPassNode + TST_PASS_URL.CreateSharedWallet, body).then(res => {
             if (res.status === 200 && res.data.Error === 0) {
                 commit('CREATE_SHARED_WALLET', {
                     label: body.sharedWalletName,

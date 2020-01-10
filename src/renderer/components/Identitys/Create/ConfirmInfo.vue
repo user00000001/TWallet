@@ -1,7 +1,7 @@
 <template>
   <div class="container json-confirm-container">
     <p><b>{{$t('createIdentity.label')}}: </b> {{label}}</p>
-    <p><b>{{$t('createIdentity.ontid')}}: </b> {{ ontid }}</p>
+    <p><b>{{$t('createIdentity.tstid')}}: </b> {{ tstid }}</p>
 
    
     <div class="confirm-btns">
@@ -15,7 +15,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Crypto, Wallet, Account} from 'ontology-ts-sdk'
+  import {Crypto, Wallet, Account} from 'tesrasdk-ts'
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {WALLET_TYPE,DEFAULT_SCRYPT} from '../../../../core/consts'
@@ -35,7 +35,7 @@
     computed: {
       ...mapState({
         label: state => state.CreateIdentity.label,
-        ontid: state => state.CreateIdentity.ontid,
+        tstid: state => state.CreateIdentity.tstid,
         identity: state => state.CreateIdentity.identity,
         tx: state => state.CreateIdentity.tx
       })
@@ -65,7 +65,7 @@
         //save to db
         const wallet = {
           type : 'Identity',
-          address: this.ontid,
+          address: this.tstid,
           wallet: this.identity
         }
         dbService.insert(wallet, (err, newDoc) => {

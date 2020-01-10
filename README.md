@@ -2,28 +2,28 @@
 
 
 
-<h1 align="center">OWallet - a comprehensive Ontology desktop wallet</h1>
-<h4 align="center">Version 0.9.18</h4>
+<h1 align="center">TWallet - a comprehensive TesraSupernet desktop wallet</h1>
+<h4 align="center">Version 0.0.1</h4>
 
 ## Introduction
 
-OWallet is a comprehensive Ontology desktop wallet. OWallet supports standard wallet management, shared wallet management based on multi-signature technology, and will also connect with various hard wallets such as Ledger, Trezor, and so on. In the next phase, OWallet will integrate more applications, providing developers with smart contract compilation, invocation, and other comprehensive services.
+TWallet is a comprehensive TesraSupernet desktop wallet. TWallet supports standard wallet management, shared wallet management based on multi-signature technology, and will also connect with various hard wallets such as Ledger, Trezor, and so on. In the next phase, TWallet will integrate more applications, providing developers with smart contract compilation, invocation, and other comprehensive services.
 
-Support Windows/MacOS/Linux,get it [Here](https://github.com/ontio/OWallet/releases)，also welcome to join [our community on Discord](https://discord.gg/4TQujHj).
+Support Windows/MacOS/Linux,get it [Here](https://github.com/TesraSupernet/TersaWallet/releases)，also welcome to join.
 
-Core features of OWallet are as follows:
+Core features of TWallet are as follows:
 
 * Create wallet/import wallet using keystore,mnemonic phrase,WIF private key,HEX private key 
 * Support shared wallet based on multi-signature technology
 * Ledger support
 * View balance and record
-* Send ONG and ONT
-* Withdraw (redeem) ONG
+* Send TSG and TST
+* Withdraw (redeem) TSG
 * Node stake and stake authorization management
-* ONT ID support
+* TST ID support
 * Integrate gateway provided by changelly and cryptonex 
 
-![](images/OWallet.jpg)
+![](images/TWallet.jpg)
 
 
 ## Get started
@@ -31,7 +31,7 @@ Core features of OWallet are as follows:
 1. Clone the repo
 
 ```
-git clone https://github.com/ontio/OWallet.git
+git clone https://github.com/TesraSupernet/TersaWallet.git
 ```
 
 2. Install packages

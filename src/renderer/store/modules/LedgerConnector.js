@@ -1,7 +1,7 @@
-import { getDeviceInfo, getPublicKey } from '../../../core/ontLedger'
+import { getDeviceInfo, getPublicKey } from '../../../core/tstLedger'
 import en from '../../../common/lang/en'
 import zh from '../../../common/lang/zh'
-import { Crypto } from 'ontology-ts-sdk'
+import { Crypto } from 'tesrasdk-ts'
 
 
 function formatLedgerStatus(status) {

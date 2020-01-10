@@ -1,7 +1,7 @@
 import {get} from 'lodash'
 import {
   Crypto
-} from 'ontology-ts-sdk';
+} from 'tesrasdk-ts';
 
 
 import {
@@ -14,30 +14,30 @@ export async function getBalance(addr) {
 
   const client = getClient();
   const response = await client.getBalance(address);
-  const ont = Number(get(response, 'Result.ont'));
-  const ong = Number(get(response, 'Result.ong'));
+  const tst = Number(get(response, 'Result.tst'));
+  const tsg = Number(get(response, 'Result.tsg'));
 
   return {
-    ong,
-    ont,
+    tsg,
+    tst,
   };
 }
 
-export async function getUnboundOng(addr) {
+export async function getUnboundTsg(addr) {
     let address = new Crypto.Address(addr);
 
   const client = getClient();
-  const response = await client.getUnboundong(address);
-  const unboundOng = Number(get(response, 'Result'));
-  return unboundOng;
+  const response = await client.getUnboundtsg(address);
+  const unboundTsg = Number(get(response, 'Result'));
+  return unboundTsg;
 }
 
-export async function getGrantOng(addr) {
+export async function getGrantTsg(addr) {
     let address = new Crypto.Address(addr);
     const client = getClient();
-    const response = await client.getGrantOng(address);
-    const grantOng = Number(get(response, 'Result'));
-    return grantOng;
+    const response = await client.getGrantTsg(address);
+    const grantTsg = Number(get(response, 'Result'));
+    return grantTsg;
 }
 
 export async function invokeTx(tx) {

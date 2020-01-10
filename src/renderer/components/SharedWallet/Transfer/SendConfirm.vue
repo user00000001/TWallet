@@ -104,11 +104,11 @@
 
 <template>
     <div class="confirm-container clearfix">
-        <p class="label" v-if="transfer.isRedeem">{{$t('sharedWalletHome.redeemOng')}}</p>
+        <p class="label" v-if="transfer.isRedeem">{{$t('sharedWalletHome.redeemTsg')}}</p>
         <div class="asset-table" v-if="transfer.isRedeem">
             <div class="asset-item">
                 <span class="font-medium">{{$t('sharedWalletHome.amount')}}</span>
-                <span class="font-medium-black">{{redeem.claimableOng}} TSG</span>
+                <span class="font-medium-black">{{redeem.claimableTsg}} TSG</span>
            
             </div>
             <div class="fee font-medium-black">{{$t('sharedWalletHome.fee')}}: 0.01 TSG</div>
@@ -118,8 +118,8 @@
         <div class="asset-table" v-if="!transfer.isRedeem">
             <div class="asset-item">
                 <span class="font-medium">{{$t('sharedWalletHome.amount')}}</span>
-                <span class="font-medium-black" v-if="transfer.asset === 'ONT'">{{transfer.amount}} TST</span>
-                <span class="font-medium-black" v-else-if="transfer.asset === 'ONG'">{{transfer.amount}} TSG</span>
+                <span class="font-medium-black" v-if="transfer.asset === 'TST'">{{transfer.amount}} TST</span>
+                <span class="font-medium-black" v-else-if="transfer.asset === 'TSG'">{{transfer.amount}} TSG</span>
                 <span class="font-medium-black" v-else>{{transfer.amount}} {{transfer.asset}}</span>
                               
             </div>
