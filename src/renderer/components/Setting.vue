@@ -8,7 +8,7 @@
           <label for="network-selection">{{ $t('setting.net') }}</label>
           <select name="network-selection" id="network-selection" class="form-control" v-model="net"
                   @change="changeNet">
-            <option value="TEST_NET">{{ $t('setting.testNet') }}</option>
+            <!--<option value="TEST_NET">{{ $t('setting.testNet') }}</option>-->
             <option value="MAIN_NET">{{ $t('setting.mainNet') }}</option>
           </select>
         </div>
