@@ -7834,8 +7834,9 @@ term-size@^1.2.0:
   dependencies:
     execa "^0.7.0"
 
-tesrasdk-ts@../tesrasdk-ts/:
+"tesrasdk-ts@http://113.204.194.92:9000/independent/tesrasdk-ts.git":
   version "0.0.1"
+  resolved "http://113.204.194.92:9000/independent/tesrasdk-ts.git#a3238e3f5774c9a3ad9534e38a429b871c0a82f8"
   dependencies:
     axios "^0.19.0"
     babel-polyfill "^6.26.0"
