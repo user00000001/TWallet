@@ -2,7 +2,7 @@
   "name": "TWallet",
   "productName": "TWallet",
   "homepage": "https://www.tesra.me",
-  "version": "v0.0.1b",
+  "version": "0.0.1b",
   "author": "Tesra SuperNet Foundation Ltd. <devops@tesra.me>",
   "description": "TWallet is a comprehensive Tesra SuperNet desktop wallet",
   "license": "Apache-2.0",
