@@ -14,6 +14,5 @@ release/
 dist/
 static/userData/*
 static/keystore.db
-package-lock.json
 yarn-error.log
 flow-typed
