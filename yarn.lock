@@ -380,7 +380,7 @@ async-exit-hook@^2.0.1:
 
 async-limiter@~1.0.0:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/async-limiter/download/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
+  resolved "https://registry.npm.taobao.org/async-limiter/download/async-limiter-1.0.1.tgz?cache=0&sync_timestamp=1574271725892&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fasync-limiter%2Fdownload%2Fasync-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha1-3TeelPDbgxCwgpH51kwyCXZmF/0=
 
 async-validator@^1.8.2:
@@ -437,7 +437,7 @@ axios@^0.18.0:
 
 axios@^0.19.0:
   version "0.19.1"
-  resolved "https://registry.npm.taobao.org/axios/download/axios-0.19.1.tgz?cache=0&sync_timestamp=1578417937024&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faxios%2Fdownload%2Faxios-0.19.1.tgz#8a6a04eed23dfe72747e1dd43c604b8f1677b5aa"
+  resolved "https://registry.npm.taobao.org/axios/download/axios-0.19.1.tgz?cache=0&sync_timestamp=1578419035046&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faxios%2Fdownload%2Faxios-0.19.1.tgz#8a6a04eed23dfe72747e1dd43c604b8f1677b5aa"
   integrity sha1-imoE7tI9/nJ0fh3UPGBLjxZ3tao=
   dependencies:
     follow-redirects "1.5.10"
@@ -3019,7 +3019,7 @@ elliptic@^6.0.0:
 
 elliptic@^6.4.0:
   version "6.5.2"
-  resolved "https://registry.npm.taobao.org/elliptic/download/elliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
+  resolved "https://registry.npm.taobao.org/elliptic/download/elliptic-6.5.2.tgz?cache=0&sync_timestamp=1574449990666&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felliptic%2Fdownload%2Felliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
   integrity sha1-BcVnjXFzwEnYykM1UiJKSV0ON2I=
   dependencies:
     bn.js "^4.4.0"
@@ -3139,7 +3139,7 @@ es-to-primitive@^1.2.0:
 
 es-to-primitive@^1.2.1:
   version "1.2.1"
-  resolved "https://registry.npm.taobao.org/es-to-primitive/download/es-to-primitive-1.2.1.tgz?cache=0&sync_timestamp=1573280885098&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fes-to-primitive%2Fdownload%2Fes-to-primitive-1.2.1.tgz#e55cd4c9cdc188bcefb03b366c736323fc5c898a"
+  resolved "https://registry.npm.taobao.org/es-to-primitive/download/es-to-primitive-1.2.1.tgz#e55cd4c9cdc188bcefb03b366c736323fc5c898a"
   integrity sha1-5VzUyc3BiLzvsDs2bHNjI/xciYo=
   dependencies:
     is-callable "^1.1.4"
@@ -4169,7 +4169,7 @@ has-symbols@^1.0.0:
 
 has-symbols@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/has-symbols/download/has-symbols-1.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhas-symbols%2Fdownload%2Fhas-symbols-1.0.1.tgz#9f5214758a44196c406d9bd76cebf81ec2dd31e8"
+  resolved "https://registry.npm.taobao.org/has-symbols/download/has-symbols-1.0.1.tgz?cache=0&sync_timestamp=1573950719586&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhas-symbols%2Fdownload%2Fhas-symbols-1.0.1.tgz#9f5214758a44196c406d9bd76cebf81ec2dd31e8"
   integrity sha1-n1IUdYpEGWxAbZvXbOv4HsLdMeg=
 
 has-unicode@^2.0.0:
@@ -4226,6 +4226,14 @@ hash.js@^1.0.0, hash.js@^1.0.3:
   dependencies:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.0"
+
+"hdkey-secp256r1@git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git":
+  version "0.0.1"
+  resolved "git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git#0ecfa447d61b15badc1deadf28d5c5e81acf216c"
+  dependencies:
+    coinstring "^2.0.0"
+    elliptic "^6.4.0"
+    safe-buffer "^5.1.1"
 
 he@1.1.x, he@^1.1.0:
   version "1.1.1"
@@ -4317,6 +4325,12 @@ html-webpack-plugin@^2.30.1:
     lodash "^4.17.3"
     pretty-error "^2.0.2"
     toposort "^1.0.0"
+
+"html5-websocket@git+http://113.204.194.92:9000/independent/html5-websocket.git":
+  version "0.0.1"
+  resolved "git+http://113.204.194.92:9000/independent/html5-websocket.git#2f5b08a1d9dd57ac76a94b07540b604b401e0ef7"
+  dependencies:
+    ws "^3.1.0"
 
 htmlparser2@^3.8.2:
   version "3.9.2"
@@ -4586,7 +4600,7 @@ is-callable@^1.1.4:
 
 is-callable@^1.1.5:
   version "1.1.5"
-  resolved "https://registry.npm.taobao.org/is-callable/download/is-callable-1.1.5.tgz#f7e46b596890456db74e7f6e976cb3273d06faab"
+  resolved "https://registry.npm.taobao.org/is-callable/download/is-callable-1.1.5.tgz?cache=0&sync_timestamp=1576778715281&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-callable%2Fdownload%2Fis-callable-1.1.5.tgz#f7e46b596890456db74e7f6e976cb3273d06faab"
   integrity sha1-9+RrWWiQRW23Tn9ul2yzJz0G+qs=
 
 is-ci@^1.0.10, is-ci@^1.1.0:
@@ -4746,7 +4760,7 @@ is-regex@^1.0.4:
 
 is-regex@^1.0.5:
   version "1.0.5"
-  resolved "https://registry.npm.taobao.org/is-regex/download/is-regex-1.0.5.tgz?cache=0&sync_timestamp=1576454945298&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-regex%2Fdownload%2Fis-regex-1.0.5.tgz#39d589a358bf18967f726967120b8fc1aed74eae"
+  resolved "https://registry.npm.taobao.org/is-regex/download/is-regex-1.0.5.tgz#39d589a358bf18967f726967120b8fc1aed74eae"
   integrity sha1-OdWJo1i/GJZ/cmlnEguPwa7XTq4=
   dependencies:
     has "^1.0.3"
@@ -5935,7 +5949,7 @@ object-hash@^1.1.4:
 
 object-inspect@^1.7.0:
   version "1.7.0"
-  resolved "https://registry.npm.taobao.org/object-inspect/download/object-inspect-1.7.0.tgz?cache=0&sync_timestamp=1573451831332&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fobject-inspect%2Fdownload%2Fobject-inspect-1.7.0.tgz#f4f6bd181ad77f006b5ece60bd0b6f398ff74a67"
+  resolved "https://registry.npm.taobao.org/object-inspect/download/object-inspect-1.7.0.tgz?cache=0&sync_timestamp=1573451929207&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fobject-inspect%2Fdownload%2Fobject-inspect-1.7.0.tgz#f4f6bd181ad77f006b5ece60bd0b6f398ff74a67"
   integrity sha1-9Pa9GBrXfwBrXs5gvQtvOY/3Smc=
 
 object-keys@^1.0.11, object-keys@^1.0.12, object-keys@^1.1.1:
@@ -7828,9 +7842,9 @@ term-size@^1.2.0:
   dependencies:
     execa "^0.7.0"
 
-"tesrasdk-ts@http://113.204.194.92:9000/independent/tesrasdk-ts.git":
+"tesrasdk-ts@git+http://113.204.194.92:9000/independent/tesrasdk-ts.git":
   version "0.0.1"
-  resolved "http://113.204.194.92:9000/independent/tesrasdk-ts.git#89d9b6c69056fb28f7e71563174bd03deacc8d0b"
+  resolved "git+http://113.204.194.92:9000/independent/tesrasdk-ts.git#0648416a6ff4358a9e3ec70fc2d847bae63b2030"
   dependencies:
     axios "^0.19.0"
     babel-polyfill "^6.26.0"
@@ -7843,6 +7857,8 @@ term-size@^1.2.0:
     ecdsa "^0.7.0"
     ecurve "^1.0.6"
     elliptic "^6.4.0"
+    hdkey-secp256r1 "git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git"
+    html5-websocket "git+http://113.204.194.92:9000/independent/html5-websocket.git"
     js-sha3 "^0.7.0"
     long "^4.0.0"
     milagro-crypto-js "^3.3.0"
@@ -8087,6 +8103,11 @@ uglifyjs-webpack-plugin@^0.4.6:
     source-map "^0.5.6"
     uglify-js "^2.8.29"
     webpack-sources "^1.0.1"
+
+ultron@~1.1.0:
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/ultron/download/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
+  integrity sha1-n+FTahCmZKZSZqHjzPhf02MCvJw=
 
 underscore@~1.4.4:
   version "1.4.4"
@@ -8565,7 +8586,7 @@ widest-line@^2.0.0:
 
 wif@^2.0.6:
   version "2.0.6"
-  resolved "https://registry.npm.taobao.org/wif/download/wif-2.0.6.tgz#08d3f52056c66679299726fade0d432ae74b4704"
+  resolved "https://registry.npm.taobao.org/wif/download/wif-2.0.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwif%2Fdownload%2Fwif-2.0.6.tgz#08d3f52056c66679299726fade0d432ae74b4704"
   integrity sha1-CNP1IFbGZnkplyb63g1DKudLRwQ=
   dependencies:
     bs58check "<3.0.0"
@@ -8622,6 +8643,15 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/write/-/write-0.2.1.tgz#5fc03828e264cea3fe91455476f7a3c566cb0757"
   dependencies:
     mkdirp "^0.5.1"
+
+ws@^3.1.0:
+  version "3.3.3"
+  resolved "https://registry.npm.taobao.org/ws/download/ws-3.3.3.tgz#f1cf84fe2d5e901ebce94efaece785f187a228f2"
+  integrity sha1-8c+E/i1ekB686U767OeF8YeiKPI=
+  dependencies:
+    async-limiter "~1.0.0"
+    safe-buffer "~5.1.0"
+    ultron "~1.1.0"
 
 ws@^4.1.0:
   version "4.1.0"

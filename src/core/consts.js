@@ -8,14 +8,14 @@ export const MAIN_NET = 'http://explorer.tesra.me:3000';
 
 export const TEST_NET_LIST = [
     'http://explorer.tesra.me:3000',
-    'http://explorer.tesra.me:3000',
+    'http://121.41.30.85:3000',
     'http://explorer.tesra.me:3000',
     'http://explorer.tesra.me:3000',
 ]
 
 export const MAIN_NET_LIST = [
     'http://explorer.tesra.me:3000',
-    'http://explorer.tesra.me:3000',
+    'http://121.41.30.85:3000',
     'http://explorer.tesra.me:3000',
     'http://explorer.tesra.me:3000',
 ]

@@ -135,7 +135,7 @@ export default {
     if(!this.stakeWallet.key) {//common wallet
       this.$store.dispatch('getLedgerStatus')
     }
-    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
+    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstId);
   },
   computed: {
     ...mapState({
@@ -261,7 +261,7 @@ export default {
     },
     delegateSendTx(tx){
       const body = {
-        tstid: this.stakeIdentity.tstid,
+        tstid: this.stakeIdentity.tstId,
         stakewalletaddress: this.stakeWallet.address,
         transactionhash: utils.reverseHex(tx.getHash()),
         transactionbodyhash: tx.serialize()
@@ -273,7 +273,7 @@ export default {
         this.$store.dispatch('hideLoadingModals')
         this.walletModalHandled = false;
         const params = {
-          tstid: this.stakeIdentity.tstid,
+          tstid: this.stakeIdentity.tstId,
           stakewalletaddress: this.stakeWallet.address,
           stakequantity: this.stakeQuantity
         }

@@ -1,4 +1,4 @@
-import { Wallet, Account, Crypto } from "tesrasdk-ts";
+import { TWallet, Account, Crypto } from "tesrasdk-ts";
 
 const state = {
   currentStep: 0,
@@ -40,7 +40,7 @@ const mutations = {
 
 const actions = {
   createJsonWalletWithPrivateKey({commit}, body) {
-    let wallet = Wallet.create(body.label || "")
+    let wallet = TWallet.create(body.label || "")
     wallet.scrypt.n = 16384;
 
     let params = {

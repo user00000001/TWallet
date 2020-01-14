@@ -56,7 +56,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Wallet, Account, Crypto, TransactionBuilder, TxSignature, RestClient} from "tesrasdk-ts"
+  import {TWallet, Account, Crypto, TransactionBuilder, TxSignature, RestClient} from "tesrasdk-ts"
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {DEFAULT_SCRYPT, TEST_NET, MAIN_NET} from '../../../../core/consts'

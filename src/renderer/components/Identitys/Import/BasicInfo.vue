@@ -35,7 +35,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Wallet, Account, Crypto, Identity, TstidContract, RestClient, SDK} from "tesrasdk-ts"
+  import {TWallet, Account, Crypto, Identity, TstidContract, RestClient, SDK} from "tesrasdk-ts"
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {DEFAULT_SCRYPT, TEST_NET, MAIN_NET} from '../../../../core/consts'
@@ -114,7 +114,7 @@ import { getRestClient, formatScryptParams } from '../../../../core/utils';
             this.$store.dispatch('hideLoadingModals')
             return;
         }
-        const tx = TstidContract.buildGetDDOTx(identity.tstid)
+        const tx = TstidContract.buildGetDDOTx(identity.tstId)
         const restClient = getRestClient()
         restClient.sendRawTransaction(tx.serialize(), true).then(res => {
           if(res.Result) {
@@ -133,7 +133,7 @@ import { getRestClient, formatScryptParams } from '../../../../core/utils';
         const that = this;
         const wallet = {
           type: 'Identity',
-          address: identity.tstid,
+          address: identity.tstId,
           wallet: identity
         }
         dbService.insert(wallet, function (err, newDoc) {

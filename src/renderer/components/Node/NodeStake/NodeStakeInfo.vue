@@ -245,14 +245,14 @@ export default {
     if(!this.stakeWallet.key) {//common wallet
       this.$store.dispatch('getLedgerStatus')
     }
-    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
+    this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstId);
     this.$store.dispatch('fetchPeerItem', this.detail.publickey);
     this.$store.dispatch('fetchPosLimit')
     this.$store.dispatch('fetchAuthorizationInfo', 
       {pk: this.detail.publickey, address: this.stakeWallet.address}
       )
     const intervalId = setInterval(() => {
-      this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
+      this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstId);
       this.$store.dispatch('fetchPeerItem', this.detail.publickey);
       this.$store.dispatch('fetchPosLimit')
       this.$store.dispatch('fetchAuthorizationInfo', 
@@ -366,7 +366,7 @@ export default {
     },
     delegateSendTx(tx) {
       const body = {
-        tstid: this.stakeIdentity.tstid,
+        tstid: this.stakeIdentity.tstId,
         stakewalletaddress: this.stakeWallet.address,
         transactionhash: utils.reverseHex(tx.getHash()),
         transactionbodyhash: tx.serialize()
@@ -379,7 +379,7 @@ export default {
         this.walletPassword = ''
         this.tx = ''
         this.$store.dispatch("hideLoadingModals");
-        this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstid);
+        this.$store.dispatch("fetchStakeDetail", this.stakeIdentity.tstId);
       }).catch(err=>{
         this.$store.dispatch("hideLoadingModals");
         this.$message.error(this.$t('common.networkErr'))

@@ -8,7 +8,7 @@
       <!--<img class="img-wallet-edit" src="./../assets/edit.png" alt="">-->
       <div class="div-wallet-address">
         <div>{{$t('identitys.tstid')}} :</div>
-        {{identity.tstid}}
+        {{identity.tstId}}
       </div>
     </div>
     <div v-show="addressCopied" class="copied-label">Copied</div>
@@ -37,7 +37,7 @@
           <div>
               <p class="font-medium">
                 {{option==='EXPORT_TSTID' ? $t('wallets.exportTstid') : '' }}
-                 {{identity.tstid}}</p>
+                 {{identity.tstId}}</p>
               <div >
                 <p>{{$t('common.enterIdentityPassword')}}</p>
                 <a-input class="input" v-model="password" :plaecholder="$t('common.password')" type="password"></a-input>
@@ -77,7 +77,7 @@
     },
     methods: {
       copyAddress(identity) {
-        this.$copyText(identity.tstid)
+        this.$copyText(identity.tstId)
         this.addressCopied = true
         this.$nextTick(function () {
           setInterval(this.addressCopiedDisabled, 3000);
@@ -151,14 +151,14 @@
         const that = this;
         const type = 'Identity'
         const commitType = 'DELETE_IDENTITY';
-        dbService.remove({type:type, address: this.identity.tstid}, {}, function(err, numRemoved) {
+        dbService.remove({type:type, address: this.identity.tstId}, {}, function(err, numRemoved) {
           if(err) {
             that.$store.dispatch('hideLoadingModals')
             that.$message.error(that.$t('wallets.deleteIdentityFailed'));
             return;
           }
            // remove from store
-          that.$store.commit(commitType, {tstid: that.identity.tstid})
+          that.$store.commit(commitType, {tstid: that.identity.tstId})
           that.$store.dispatch('hideLoadingModals')
           that.$message.success(that.$t('wallets.deleteIdentitySuccess'))
           that.passModal = false;

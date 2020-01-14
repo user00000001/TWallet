@@ -23,7 +23,7 @@
 
 <script>
   import {mapState} from 'vuex'
-  import {Crypto, Wallet, Account} from 'tesrasdk-ts'
+  import {Crypto, TWallet, Account} from 'tesrasdk-ts'
   import FileHelper from "../../../../core/fileHelper"
   import dbService from '../../../../core/dbService'
   import {WALLET_TYPE,DEFAULT_SCRYPT} from '../../../../core/consts'
@@ -63,7 +63,7 @@
       },
       downloadWallet() {
         const commonWallet = this.account
-        let wallet = Wallet.create(commonWallet.label || "")
+        let wallet = TWallet.create(commonWallet.label || "")
         console.log(wallet)
         wallet.scrypt.n = 16384;
         const account = Account.parseJsonObj(commonWallet)

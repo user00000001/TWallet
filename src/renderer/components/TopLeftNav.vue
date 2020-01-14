@@ -23,17 +23,17 @@
           </a-tooltip>
       </router-link>
 
-      <!-- <router-link :to="{name:'NodeManagement'}" active-class="node-stake-active" >
+      <router-link :to="{name:'NodeManagement'}" active-class="node-stake-active" >
         <a-tooltip placement="right" :title="$t('setting.nodeStake')">
                <div class="node-stake-icon"></div>
           </a-tooltip>
-      </router-link> -->
+      </router-link>
       
-      <!-- <router-link :to="{name:'Dapps'}" active-class="nav-dapps-active">
+      <router-link :to="{name:'Dapps'}" active-class="nav-dapps-active">
           <a-tooltip placement="right" :title="$t('dapps.dapps')">
               <div class="nav-dapps"></div>
           </a-tooltip>
-        </router-link> -->
+        </router-link>
 
         <!-- <div class="setting-img" alt="" @click="toSetting"></div> -->
       

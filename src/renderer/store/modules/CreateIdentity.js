@@ -1,4 +1,4 @@
-import { Wallet, Identity, Crypto, TstidContract, TransactionBuilder } from "tesrasdk-ts";
+import { TWallet, Identity, Crypto, TstidContract, TransactionBuilder } from "tesrasdk-ts";
 import {GAS_PRICE, GAS_LIMIT} from '../../../core/consts'
 const state = {
   currentStep: 0,
@@ -45,13 +45,13 @@ const actions = {
 
     let identity = Identity.create(body.privateKey, body.password, body.label)
     const publicKey = body.privateKey.getPublicKey();
-    const tx = TstidContract.buildRegisterTstidTx(identity.tstid, publicKey, GAS_PRICE, GAS_LIMIT);
+    const tx = TstidContract.buildRegisterTstidTx(identity.tstId, publicKey, GAS_PRICE, GAS_LIMIT);
     tx.payer = body.payer;
     TransactionBuilder.signTransaction(tx, body.privateKey);
     identity = identity.toJsonObj();
     commit('CREATE_IDENTITY', {
       label: body.label,
-      tstid: identity.tstid,
+      tstid: identity.tstId,
       identity,
       tx: tx
     })

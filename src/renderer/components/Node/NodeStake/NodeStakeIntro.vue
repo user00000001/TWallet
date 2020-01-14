@@ -169,7 +169,7 @@ export default {
      const tstPassNode = net === 'TEST_NET' ? TST_PASS_NODE : TST_PASS_NODE_PRD
      axios.get(tstPassNode + TST_PASS_URL.GetQualifiedState, {
          params: {
-             tstid: this.stakeIdentity.tstid,
+             tstid: this.stakeIdentity.tstId,
              address: address
          }
      }).then(res => {
@@ -187,7 +187,7 @@ export default {
          }
          axios.get(tstPassNode + TST_PASS_URL.GetStakeInfo, {
              params: {
-                 tstid: this.stakeIdentity.tstid
+                 tstid: this.stakeIdentity.tstId
              }
          }).then(res => {
              this.$store.commit('UPDATE_STAKE_DETAIL', { detail:res.data})
