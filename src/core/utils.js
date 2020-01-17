@@ -162,7 +162,7 @@ export default service;
 
 export function getExplorerUrl() {
   const net = localStorage.getItem('net');
-  const url = net === 'TEST_NET' ? 'http://121.41.30.85:3000' : 'http://121.41.30.85:3000';
+  const url = net === 'TEST_NET' ? 'http://explorer2.tesra.me:3000' : 'http://explorer.tesra.me:3000';
   return url;
 }
 

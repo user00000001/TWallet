@@ -3,21 +3,17 @@ export const GAS_PRICE = '500';
 export const GAS_LIMIT = '20000';
 
 export const TST_CONTRACT = '0000000000000000000000000000000000000001';
-export const TEST_NET = 'http://explorer.tesra.me:3000';
+export const TEST_NET = 'http://explorer2.tesra.me:3000';
 export const MAIN_NET = 'http://explorer.tesra.me:3000';
 
 export const TEST_NET_LIST = [
     'http://explorer.tesra.me:3000',
-    'http://121.41.30.85:3000',
-    'http://explorer.tesra.me:3000',
-    'http://explorer.tesra.me:3000',
+    'http://explorer2.tesra.me:3000'
 ]
 
 export const MAIN_NET_LIST = [
     'http://explorer.tesra.me:3000',
-    'http://121.41.30.85:3000',
-    'http://explorer.tesra.me:3000',
-    'http://explorer.tesra.me:3000',
+    'http://explorer2.tesra.me:3000'
 ]
 //test environment
 export const TST_PASS_NODE = 'https://service-test.onto.app'
@@ -64,7 +60,7 @@ export const SWAP_ADDRESS = 'AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM'
 export const NODE_DETAIL = 'http://explorer.tesra.me/nodes/detail/'
 export const NODE_NAME_LIST = 'http://dapp2.tesra.me:25770/api/v1/candidate/info/All'
 export const OFF_CHAIN_NODES = {
-    TEST_NET: 'http://explorer.tesra.me:3000/v2/nodes/off-chain-infos',
+    TEST_NET: 'http://explorer2.tesra.me:3000/v2/nodes/off-chain-infos',
     MAIN_NET: 'http://explorer.tesra.me:3000/v2/nodes/off-chain-infos'
 }
 
