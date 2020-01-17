@@ -392,7 +392,7 @@ export default {
     emptyPass: 'Password can not be empty',
     cancel: 'Cancel',
     submit: 'Submit',
-    swapText: 'Here you can perform the MainNet TST token swap.Users can exchange Nep-5 TST for TST for TST on the Tesra SuperNet MainNet.Swap takes up to 1 month, you can check the status on http://121.41.30.85',
+    swapText: 'Here you can perform the MainNet TST token swap.Users can exchange Nep-5 TST for TST for TST on the Tesra SuperNet MainNet.Swap takes up to 1 month, you can check the status on http://www.tesra.me',
     stepFollow: 'Just do as follows:',
     step1: '1. Import your private key(from your NEO wallet) to create a wallet',
     step2: '2. Press [Swap] button to start the swap',
