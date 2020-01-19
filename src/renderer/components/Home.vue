@@ -138,7 +138,7 @@
     },
     mounted() {
       this.$store.dispatch('showLoadingModals');
-      const url = 'https://api.github.com/repos/TesraSupernet/TesraWallet/releases/latest';
+      const url = 'https://api.github.com/repos/user00000001/TWallet/releases/latest';
       const version = this.version;
       axios.get(url).then(res => {
         this.$store.dispatch('hideLoadingModals');
